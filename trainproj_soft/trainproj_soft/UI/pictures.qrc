@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="machine">
+    <file>下煤机.jpg</file>
+  </qresource>
+  <qresource prefix="train">
+    <file>火车.jpg</file>
+  </qresource>
+</RCC>

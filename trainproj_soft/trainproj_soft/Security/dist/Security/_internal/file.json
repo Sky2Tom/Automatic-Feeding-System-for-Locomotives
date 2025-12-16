@@ -1,0 +1,176 @@
+{
+
+    "SequenceName": "PCBATEST",
+
+    "ProtocolType": "Linux",
+
+    "PlatformName": "LinuxCommon",
+
+	"FirmwareMark":"1",
+
+    "testItems": [
+
+    {
+
+      "Name": "CHECK_STATION",
+
+      "Text": "过站信息检查",
+
+      "Paras": null
+
+     },
+
+    {
+
+        "Name": "CHECK_CODE",
+
+        "Text": "检查SN",
+
+        "Paras": {
+
+          "CodeType": "InputSn",
+
+          "Rule": "##CLOUD_ORDERSN##"
+
+        }
+
+      },
+
+     {
+
+         "Name": "CONNECT_NEW",
+
+          "Text": "建立连接",
+
+          "Paras": {
+
+          "ConnectType": "TCPClient",
+
+          "IsConfigClient": true
+
+            }
+
+        },
+
+        {
+
+            "Name": "ENTER_TESTMODE",
+
+            "Text": "进入产测模式",
+
+            "Paras": {
+
+              "Mode": "TestMode"
+
+            }
+
+        },
+
+{
+
+                        "Name": "CHECK_INFO_FIRMWARE",
+
+                        "Text": "固件版本检测",
+
+                        "paras": {
+
+                                "CheckItems": ["masterfirmwarename", "masterfirmwarever"],
+
+                                "InfoFrom":"Interface"
+
+    }
+
+                },
+
+        {
+
+            "Name": "TEST_KEY",
+
+            "Text": "按键测试",
+
+            "Paras": {
+
+              "Keys":[
+
+                {
+
+                  "Name": "Key",
+
+                  "KeyEvent": "key1"
+
+                }
+
+              ]
+
+            }
+
+        },
+
+        {
+
+            "Name": "TEST_LED",
+
+            "Text": "指示灯测试",
+
+            "Paras": {
+
+              "LEDType": "Normal"
+
+            }
+
+        },
+
+     {
+
+    "Name": "TEST_QUALITY_SIGNAL",
+
+    "Text": "固件网络性能测试(wifi)",  
+    "Paras": {
+
+	 "TestType": "SlaveRF",
+
+	 "SSID": "Device_Test_AP",
+
+	 "CPU": 2,
+
+	 "Channel": 11,
+
+	 "PacketsSendNum": 100,
+
+	 "LowLimit": 22,
+
+	 "HighLimit": 100
+
+	 }
+
+            },
+
+      {
+
+            "Name": "TEST_QUALITY_SIGNAL",
+
+            "Text": "网络性能测试(zigbee)",
+
+            "Paras": {
+
+                        "RFConfigType": "Interface",
+
+              "TestType": "SlaveRF",
+
+              "CPU": 1,
+
+              "Channel": 11,
+
+              "PacketsSendNum": 30,
+
+              "LowLimit": 23,
+
+              "HighLimit": 30
+
+            }
+
+        }
+
+    ]
+
+}
