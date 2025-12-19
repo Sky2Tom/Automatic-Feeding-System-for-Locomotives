@@ -1,6 +1,7 @@
 {
   "python-envs.defaultEnvManager": "ms-python.python:conda",
   "python-envs.defaultPackageManager": "ms-python.python:conda",
+  "python.defaultInterpreterPath":"C:\\Users\\admin\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
   "python-envs.pythonProjects": [],
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

@@ -61,3 +61,9 @@ class CameraThread(QThread):
         self._running = False
         # 优雅退出线程
         self.wait(wait_timeout_ms)
+
+def main():
+    print("Hello, World!")
+
+if __name__ == "__main__":
+    main()  # 运行main函数
