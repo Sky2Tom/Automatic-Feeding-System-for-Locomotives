@@ -471,14 +471,14 @@ if __name__ == "__main__":
         register_addr=1,
         register_value=76  # 示例值
     )"""
-    data = sender.write_single_coil(
-        slave_addr=1,
-        output_addr=2,
-        output_value=0xFF00  # 示例值
+    data = sender.read_holding_registers(
+        slave_addr=4,
+        start_addr=21,
+        quantity=2
     )
     # 创建测试参数
     parameter = {
-        'PortName_master': 'COM4',
+        'PortName_master': 'COM5',
         'BaudRate_master': 9600,
         'data': ''
     }

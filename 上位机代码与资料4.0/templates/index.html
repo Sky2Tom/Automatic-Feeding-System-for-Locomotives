@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火车加料智能监控系统 - WEB 控制台</title>
+    <style>
+        :root {
+            --bg-color: #050b1a;
+            --panel-bg: rgba(10, 25, 47, 0.8);
+            --border-color: #1e3a5f;
+            --accent-color: #00f2ff;
+            --danger-color: #ff304c;
+            --text-color: #e0e6ed;
+            --muted-color: #8892b0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            overflow: hidden;
+            display: flex;
+            height: 100 vh;
+        }
+
+        /* ========== 登录遮罩 ========== */
+        #login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 11, 26, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .login-box {
+            background: var(--panel-bg);
+            border: 2px solid var(--accent-color);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: var(--muted-color);
+        }
+
+        .input-group input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            color: white;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: var(--accent-color);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background: rgba(0, 242, 255, 0.3);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        /* ========== 主界面布局 ========== */
+        #main-app {
+            display: none;
+            flex: 1;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            height: 60px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            background: rgba(10, 25, 47, 0.5);
+        }
+
+        header h1 {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* 侧边栏 */
+        nav {
+            width: 240px;
+            border-right: 1px solid var(--border-color);
+            background: rgba(5, 11, 26, 0.8);
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+
+        .nav-item {
+            padding: 15px 25px;
+            cursor: pointer;
+            color: var(--muted-color);
+            border-left: 3px solid transparent;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--accent-color);
+            background: rgba(0, 242, 255, 0.05);
+            border-left-color: var(--accent-color);
+        }
+
+        /* 内容区 */
+        main {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-image: radial-gradient(circle at center, #0a192f 0%, #050b1a 100%);
+        }
+
+        .module {
+            display: none;
+        }
+
+        .module.active {
+            display: block;
+        }
+
+        /* 通用卡片样式 */
+        .card {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h3 {
+            font-size: 16px;
+            color: var(--accent-color);
+        }
+
+        /* ========== 数据网格 ========== */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .data-item {
+            background: rgba(0, 242, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .data-label {
+            font-size: 12px;
+            color: var(--muted-color);
+            margin-bottom: 5px;
+        }
+
+        .data-value {
+            font-family: 'Consolas', monospace;
+            font-size: 24px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            text-align: left;
+            background: rgba(0, 242, 255, 0.05);
+            padding: 12px;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(30, 58, 95, 0.5);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* 视频容器 */
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            border: 2px solid var(--accent-color);
+            background: black;
+            position: relative;
+        }
+
+        .video-container img {
+            width: 100%;
+            display: block;
+        }
+
+        /* 控制按钮 */
+        .btn {
+            padding: 8px 15px;
+            border: 1px solid var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
+            cursor: pointer;
+            border-radius: 2px;
+            font-size: 12px;
+        }
+
+        .btn:hover {
+            background: rgba(0, 242, 255, 0.2);
+        }
+
+        .btn-danger {
+            border-color: var(--danger-color);
+            color: var(--danger-color);
+        }
+
+        .btn-danger:hover {
+            background: rgba(255, 48, 76, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 登录模块 -->
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>SYSTEM ACCESS</h2>
+            <div class="input-group">
+                <label>USERNAME</label>
+                <input type="text" id="username" value="1">
+            </div>
+            <div class="input-group">
+                <label>PASSWORD</label>
+                <input type="password" id="password" value="1">
+            </div>
+            <button class="login-btn" onclick="handleLogin()">AUTHENTICATE</button>
+        </div>
+    </div>
+
+    <!-- 主应用程序模块 -->
+    <div id="main-app">
+        <header>
+            <h1>Automatic Locomotive Feeding System v4.0</h1>
+            <div style="margin-left: auto; font-size: 12px; color: var(--muted-color);" id="current-time"></div>
+        </header>
+        
+        <div class="content-wrapper">
+            <nav>
+                <div class="nav-item active" onclick="switchModule('dashboard')">DASHBOARD 主界面</div>
+                <div class="nav-item" onclick="switchModule('vision')">VISION 视觉识别</div>
+                <div class="nav-item" onclick="switchModule('control')">CONTROL 远程控制</div>
+                <div class="nav-item" onclick="switchModule('management')">DATABASE 车型管理</div>
+                <div class="nav-item" onclick="switchModule('history')">LOGS 历史记录</div>
+            </nav>
+
+            <main>
+                <!-- DASHBOARD -->
+                <div id="dashboard" class="module active">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>REAL-TIME STATUS 系统实时状态</h3>
+                        </div>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <div class="data-label">牵引系统状态</div>
+                                <div class="data-value" id="val-xtzt">--</div>
+                            </div>
+                            <div class="data-item">
+                                <div class="data-label">操作员</div>
+                                <div class="data-value" id="val-czy">--</div>
+                            </div>
+                            <div class="data-item">
+                                <div class="data-label">列车号</div>
+                                <div class="data-value" id="val-lch">--</div>
+                            </div>
+                            <div class="data-item">
+                                <div class="data-label">下煤机状态</div>
+                                <div class="data-value" id="val-xmjzt">--</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>SENSORS 关键参数</h3>
+                        </div>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <div class="data-label">阀门开度</div>
+                                <div class="data-value" id="val-fmkd">--</div>
+                            </div>
+                            <div class="data-item">
+                                <div class="data-label">升降高度</div>
+                                <div class="data-value" id="val-sjgd">--</div>
+                            </div>
+                            <div class="data-item">
+                                <div class="data-label">翻板高度</div>
+                                <div class="data-value" id="val-fbgd">--</div>
+                            </div>
+                            <div class="data-item">
+                                <div class="data-label">装料进度</div>
+                                <div class="data-value" id="val-zljd">--</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VISION -->
+                <div id="vision" class="module">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>CAMERA FEED & RECOGNITION 实时视觉识别</h3>
+                        </div>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <!-- 左侧：视频流 -->
+                            <div class="video-container" style="flex: 2; min-width: 400px;">
+                                <img src="/video_feed" alt="Camera Feed">
+                                <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.5); padding: 5px; font-size: 12px;">
+                                    SCANNING: <span id="ocr-result-status" style="color: var(--accent-color);">ACTIVE</span>
+                                </div>
+                            </div>
+                            
+                            <!-- 右侧：识别详情 -->
+                            <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 15px;">
+                                <div class="data-item" style="text-align: left;">
+                                    <div class="data-label">识别车号 (TRAIN NO.)</div>
+                                    <div class="data-value" id="vision-train-no" style="font-size: 32px;">--</div>
+                                </div>
+                                <div class="data-item" style="text-align: left;">
+                                    <div class="data-label">车辆型号 (MODEL)</div>
+                                    <div class="data-value" id="vision-train-model" style="color: #ffffff;">--</div>
+                                </div>
+                                <div class="data-item" style="text-align: left;">
+                                    <div class="data-label">外形尺寸 (DIMENSIONS)</div>
+                                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                                        <div style="flex: 1;">
+                                            <div class="data-label" style="font-size: 10px;">长 (L)</div>
+                                            <div class="data-value" id="vision-dim-l" style="font-size: 18px;">--</div>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <div class="data-label" style="font-size: 10px;">宽 (W)</div>
+                                            <div class="data-value" id="vision-dim-w" style="font-size: 18px;">--</div>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <div class="data-label" style="font-size: 10px;">高 (H)</div>
+                                            <div class="data-value" id="vision-dim-h" style="font-size: 18px;">--</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: auto;">
+                                    <button class="btn" style="width: 100%; padding: 12px;" onclick="triggerOcrManual()">手动强制识别</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTROL -->
+                <div id="control" class="module">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>REMOTE CONTROL 控制台</h3>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div>
+                                <h4 style="margin-bottom: 15px;">系统操作</h4>
+                                <div style="display: flex; gap: 10px;">
+                                    <button class="btn" onclick="sendCommand('START')">系统启动</button>
+                                    <button class="btn btn-danger" onclick="sendCommand('STOP')">紧急停止</button>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 15px;">部件控制</h4>
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <button class="btn" onclick="sendCommand('VALVE_OPEN')">阀门打开</button>
+                                    <button class="btn" onclick="sendCommand('VALVE_CLOSE')">阀门关闭</button>
+                                    <button class="btn" onclick="sendCommand('LIFT_UP')">升降上升</button>
+                                    <button class="btn" onclick="sendCommand('LIFT_DOWN')">升降下降</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MANAGEMENT -->
+                <div id="management" class="module">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>TRAIN MODELS 火车型号数据库</h3>
+                            <button class="btn" onclick="loadTrainModels()">刷新数据</button>
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table id="train-table">
+                                <thead>
+                                    <tr>
+                                        <th>型号</th>
+                                        <th>外长</th>
+                                        <th>外宽</th>
+                                        <th>外高</th>
+                                        <th>容积</th>
+                                        <th>载重</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HISTORY -->
+                <div id="history" class="module">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>LAYOFF LOGS 下料历史记录</h3>
+                            <div>
+                                <select id="history-filter" style="background: var(--panel-bg); color: white; border: 1px solid var(--border-color); padding: 5px;" onchange="loadHistory()">
+                                    <option value="60">最近1小时</option>
+                                    <option value="1440">最近24小时</option>
+                                    <option value="10080">最近一周</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table id="history-table">
+                                <thead>
+                                    <tr>
+                                        <th>时间</th>
+                                        <th>机号</th>
+                                        <th>仓库</th>
+                                        <th>物料ID</th>
+                                        <th>重量</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // 模块切换
+        function switchModule(id) {
+            document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+
+            if (id === 'management') loadTrainModels();
+            if (id === 'history') loadHistory();
+        }
+
+        // 登录处理
+        async function handleLogin() {
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            
+            try {
+                const res = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({username: u, password: p})
+                });
+                if (res.ok) {
+                    document.getElementById('login-overlay').style.display = 'none';
+                    document.getElementById('main-app').style.display = 'flex';
+                    startPolling();
+                } else {
+                    alert('Authentication failed');
+                }
+            } catch (e) {
+                alert('Server error');
+            }
+        }
+
+        // 定时轮询快照
+        function startPolling() {
+            setInterval(async () => {
+                try {
+                    const res = await fetch('/api/snapshot');
+                    const snap = await res.json();
+                    updateDashboard(snap);
+                } catch (e) {}
+            }, 500);
+
+            setInterval(() => {
+                document.getElementById('current-time').innerText = new Date().toLocaleString();
+            }, 1000);
+        }
+
+        function updateDashboard(snap) {
+            const data = snap.all_data_dict || {};
+            // 这里的映射逻辑应根据您的后端 RxData 索引进行调整
+            if(data.read_coils_0_13) {
+                document.getElementById('val-xtzt').innerText = data.read_coils_0_13.RxData[0] ? "ONLINE" : "OFFLINE";
+                document.getElementById('val-xmjzt').innerText = data.read_coils_0_13.RxData[1] ? "NORMAL" : "FAULT";
+            }
+            document.getElementById('val-czy').innerText = "Admin";
+            document.getElementById('val-lch').innerText = snap.vision_result ? snap.vision_result.train_no : "C64-8802";
+            
+            if(data.read_holding_registers_32_39) {
+                const regs = data.read_holding_registers_32_39.RxData;
+                document.getElementById('val-fmkd').innerText = parseInt(regs[0], 16);
+                document.getElementById('val-sjgd').innerText = parseInt(regs[1], 16);
+                document.getElementById('val-fbgd').innerText = parseInt(regs[2], 16);
+                document.getElementById('val-zljd').innerText = (parseInt(regs[3], 16) / 10).toFixed(1) + "%";
+            }
+
+            // 更新视觉识别详情
+            if (snap.vision_result) {
+                const vr = snap.vision_result;
+                document.getElementById('vision-train-no').innerText = vr.train_no;
+                document.getElementById('vision-train-model').innerText = vr.model;
+                document.getElementById('vision-dim-l').innerText = vr.dim_l;
+                document.getElementById('vision-dim-w').innerText = vr.dim_w;
+                document.getElementById('vision-dim-h').innerText = vr.dim_h;
+            }
+        }
+
+        async function triggerOcrManual() {
+            document.getElementById('ocr-result-status').innerText = "RE-SCANNING...";
+            document.getElementById('ocr-result-status').style.color = "yellow";
+            setTimeout(() => {
+                document.getElementById('ocr-result-status').innerText = "ACTIVE";
+                document.getElementById('ocr-result-status').style.color = "var(--accent-color)";
+            }, 2000);
+        }
+
+        // 加载型号数据
+        async function loadTrainModels() {
+            const res = await fetch('/api/train_models');
+            const data = await res.json();
+            const tbody = document.querySelector('#train-table tbody');
+            tbody.innerHTML = data.map(r => `
+                <tr>
+                    <td>${r.TrainTypeID}</td>
+                    <td>${r.ExLength}</td>
+                    <td>${r.ExWidth}</td>
+                    <td>${r.ExHeight}</td>
+                    <td>${r.Volume}</td>
+                    <td>${r.LoadWeight}</td>
+                </tr>
+            `).join('');
+        }
+
+        // 加载历史记录
+        async function loadHistory() {
+            const min = document.getElementById('history-filter').value;
+            const res = await fetch(`/api/history?minutes=${min}`);
+            const data = await res.json();
+            const tbody = document.querySelector('#history-table tbody');
+            tbody.innerHTML = data.map(r => `
+                <tr>
+                    <td>${r.Time}</td>
+                    <td>${r.MaterialID}</td>
+                    <td>${r.WarehouseID}</td>
+                    <td>${r.TrainTypeID}</td>
+                    <td>${r.LayoffWeight}</td>
+                </tr>
+            `).join('');
+        }
+
+        // 发送控制命令
+        async function sendCommand(cmd) {
+            const res = await fetch('/api/control', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({command: cmd, timestamp: Date.now()})
+            });
+            if (res.ok) {
+                console.log("Command sent: " + cmd);
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,4 +1,5 @@
 import sys
+from typing import Dict, Any, Optional, Union
 from PyQt5.QtWidgets import (QMainWindow, QDialog, QApplication, QMessageBox, 
                             QLineEdit, QVBoxLayout, QLabel, QPushButton, QWidget)
 from PyQt5.QtCore import QObject, pyqtSignal, QThread, QTimer, Qt, QCoreApplication
@@ -23,12 +24,12 @@ from PyQt5.QtCore import QRectF
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QSize
 from PyQt5.QtCore import QUrl
-from PyQt5.QtGui import QDesktopServices
-from PyQt5.QtWidgets import QFileDialog, QMessageBox
+from PyQt5.QtGui import QDesktopServices, QFont, QScreen
+from PyQt5.QtWidgets import QFileDialog, QMessageBox, QTextBrowser, QTextEdit
 import csv
 from pathlib import Path
 # ====== 是否在同进程内启用后端采集（主动串口 + 被动串口） ======
-START_BACKEND = True  # 如需同进程采集改为 Tru4
+START_BACKEND = True  # 如需同进程采集改为 True
 ACTIVE_PORT   = "COM4"
 PASSIVE_PORT  = "COM2"
 BAUDRATE      = 9600
@@ -47,7 +48,229 @@ from camera import CameraThread
 from data12 import TrainDatabaseManager
 if START_BACKEND:
     from train_group_reader_oop import TrainGroupReaderApp
-from paddleocr import PaddleOCR
+
+# PaddleOCR 可选导入（如果导入失败，OCR功能将不可用）
+try:
+    from paddleocr import PaddleOCR
+    PADDLEOCR_AVAILABLE = True
+except ImportError as e:
+    print(f"警告: PaddleOCR导入失败，OCR功能将不可用: {e}")
+    PaddleOCR = None
+    PADDLEOCR_AVAILABLE = False
+except Exception as e:
+    print(f"警告: PaddleOCR初始化错误，OCR功能将不可用: {e}")
+    PaddleOCR = None
+    PADDLEOCR_AVAILABLE = False
+# ============================================================================
+# UI样式系统和响应式布局工具类
+# ============================================================================
+class UIStyleManager:
+    """
+    统一的UI样式管理器
+    提供科技感界面样式和深度的响应式缩放支持
+    """
+    
+    @staticmethod
+    def get_modern_style() -> str:
+        """
+        获取黑白灰简约风格UI样式表
+        """
+        return """
+        /* ========== 全局样式 - 黑白灰色调 ========== */
+        QMainWindow, QDialog, QWidget {
+            background-color: #f5f5f5; /* 浅灰色背景 */
+            color: #000000;            /* 纯黑色文字 */
+            font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+        }
+        
+        /* ========== 按钮样式 - 简约灰色 ========== */
+        QPushButton {
+            background-color: #e0e0e0; /* 灰色按钮 */
+            color: #000000;            /* 黑色文字 */
+            border: 1px solid #999999;
+            border-radius: 4px;
+            padding: 5px 15px;
+            font-weight: bold;
+        }
+        
+        QPushButton:hover {
+            background-color: #d0d0d0;
+            border: 1px solid #666666;
+        }
+        
+        QPushButton:pressed {
+            background-color: #c0c0c0;
+        }
+        
+        /* 退出按钮 - 深灰色警示 */
+        QPushButton[objectName="pushButton"] {
+            background-color: #d32f2f;
+            color: #ffffff;
+            border: 1px solid #b71c1c;
+        }
+        
+        QPushButton[objectName="pushButton"]:hover {
+            background-color: #f44336;
+        }
+        
+        /* ========== 输入与显示框 - 白色背景+黑色文字 ========== */
+        QLineEdit, QTextEdit, QTextBrowser, QTableWidget {
+            background-color: #ffffff; /* 框内纯白 */
+            border: 1px solid #cccccc; /* 灰色边框 */
+            border-radius: 2px;
+            color: #000000;            /* 黑色文字/数字 */
+            gridline-color: #eeeeee;
+        }
+        
+        QLineEdit:focus, QTextEdit:focus {
+            border: 1px solid #000000;
+            background-color: #ffffff;
+        }
+        
+        /* ========== 表格头样式 ========== */
+        QHeaderView::section {
+            background-color: #e0e0e0;
+            color: #000000;
+            padding: 5px;
+            border: 1px solid #cccccc;
+            font-weight: bold;
+        }
+        
+        /* ========== 滚动条 - 简约灰 ========== */
+        QScrollBar:vertical {
+            border: none;
+            background: #f5f5f5;
+            width: 8px;
+        }
+        QScrollBar::handle:vertical {
+            background: #cccccc;
+            min-height: 20px;
+            border-radius: 4px;
+        }
+        QScrollBar::handle:vertical:hover {
+            background: #999999;
+        }
+        
+        /* ========== 分组框与面板 ========== */
+        QGroupBox {
+            border: 1px solid #cccccc;
+            margin-top: 1.5ex;
+            font-weight: bold;
+            color: #000000;
+            background-color: #ffffff;
+        }
+        QGroupBox::title {
+            subcontrol-origin: margin;
+            subcontrol-position: top left;
+            padding: 0 5px;
+        }
+        
+        QFrame#frame_window {
+            background-color: #e0e0e0;
+            border-right: 1px solid #cccccc;
+        }
+        
+        QLabel {
+            color: #333333; /* 深灰色文本 */
+        }
+
+        /* 系统标题特殊样式 - 黑色加粗 */
+        QLabel#System_name, QLabel#System_name_2 {
+            color: #000000;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* 数据显示大数字特效 - 确保黑色加粗 */
+        QTextBrowser[techRole="data"] {
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 18px;
+            font-weight: bold;
+            border: 1px solid #999999;
+            background: #ffffff;
+            color: #000000; /* 数字黑色 */
+        }
+        """
+
+    @staticmethod
+    def apply_smart_scaling(window, base_width=1690, base_height=1250):
+        """
+        根据屏幕分辨率智能缩放整个窗口及内部所有元素
+        """
+        try:
+            # 开启高DPI自适应后，逻辑坐标和物理坐标会有所不同
+            # 这里针对绝对定位的UI进行手动缩放
+            screen = QApplication.primaryScreen().availableGeometry()
+            s_width = screen.width()
+            s_height = screen.height()
+            
+            # 计算缩放比例 (基于宽和高，取较小值确保不超出屏幕)
+            # 预留 50 像素的余量
+            factor_w = (s_width - 50) / base_width
+            factor_h = (s_height - 50) / base_height
+            scale_factor = min(factor_w, factor_h, 1.0) # 不放大，只缩小或保持
+            
+            new_w = int(base_width * scale_factor)
+            new_h = int(base_height * scale_factor)
+            
+            # 1. 调整窗口尺寸并设置为固定大小或根据需要调整
+            window.resize(new_w, new_h)
+            
+            # 2. 递归调整所有子控件
+            def scale_widget(widget):
+                # 调整位置和尺寸
+                if not widget.isWindow():
+                    r = widget.geometry()
+                    widget.setGeometry(
+                        int(r.x() * scale_factor),
+                        int(r.y() * scale_factor),
+                        int(r.width() * scale_factor),
+                        int(r.height() * scale_factor)
+                    )
+                
+                # 调整字体
+                f = widget.font()
+                ps = f.pointSize()
+                if ps > 0:
+                    # 字体缩放系数设为 0.9，防止数字溢出框
+                    new_ps = max(int(ps * scale_factor * 0.9), 7)
+                    f.setPointSize(new_ps)
+                    widget.setFont(f)
+                
+                # 处理容器类控件的内部间距
+                if hasattr(widget, 'setContentsMargins'):
+                    m = widget.contentsMargins()
+                    widget.setContentsMargins(
+                        int(m.left() * scale_factor),
+                        int(m.top() * scale_factor),
+                        int(m.right() * scale_factor),
+                        int(m.bottom() * scale_factor)
+                    )
+
+            # 遍历所有控件进行缩放
+            for child in window.findChildren(QWidget):
+                scale_widget(child)
+            
+            # 3. 屏幕居中
+            window.move((s_width - new_w) // 2, (s_height - new_h) // 2)
+            
+        except Exception as e:
+            print(f"UI 缩放系统异常: {e}")
+
+    @staticmethod
+    def center_window(window: QMainWindow):
+        """
+        将窗口居中显示在屏幕上
+        """
+        try:
+            screen = QApplication.primaryScreen().availableGeometry()
+            size = window.geometry()
+            window.move((screen.width() - size.width()) // 2, 
+                        (screen.height() - size.height()) // 2)
+        except Exception:
+            pass
+
+
 # ------------------------------------------------------------------------------------
 # 读取线程：运行在独立 QThread 中，定时（QTimer）拉取 DATAS.snapshot() 并向 UI 发射信号
 # ------------------------------------------------------------------------------------
@@ -96,68 +319,54 @@ class SnapshotReader(QObject):
 
 
 class LoginDialog(QDialog):
+    """
+    登录对话框
+    使用极致科技感样式和智能深度缩放
+    """
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("登录")
-        self.setFixedSize(300, 150)
-
-        self.setStyleSheet("""
-            QDialog {
-                background: #f7f7f9;
-            }
-            QLabel {
-                font-size: 14px;
-                color: #333;
-            }
-            QLineEdit {
-                height: 34px;
-                padding: 6px 10px;
-                border: 1px solid #d6d6de;
-                border-radius: 6px;
-                background: #fff;
-            }
-            QLineEdit:focus {
-                border: 1px solid #3c6ee6;
-                outline: none;
-                background: #fff;
-            }
-            QPushButton {
-                height: 36px;
-                border-radius: 8px;
-                background: #3c6ee6;
-                color: #fff;
-                font-weight: 600;
-            }
-            QPushButton:hover {
-                background: #335fd0;
-            }
-            QPushButton:pressed {
-                background: #2a50b8;
-            }
-        """)
+        self.setWindowTitle("系统登录 [身份验证]")
+        
+        # 应用科技感样式
+        self.setStyleSheet(UIStyleManager.get_modern_style())
+        
+        # 智能缩放处理
+        UIStyleManager.apply_smart_scaling(self, base_width=450, base_height=320)
         
         # 创建控件
-        self.label_username = QLabel("用户名:")
+        self.label_username = QLabel("USER ID:")
         self.input_username = QLineEdit()
-        self.input_username.setPlaceholderText("请输入用户名")
+        self.input_username.setPlaceholderText("ENTER USERNAME")
         
-        self.label_password = QLabel("密码:")
+        self.label_password = QLabel("PASSCODE:")
         self.input_password = QLineEdit()
-        self.input_password.setPlaceholderText("请输入密码")
+        self.input_password.setPlaceholderText("ENTER PASSWORD")
         self.input_password.setEchoMode(QLineEdit.Password)
         
-        self.button_login = QPushButton("登录")
+        self.button_login = QPushButton("ACCESS SYSTEM")
         self.button_login.clicked.connect(self.check_login)
         
         # 布局
         layout = QVBoxLayout()
+        layout.setSpacing(15)
+        layout.setContentsMargins(30, 30, 30, 30)
+        
+        title = QLabel("SECURITY CLEARANCE")
+        title.setAlignment(Qt.AlignCenter)
+        title.setStyleSheet("font-size: 18px; font-weight: bold; color: #000000;")
+        
+        layout.addWidget(title)
         layout.addWidget(self.label_username)
         layout.addWidget(self.input_username)
         layout.addWidget(self.label_password)
         layout.addWidget(self.input_password)
+        layout.addSpacing(10)
         layout.addWidget(self.button_login)
         
         self.setLayout(layout)
+        
+        # 居中
+        UIStyleManager.center_window(self)
 
         self.backend = None
         if START_BACKEND:
@@ -204,51 +413,106 @@ class LoginDialog(QDialog):
             self.backend.stop()
 
 class MainWindow(QMainWindow, Ui_MainWindow):
+    """
+    主窗口类
+    包含系统的主要功能界面，使用极致科技感样式和智能深度缩放
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        
+        # 设置窗口标题
+        self.setWindowTitle("火车加料智能监控系统 - 主界面 [系统在线]")
+        
+        # 应用科技感样式
+        self.setStyleSheet(UIStyleManager.get_modern_style())
+        
+        # 应用深度智能缩放（处理绝对定位控件，确保不被切断）
+        UIStyleManager.apply_smart_scaling(self, base_width=1690, base_height=1250)
+        
+        # 业务逻辑变量
         self.liechehao = "None"
         self.chexianggaodu = 1
-        # === 新增：窗口内轮询定时器 ===
+        
+        # === 窗口内轮询定时器 ===
         self._timer = QTimer(self)
-        self._timer.setInterval(200)  # 200ms 一次
+        self._timer.setInterval(200)  # 200ms 一次，用于定时更新数据
         self._timer.timeout.connect(self._poll_snapshot)
-        # 绑定按钮点击事件
+        
+        # === 绑定按钮点击事件 ===
         self.pushButton_8.clicked.connect(self.open_train_management)  # "火车型号尺寸"按钮
         self.pushButton_7.clicked.connect(self.open_machine_history)   # "下料历史查询"按钮
         self.pushButton_6.clicked.connect(self.open_train_control)  # "下料机控制"按钮
         self.pushButton_5.clicked.connect(self.open_train_label)   # "火车视觉识别"按钮
+        
+        # 为数据显示框设置特殊标识（用于应用大数字QSS）
+        self._tag_data_browsers()
+        
         # 主窗口关闭时退出整个应用
         self.destroyed.connect(lambda: QApplication.instance().quit())
 
         self._cam_thread = None
+    
+    def _tag_data_browsers(self):
+        """
+        为所有用于数据显示的QTextBrowser打上标签
+        """
+        data_widgets = [
+            'textBrowser_xtzt', 'textBrowser_chk', 'textBrowser_czy', 'textBrowser_lch',
+            'textBrowser_chk_2', 'textBrowser_chk_3', 'textBrowser_chk_4', 'textBrowser_chk_5',
+            'textBrowser_chk_6', 'textBrowser_chk_7', 'textBrowser_chk_8'
+        ]
+        for name in data_widgets:
+            if hasattr(self, name):
+                widget = getattr(self, name)
+                widget.setProperty("techRole", "data")
+                # 重新应用样式以使属性生效
+                widget.setStyle(widget.style())
+        
+        # --- 初始化视觉显示组件 ---
+        if hasattr(self, 'Train_graph'):
+            self.scene = QGraphicsScene(self.Train_graph)
+            self.Train_graph.setScene(self.scene)
+            self.Train_graph.setRenderHints(QPainter.Antialiasing | QPainter.SmoothPixmapTransform)
+            self.Train_graph.setTransformationAnchor(self.Train_graph.AnchorViewCenter)
+            self.Train_graph.setResizeAnchor(self.Train_graph.AnchorViewCenter)
+            self.Train_graph.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+            self.Train_graph.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
-        # --- 在 QGraphicsView 上准备 Scene 和 PixmapItem ---
-        self.scene = QGraphicsScene(self.Train_graph)
-        self.Train_graph.setScene(self.scene)
+            self._pix_item = QGraphicsPixmapItem()
+            self.scene.addItem(self._pix_item)
+            self.Train_graph.setBackgroundBrush(self.Train_graph.palette().base())
+        else:
+            self._pix_item = None
 
-        # 可选：优化与观感
-        self.Train_graph.setRenderHints(
-            QPainter.Antialiasing | QPainter.SmoothPixmapTransform
-        )
-        self.Train_graph.setTransformationAnchor(self.Train_graph.AnchorViewCenter)
-        self.Train_graph.setResizeAnchor(self.Train_graph.AnchorViewCenter)
-        self.Train_graph.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.Train_graph.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+    def _style_buttons(self):
+        """
+        已由全局QSS统一处理
+        """
+        pass
+    
+    def _style_text_browsers(self):
+        """
+        已由全局QSS统一处理
+        """
+        pass
 
-        # 用于承载每帧图像的 item
-        self._pix_item = QGraphicsPixmapItem()
-        self.scene.addItem(self._pix_item)
-
-        # 背景色(可选，与你 ui 中的样式一致即可)
-        self.Train_graph.setBackgroundBrush(self.Train_graph.palette().base())
-
-        try:
-            self.timer_ocr = QTimer()
-            self.ocr = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True, use_doc_unwarping=False , use_doc_orientation_classify=False)
-            self.timer_ocr.timeout.connect(self.process_frame)
-        except Exception as e:
-            print("OCR模型初始化失败")
+        self.timer_ocr = None
+        self.ocr = None
+        self.cap = None
+        self.is_camera_running = False
+        
+        # 只有在PaddleOCR可用时才初始化OCR
+        if PADDLEOCR_AVAILABLE and PaddleOCR is not None:
+            try:
+                self.timer_ocr = QTimer()
+                self.ocr = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True, use_doc_unwarping=False , use_doc_orientation_classify=False)
+                self.timer_ocr.timeout.connect(self.process_frame)
+            except Exception as e:
+                print(f"OCR模型初始化失败: {e}")
+                self.ocr = None
+        else:
+            print("OCR功能不可用（PaddleOCR未安装或导入失败）")
 
         try:
             self.cap = cv2.VideoCapture(0)
@@ -256,21 +520,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
             if not self.cap.isOpened():
+                print("摄像头无法打开")
                 return
 
             self.is_camera_running = True
-            self.timer_ocr.start(300)  # 约30fps
+            if self.timer_ocr:
+                self.timer_ocr.start(300)  # 约30fps
         except Exception as e:
-            print("摄像头打开失败")
+            print(f"摄像头打开失败: {e}")
 
     def process_frame(self):
         """处理每一帧图像 - 这是主要的OCR函数"""
-        if not self.cap or not self.is_camera_running:
+        if not self.cap or not self.is_camera_running or not self.ocr:
             return
 
         ret, frame = self.cap.read()
         if not ret:
-            self.result_label.setText("无法获取摄像头画面")
+            # 如果无法获取摄像头画面，只打印错误信息
+            print("无法获取摄像头画面")
             return
 
         # 执行OCR识别
@@ -279,28 +546,33 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def perform_ocr(self, frame):
         """
         OCR识别函数 - 这是您原始代码转换的函数
-        返回: (识别到的文本列表, 处理后的显示帧)
+        返回: 识别到的文本列表
         """
+        if not self.ocr:
+            return []
+        
         # 将BGR图像转换为RGB（PaddleOCR需要RGB格式）
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
         filtered_texts = []
-        display_frame = frame.copy()
 
         try:
             # 执行OCR识别
             result = self.ocr.ocr(rgb_frame)
 
             # 提取所有识别结果中的文本和置信度
-            for line in result:
-                if line:  # 确保行不为空
-                    text = line["rec_texts"]
-                    con = line["rec_scores"]
-                    for i, confidence in enumerate(con):
-                        texta = text[i]  # 提取文本
-                        # 检查置信度≥0.7
-                        if confidence >= 0.7:
-                            filtered_texts.append(texta)
+            # PaddleOCR返回格式: [[[坐标], ('文本', 置信度)], ...]
+            if result and result[0]:
+                for line in result[0]:
+                    if line and len(line) >= 2:
+                        # line[1] 是 ('文本', 置信度) 的元组
+                        text_info = line[1]
+                        if isinstance(text_info, (list, tuple)) and len(text_info) >= 2:
+                            texta = text_info[0]  # 提取文本
+                            confidence = text_info[1]  # 提取置信度
+                            # 检查置信度≥0.7
+                            if confidence >= 0.7:
+                                filtered_texts.append(texta)
 
             # 如果有识别到的数字，打印出来
             if filtered_texts:
@@ -326,22 +598,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def _fit_view(self):
         """
-        让视口自适应当前 pixmap 尺寸（保持比例显示，留边）。
-        若想铺满裁剪，可改用 KeepAspectRatioByExpanding + 设置 sceneRect。
+        让视口自适应当前 pixmap 尺寸
         """
-        if self._pix_item.pixmap().isNull():
+        if not hasattr(self, '_pix_item') or self._pix_item is None:
             return
-        # self.scene.setSceneRect(self._pix_item.pixmap().rect())
-        # self.train_picture.fitInView(self.scene.sceneRect(), Qt.KeepAspectRatio)
-        rect = QRectF(self._pix_item.pixmap().rect())
-        self.scene.setSceneRect(rect)
-        self.Train_graph.fitInView(rect, Qt.KeepAspectRatio)
+            
+        pix = self._pix_item.pixmap()
+        if pix.isNull():
+            return
+            
+        rect = QRectF(pix.rect())
+        if hasattr(self, 'scene') and self.scene is not None:
+            self.scene.setSceneRect(rect)
+        
+        # 尝试自适应不同的视图控件名
+        if hasattr(self, 'Train_graph'):
+            self.Train_graph.fitInView(rect, Qt.KeepAspectRatio)
+        elif hasattr(self, 'train_picture'):
+            self.train_picture.fitInView(rect, Qt.KeepAspectRatio)
     
     def on_frame(self, qimg):
         """
         CameraThread 发来的帧是 QImage；更新到 pixmap item 并自适应视口
         """
-        if qimg is None:
+        if qimg is None or not hasattr(self, '_pix_item') or self._pix_item is None:
             return
         pix = QPixmap.fromImage(qimg)
         self._pix_item.setPixmap(pix)
@@ -372,7 +652,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self._cam_thread = None
         # event.accept()  # 只关闭当前窗口，避免退出整个应用
         self.is_camera_running = False
-        if self.timer_ocr.isActive():
+        if self.timer_ocr and self.timer_ocr.isActive():
             self.timer_ocr.stop()
         if self.cap:
             self.cap.release()
@@ -519,21 +799,45 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self._refresh_table(all_dict)
 
 class TrainManagementWindow(QMainWindow, Ui_TrainQuery):
+    """
+    火车型号管理窗口
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.TABLE_SCHEMA = "dbo"                 # 如果不是 dbo，换成你的
-        self.TABLE_NAME   = "Train Model Table"   # 真实表名（有空格）
-        self.ID_COLUMN    = "TrainTypeID"         # 按这个列精确查
+        
+        # 数据库配置
+        self.TABLE_SCHEMA = "dbo"
+        self.TABLE_NAME   = "Train Model Table"
+        self.ID_COLUMN    = "TrainTypeID"
+        
         self.db_manager = TrainDatabaseManager(
             server="WIN-DNI5FVM376E",
             database="RailwayCoalManagement",
             username="sa",
             password="220242236"
         )
+        
         self.setAttribute(Qt.WA_DeleteOnClose, True)
-        # 设置窗口标题
-        self.setWindowTitle("火车型号尺寸信息管理系统")
+        self.setWindowTitle("DATABASE - TRAIN MODELS [DATA MANAGEMENT]")
+        
+        # 应用科技感样式
+        self.setStyleSheet(UIStyleManager.get_modern_style())
+        
+        # 智能缩放处理
+        UIStyleManager.apply_smart_scaling(self, base_width=1690, base_height=1250)
+        
+        # 绑定按钮点击事件
+        self.pushButton_11.clicked.connect(self.open_train_update)  # "新增/修改"按钮
+        self.pushButton_9.clicked.connect(self._on_search_clicked)   # 根据 TrainTypeID 查询
+        self.pushButton_10.clicked.connect(self._load_all_models)    # 重新显示全部
+        
+        # 为数据显示框设置特殊标识
+        if hasattr(self, 'textBrowser'):
+            self.textBrowser.setProperty("techRole", "data")
+            self.textBrowser.setStyle(self.textBrowser.style())
+        
+        self._first_show_done = False
 
         # 绑定按钮点击事件
         self.pushButton_11.clicked.connect(self.open_train_update)  # "新增/修改"按钮
@@ -620,21 +924,66 @@ class TrainManagementWindow(QMainWindow, Ui_TrainQuery):
         self.textBrowser.setPlainText("\n".join(lines))
 
 class TrainUpdateWindow(QMainWindow, Ui_TrainUpdate):
+    """
+    火车型号更新窗口
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.TABLE_SCHEMA = "dbo"                 # 如果不是 dbo，换成你的
-        self.TABLE_NAME   = "Train Model Table"   # 真实表名（有空格）
-        self.ID_COLUMN    = "TrainTypeID"         # 按这个列精确查
+        
+        # 数据库配置
+        self.TABLE_SCHEMA = "dbo"
+        self.TABLE_NAME   = "Train Model Table"
+        self.ID_COLUMN    = "TrainTypeID"
+        
         self.db_manager = TrainDatabaseManager(
             server="WIN-DNI5FVM376E",
             database="RailwayCoalManagement",
             username="sa",
             password="220242236"
         )
+        
         self.setAttribute(Qt.WA_DeleteOnClose, True)
-        # 设置窗口标题
-        self.setWindowTitle("火车型号尺寸更新系统")
+        self.setWindowTitle("SYSTEM UPDATE - TRAIN PARAMETERS [LOGISTICS]")
+        
+        # 应用科技感样式
+        self.setStyleSheet(UIStyleManager.get_modern_style())
+        
+        # 智能缩放处理
+        UIStyleManager.apply_smart_scaling(self, base_width=1690, base_height=1250)
+        
+        # 映射：依次对应 textEdit1..textEdit21
+        self.COLUMN_ORDER = [
+            "textEdit",
+            "textEdit_3", "textEdit_4", "textEdit_11", "textEdit_6",
+            "textEdit_7", "textEdit_10", "textEdit_8", "textEdit_9", "textEdit_20",
+            "textEdit_22","textEdit_21","textEdit_23","textEdit_24"
+        ]
+        self.FIELD_MAP = {
+            "textEdit":   "TrainTypeID",      # 主键
+            "textEdit_3": "HoldType",
+            "textEdit_4": "ExLength",
+            "textEdit_11":"ExWidth",
+            "textEdit_6": "ExHeight",
+            "textEdit_7": "InLength",
+            "textEdit_10":"InWidth",
+            "textEdit_8": "InHeight",
+            "textEdit_9": "Volume",
+            "textEdit_20":"Density",
+            "textEdit_22":"LoadWeight",
+            "textEdit_21":"FullLength",
+            "textEdit_23":"BottomHeight",
+            "textEdit_24":"HookType"
+        }
+        self.pushButton_9.clicked.connect(self._on_add_clicked)      # 新增
+        self.pushButton_10.clicked.connect(self._on_update_clicked)  # 修改
+        
+        # 为数据显示框设置特殊标识
+        if hasattr(self, 'textBrowser'):
+            self.textBrowser.setProperty("techRole", "data")
+            self.textBrowser.setStyle(self.textBrowser.style())
+
+        self._first_show_done = False
 
         # 映射：依次对应 textEdit1..textEdit21
         self.COLUMN_ORDER = [
@@ -788,23 +1137,54 @@ class TrainUpdateWindow(QMainWindow, Ui_TrainUpdate):
             QMessageBox.critical(self, "错误", f"更新失败：\n{ex}")
 
 class MachineHistoryWindow(QMainWindow, Ui_layoff_history):
+    """
+    下料历史查询窗口
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.TABLE_SCHEMA = "dbo"                 # 如果不是 dbo，换成你的
-        self.TABLE_NAME   = "Layoff History Table"   # 真实表名（有空格）
+        
+        # 数据库配置
+        self.TABLE_SCHEMA = "dbo"
+        self.TABLE_NAME   = "Layoff History Table"
         self.ID_COLUMN1    = "MaterialID"
         self.ID_COLUMN2    = "WarehouseID"
         self.TIME_COLUMN  = "Time"
+        
         self.db_manager = TrainDatabaseManager(
             server="WIN-DNI5FVM376E",
             database="RailwayCoalManagement",
             username="sa",
             password="220242236"
         )
+        
         self.setAttribute(Qt.WA_DeleteOnClose, True)
-        # 设置窗口标题
-        self.setWindowTitle("下料历史趋势主界面")
+        self.setWindowTitle("HISTORY LOGS - DISCHARGE TRENDS [ANALYTICS]")
+        
+        # 应用科技感样式
+        self.setStyleSheet(UIStyleManager.get_modern_style())
+        
+        # 智能缩放处理
+        UIStyleManager.apply_smart_scaling(self, base_width=1690, base_height=1250)
+        
+        self.pushButton_9.clicked.connect(self._on_search_combined_clicked)
+        self.pushButton_11.clicked.connect(lambda: self._load_recent_minutes(10))
+        self.pushButton_12.clicked.connect(lambda: self._load_recent_minutes(60))
+        self.pushButton_13.clicked.connect(lambda: self._load_recent_minutes(4 * 60))
+        self.pushButton_14.clicked.connect(lambda: self._load_recent_minutes(24 * 60))
+
+        self.pushButton_10.clicked.connect(self._export_to_excel)
+        self.pushButton_15.clicked.connect(self._open_last_export)
+        
+        # 为数据显示框设置特殊标识
+        if hasattr(self, 'textBrowser'):
+            self.textBrowser.setProperty("techRole", "data")
+            self.textBrowser.setStyle(self.textBrowser.style())
+        
+        self._first_show_done = False
+        self._last_query_columns = []
+        self._last_query_rows = []
+        self._last_export_path: Optional[Path] = None
 
         self.pushButton_9.clicked.connect(self._on_search_combined_clicked)   # 仅按 TrainTypeID
         # 绑定新增控件
@@ -819,7 +1199,7 @@ class MachineHistoryWindow(QMainWindow, Ui_layoff_history):
         self._first_show_done = False
         self._last_query_columns = []
         self._last_query_rows = []
-        self._last_export_path: Path | None = None
+        self._last_export_path: Optional[Path] = None
 
     # --- 窗口第一次显示时加载全表 ---
     def showEvent(self, e):
@@ -852,7 +1232,7 @@ class MachineHistoryWindow(QMainWindow, Ui_layoff_history):
         except Exception as ex:
             QMessageBox.critical(self, "错误", f"联合查询失败：\n{ex}")
 
-    def _select_where_eq(self, conditions: dict[str, object]):
+    def _select_where_eq(self, conditions: Dict[str, Any]):
         # 用已有 manager 的安全转义 + 参数化
         if not conditions:
             raise ValueError("conditions 为空。")
@@ -998,18 +1378,55 @@ class MachineHistoryWindow(QMainWindow, Ui_layoff_history):
             QMessageBox.critical(self, "错误", f"加载最近 {minutes} 分钟数据失败：\n{ex}")
 
 class TrainControlWindow(QMainWindow, Ui_Traincontrol):
+    """
+    下料机控制窗口
+    使用极致科技感样式和智能深度缩放
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.chexianggaodu = 1
-        self.setAttribute(Qt.WA_DeleteOnClose, True)
-        # 设置窗口标题
-        self.setWindowTitle("下料机控制主界面")
         
-        # === 新增：窗口内轮询定时器 ===
+        # 业务逻辑变量
+        self.chexianggaodu = 1
+        
+        # 设置窗口属性
+        self.setAttribute(Qt.WA_DeleteOnClose, True)
+        self.setWindowTitle("CONTROL CENTER - DISCHARGE SYSTEM [OPERATIONS]")
+        
+        # 应用科技感样式
+        self.setStyleSheet(UIStyleManager.get_modern_style())
+        
+        # 智能缩放处理 (处理绝对定位)
+        UIStyleManager.apply_smart_scaling(self, base_width=1690, base_height=1250)
+        
+        # === 窗口内轮询定时器 ===
         self._timer = QTimer(self)
-        self._timer.setInterval(200)  # 200ms 一次
+        self._timer.setInterval(200)  # 200ms 一次，用于定时更新数据
         self._timer.timeout.connect(self._poll_snapshot)
+        
+        # 为数据显示框设置特殊标识（用于应用大数字QSS）
+        self._tag_data_browsers()
+    
+    def _tag_data_browsers(self):
+        """
+        为数据显示的QTextBrowser打上标签
+        """
+        data_widgets = [
+            'textBrowser_chk_2', 'textBrowser_chk_3', 'textBrowser_chk_4', 'textBrowser_chk_5',
+            'textBrowser_chk_6', 'textBrowser_chk_7', 'textBrowser_chk_8', 'textBrowser_chk_9',
+            'textBrowser_chk_10', 'textBrowser_chk_11', 'textBrowser_chk_12'
+        ]
+        for name in data_widgets:
+            if hasattr(self, name):
+                widget = getattr(self, name)
+                widget.setProperty("techRole", "data")
+                widget.setStyle(widget.style())
+    
+    def _style_text_browsers(self):
+        """
+        已由全局QSS处理
+        """
+        pass
 
     def showEvent(self, e):
         super().showEvent(e)
@@ -1081,14 +1498,26 @@ class TrainControlWindow(QMainWindow, Ui_Traincontrol):
             self.textBrowser_chk_6.setPlainText(liaomiangaodu)
         except Exception as ex:
             # 避免异常把定时器干掉，可在标题或状态区提示
-            self.setWindowTitle(f"下料机控制主界面 - 读取异常: {ex}")
+            self.setWindowTitle(f"CONTROL CENTER - ERROR: {ex}")
 
 class TrainLabelWindow(QMainWindow, Ui_Trainlabel):
+    """
+    火车视觉识别窗口
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setWindowTitle("火车视觉识别主界面")
+        
+        # 设置窗口属性
+        self.setWindowTitle("VISUAL RECOGNITION - SYSTEM MONITOR")
         self.setAttribute(Qt.WA_DeleteOnClose, True)
+        
+        # 应用科技感样式
+        self.setStyleSheet(UIStyleManager.get_modern_style())
+        
+        # 智能缩放处理
+        UIStyleManager.apply_smart_scaling(self, base_width=1690, base_height=1250)
+        
         self._cam_thread = None
 
         # --- 在 QGraphicsView 上准备 Scene 和 PixmapItem ---
@@ -1163,27 +1592,26 @@ class TrainLabelWindow(QMainWindow, Ui_Trainlabel):
 
     def _fit_view(self):
         """
-        让视口自适应当前 pixmap 尺寸（保持比例显示，留边）。
-        若想铺满裁剪，可改用 KeepAspectRatioByExpanding + 设置 sceneRect。
+        让视口自适应当前 pixmap 尺寸
         """
-        if self._pix_item.pixmap().isNull():
+        if not hasattr(self, '_pix_item') or self._pix_item is None:
             return
-        # self.scene.setSceneRect(self._pix_item.pixmap().rect())
-        # self.train_picture.fitInView(self.scene.sceneRect(), Qt.KeepAspectRatio)
-        rect = QRectF(self._pix_item.pixmap().rect())
-        self.scene.setSceneRect(rect)
-        self.train_picture.fitInView(rect, Qt.KeepAspectRatio)
+            
+        pix = self._pix_item.pixmap()
+        if pix.isNull():
+            return
+            
+        rect = QRectF(pix.rect())
+        if hasattr(self, 'scene') and self.scene is not None:
+            self.scene.setSceneRect(rect)
+            
+        if hasattr(self, 'train_picture'):
+            self.train_picture.fitInView(rect, Qt.KeepAspectRatio)
+        elif hasattr(self, 'Train_graph'):
+            self.Train_graph.fitInView(rect, Qt.KeepAspectRatio)
     
     def on_frame(self, qimg):
-        # """
-        # CameraThread 发来的帧是 QImage；更新到 pixmap item 并自适应视口
-        # """
-        # if qimg is None:
-        #     return
-        # pix = QPixmap.fromImage(qimg)
-        # self._pix_item.setPixmap(pix)
-        # self._fit_view()
-        if qimg is None or qimg.isNull():
+        if qimg is None or qimg.isNull() or not hasattr(self, '_pix_item') or self._pix_item is None:
             return
         try:
             pix = QPixmap.fromImage(qimg)
@@ -1216,11 +1644,15 @@ class TrainLabelWindow(QMainWindow, Ui_Trainlabel):
     #     event.accept()  # 只关闭当前窗口，避免退出整个应用
 
 if __name__ == "__main__":
+    # 启用高DPI缩放支持
+    QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
+    QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
+    
     app = QApplication(sys.argv)
-    # 设置应用程序样式
+    # 设置应用程序整体风格
     app.setStyle("Fusion")
     
-    # 创建并显示主窗口
+    # 创建并显示登录窗口
     window = LoginDialog()
     window.show()
     
