@@ -1,0 +1,5 @@
+flask
+pyodbc
+PyQt5
+opencv-python
+

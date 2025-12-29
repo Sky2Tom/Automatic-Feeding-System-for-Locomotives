@@ -184,18 +184,24 @@ def get_history():
 # 摄像头串流 (MJPEG)
 import cv2
 def gen_frames():
-    camera = cv2.VideoCapture(0)
-    while True:
-        success, frame = camera.read()
-        if not success:
-            break
-        else:
-            # 可以在这里添加 OCR 逻辑，或者直接推流
-            ret, buffer = cv2.imencode('.jpg', frame)
-            frame_bytes = buffer.tobytes()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
-    camera.release()
+    try:
+        camera = cv2.VideoCapture(0)
+        if not camera.isOpened():
+            logging.error("无法打开摄像头，将跳过视频流")
+            return
+        
+        while True:
+            success, frame = camera.read()
+            if not success:
+                break
+            else:
+                ret, buffer = cv2.imencode('.jpg', frame)
+                frame_bytes = buffer.tobytes()
+                yield (b'--frame\r\n'
+                       b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+        camera.release()
+    except Exception as e:
+        logging.error(f"视频流生成出错: {e}")
 
 @app.route('/video_feed')
 def video_feed():
@@ -215,10 +221,10 @@ if __name__ == '__main__':
     logging.info("Starting Flask app...")
     print("========================================")
     print("火车加料智能监控系统 - Web 版已就绪")
-    print("请在浏览器中访问: http://127.0.0.1:5000")
+    print("请在浏览器中访问: http://127.0.0.1:5001")
     print("========================================")
     try:
-        app.run(host='127.0.0.1', port=5000, debug=False, threaded=True, use_reloader=False)
+        app.run(host='127.0.0.1', port=5001, debug=False, threaded=True, use_reloader=False)
     except Exception as e:
         logging.error(f"Flask failed to start: {e}")
 
