@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -151,7 +152,8 @@
             transition: 0.3s;
         }
 
-        .nav-item:hover, .nav-item.active {
+        .nav-item:hover,
+        .nav-item.active {
             color: var(--accent-color);
             background: rgba(0, 242, 255, 0.05);
             border-left-color: var(--accent-color);
@@ -286,6 +288,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- 登录模块 -->
@@ -307,10 +310,10 @@
     <!-- 主应用程序模块 -->
     <div id="main-app">
         <header>
-            <h1>Automatic Locomotive Feeding System v4.0</h1>
+            <h1>Automatic Locomotive Feeding System v4.2 [LATEST]</h1>
             <div style="margin-left: auto; font-size: 12px; color: var(--muted-color);" id="current-time"></div>
         </header>
-        
+
         <div class="content-wrapper">
             <nav>
                 <div class="nav-item active" onclick="switchModule('dashboard')">DASHBOARD 主界面</div>
@@ -348,7 +351,7 @@
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h3>SENSORS 关键参数</h3>
+                            <h3>OPERATIONAL DATA 运行数据</h3>
                         </div>
                         <div class="data-grid">
                             <div class="data-item">
@@ -366,6 +369,23 @@
                             <div class="data-item">
                                 <div class="data-label">装料进度</div>
                                 <div class="data-value" id="val-zljd">--</div>
+                            </div>
+                            <!-- 测量参数 -->
+                            <div class="data-item">
+                                <div class="data-label">激光距离</div>
+                                <div class="data-value" id="val-jgjl">--</div>
+                            </div>
+                            <div class="data-item">
+                                <div class="data-label">料位高度</div>
+                                <div class="data-value" id="val-lwgd">--</div>
+                            </div>
+                            <div class="data-item">
+                                <div class="data-label">定位距离</div>
+                                <div class="data-value" id="val-dwjl">--</div>
+                            </div>
+                            <div class="data-item">
+                                <div class="data-label">车厢速度</div>
+                                <div class="data-value" id="val-cxsd">--</div>
                             </div>
                         </div>
                     </div>
@@ -385,7 +405,7 @@
                                     SCANNING: <span id="ocr-result-status" style="color: var(--accent-color);">ACTIVE</span>
                                 </div>
                             </div>
-                            
+
                             <!-- 右侧：识别详情 -->
                             <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 15px;">
                                 <div class="data-item" style="text-align: left;">
@@ -522,12 +542,17 @@
         async function handleLogin() {
             const u = document.getElementById('username').value;
             const p = document.getElementById('password').value;
-            
+
             try {
                 const res = await fetch('/api/login', {
                     method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({username: u, password: p})
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: u,
+                        password: p
+                    })
                 });
                 if (res.ok) {
                     document.getElementById('login-overlay').style.display = 'none';
@@ -559,19 +584,27 @@
         function updateDashboard(snap) {
             const data = snap.all_data_dict || {};
             // 这里的映射逻辑应根据您的后端 RxData 索引进行调整
-            if(data.read_coils_0_13) {
+            if (data.read_coils_0_13) {
                 document.getElementById('val-xtzt').innerText = data.read_coils_0_13.RxData[0] ? "ONLINE" : "OFFLINE";
                 document.getElementById('val-xmjzt').innerText = data.read_coils_0_13.RxData[1] ? "NORMAL" : "FAULT";
             }
             document.getElementById('val-czy').innerText = "Admin";
             document.getElementById('val-lch').innerText = snap.vision_result ? snap.vision_result.train_no : "C64-8802";
-            
-            if(data.read_holding_registers_32_39) {
+
+            if (data.read_holding_registers_32_39) {
                 const regs = data.read_holding_registers_32_39.RxData;
                 document.getElementById('val-fmkd').innerText = parseInt(regs[0], 16);
                 document.getElementById('val-sjgd').innerText = parseInt(regs[1], 16);
                 document.getElementById('val-fbgd').innerText = parseInt(regs[2], 16);
                 document.getElementById('val-zljd').innerText = (parseInt(regs[3], 16) / 10).toFixed(1) + "%";
+
+                // 映射新增加的参数 (假设从寄存器 4 开始，实际根据协议调整)
+                if (regs.length >= 8) {
+                    document.getElementById('val-jgjl').innerText = parseInt(regs[4], 16) + " mm";
+                    document.getElementById('val-lwgd').innerText = parseInt(regs[5], 16) + " mm";
+                    document.getElementById('val-dwjl').innerText = parseInt(regs[6], 16) + " mm";
+                    document.getElementById('val-cxsd').innerText = (parseInt(regs[7], 16) / 100).toFixed(2) + " m/s";
+                }
             }
 
             // 更新视觉识别详情
@@ -632,8 +665,13 @@
         async function sendCommand(cmd) {
             const res = await fetch('/api/control', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({command: cmd, timestamp: Date.now()})
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    command: cmd,
+                    timestamp: Date.now()
+                })
             });
             if (res.ok) {
                 console.log("Command sent: " + cmd);
@@ -641,5 +679,5 @@
         }
     </script>
 </body>
-</html>
 
+</html>

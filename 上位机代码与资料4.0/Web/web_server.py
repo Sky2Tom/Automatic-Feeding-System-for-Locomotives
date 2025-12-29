@@ -25,7 +25,10 @@ sys.stderr = LoggerWriter(logging.error)
 
 # 设置路径以导入 Back_end 目录下的模块
 current_dir = os.path.dirname(os.path.abspath(__file__))
-back_end_path = os.path.join(current_dir, "Back_end")
+# 网页代码现在在 Web 文件夹中，后端在上一级目录
+parent_dir = os.path.dirname(current_dir)
+back_end_path = os.path.join(parent_dir, "Back_end")
+sys.path.append(parent_dir)  # 添加根目录
 sys.path.append(back_end_path)
 
 logging.info(f"Current dir: {current_dir}")
@@ -184,24 +187,18 @@ def get_history():
 # 摄像头串流 (MJPEG)
 import cv2
 def gen_frames():
-    try:
-        camera = cv2.VideoCapture(0)
-        if not camera.isOpened():
-            logging.error("无法打开摄像头，将跳过视频流")
-            return
-        
-        while True:
-            success, frame = camera.read()
-            if not success:
-                break
-            else:
-                ret, buffer = cv2.imencode('.jpg', frame)
-                frame_bytes = buffer.tobytes()
-                yield (b'--frame\r\n'
-                       b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
-        camera.release()
-    except Exception as e:
-        logging.error(f"视频流生成出错: {e}")
+    camera = cv2.VideoCapture(0)
+    while True:
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            # 可以在这里添加 OCR 逻辑，或者直接推流
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame_bytes = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+    camera.release()
 
 @app.route('/video_feed')
 def video_feed():
