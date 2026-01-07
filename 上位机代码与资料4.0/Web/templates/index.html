@@ -573,8 +573,10 @@
                     const res = await fetch('/api/snapshot');
                     const snap = await res.json();
                     updateDashboard(snap);
-                } catch (e) {}
-            }, 500);
+                } catch (e) {
+                    console.error("Polling error:", e);
+                }
+            }, 1000); // 修改为 1000ms (1秒)
 
             setInterval(() => {
                 document.getElementById('current-time').innerText = new Date().toLocaleString();
@@ -600,11 +602,16 @@
 
                 // 映射新增加的参数 (假设从寄存器 4 开始，实际根据协议调整)
                 if (regs.length >= 8) {
-                    document.getElementById('val-jgjl').innerText = parseInt(regs[4], 16) + " mm";
+                    // document.getElementById('val-jgjl').innerText = parseInt(regs[4], 16) + " mm";
                     document.getElementById('val-lwgd').innerText = parseInt(regs[5], 16) + " mm";
                     document.getElementById('val-dwjl').innerText = parseInt(regs[6], 16) + " mm";
                     document.getElementById('val-cxsd').innerText = (parseInt(regs[7], 16) / 100).toFixed(2) + " m/s";
                 }
+            }
+
+            // 更新激光传感器数据 (来自 read_laser_sensor)
+            if (data.read_laser_sensor && data.read_laser_sensor.laser_decimal !== undefined) {
+                document.getElementById('val-jgjl').innerText = data.read_laser_sensor.laser_decimal + " mm";
             }
 
             // 更新视觉识别详情

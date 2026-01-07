@@ -1,0 +1,98 @@
+2026-01-05 15:13:55,818 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-05 15:13:55,818 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-05 15:13:55,856 INFO: Backend modules loaded successfully
+2026-01-05 15:13:55,858 INFO: Initializing Modbus Backend...
+2026-01-05 15:13:55,859 INFO: Modbus Backend thread started
+2026-01-05 15:13:55,859 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-05 15:13:55,859 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-05 15:13:55,859 INFO: Initializing DB Manager...
+2026-01-05 15:13:55,859 INFO: [GroupQuery] Ö´ÐÐµÚ 1/7 ¸ö£ºread_coils_0_13
+2026-01-05 15:13:55,860 INFO: DB Manager ready
+2026-01-05 15:13:56,008 INFO: Starting Flask app...
+2026-01-05 15:13:56,008 INFO: ========================================
+2026-01-05 15:13:56,008 INFO: »ð³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍÐ÷
+2026-01-05 15:13:56,008 INFO: ÇëÔÚä¯ÀÀÆ÷ÖÐ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-05 15:13:56,008 INFO: ========================================
+2026-01-05 15:13:56,010 INFO: b'* Serving Flask app "web_server" (lazy loading)'
+2026-01-05 15:13:56,010 INFO: b'* Environment: production'
+2026-01-05 15:13:56,010 INFO: b'WARNING: This is a development server. Do not use it in a production deployment.'
+2026-01-05 15:13:56,011 INFO: b'Use a production WSGI server instead.'
+2026-01-05 15:13:56,011 INFO: b'* Debug mode: off'
+ * Running on http://127.0.0.1:5001/ (Press CTRL+C to quit)
+2026-01-05 15:13:56,018 INFO:  * Running on http://127.0.0.1:5001/ (Press CTRL+C to quit)
+2026-01-05 15:54:03,683 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-05 15:54:03,683 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-05 15:54:03,720 INFO: Backend modules loaded successfully
+2026-01-05 15:54:03,721 INFO: Initializing Modbus Backend...
+2026-01-05 15:54:03,722 INFO: Modbus Backend thread started
+2026-01-05 15:54:03,722 INFO: Initializing DB Manager...
+2026-01-05 15:54:03,722 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-05 15:54:03,722 INFO: [GroupQuery] Ö´ÐÐµÚ 1/7 ¸ö£ºread_coils_0_13
+2026-01-05 15:54:03,722 INFO: DB Manager ready
+2026-01-05 15:54:03,722 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-05 15:54:03,880 INFO: Starting Flask app...
+2026-01-05 15:54:03,880 INFO: ========================================
+2026-01-05 15:54:03,881 INFO: »ð³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍÐ÷
+2026-01-05 15:54:03,881 INFO: ÇëÔÚä¯ÀÀÆ÷ÖÐ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-05 15:54:03,881 INFO: ========================================
+2026-01-05 15:54:03,883 INFO: b'* Serving Flask app "web_server" (lazy loading)'
+2026-01-05 15:54:03,883 INFO: b'* Environment: production'
+2026-01-05 15:54:03,883 INFO: b'WARNING: This is a development server. Do not use it in a production deployment.'
+2026-01-05 15:54:03,883 INFO: b'Use a production WSGI server instead.'
+2026-01-05 15:54:03,883 INFO: b'* Debug mode: off'
+ * Running on http://127.0.0.1:5001/ (Press CTRL+C to quit)
+2026-01-05 15:54:03,890 INFO:  * Running on http://127.0.0.1:5001/ (Press CTRL+C to quit)
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,150 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,152 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,155 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,156 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,158 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,159 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,159 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,162 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,387 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:04,530 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:04] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:05] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:05,033 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:05] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:05] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:05,531 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:05] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:06] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:06,027 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:06] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:06] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:06,529 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:06] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:07] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:07,022 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:07] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:07] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:07,524 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:07] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:08] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:08,034 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:08] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:08] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:08,525 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:08] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:09] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:09,030 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:09] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:09] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:09,535 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:09] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:10] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:10,025 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:10] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:10] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:10,526 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:10] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:11] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:11,030 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:11] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:11] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:11,531 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:11] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:12] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:12,036 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:12] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:12] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:12,522 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:12] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+127.0.0.1 - - [05/Jan/2026 15:54:13] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-05 15:54:13,021 INFO: 127.0.0.1 - - [05/Jan/2026 15:54:13] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -

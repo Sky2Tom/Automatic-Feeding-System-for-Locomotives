@@ -53,7 +53,7 @@ log.addHandler(logging.FileHandler('web_error.log'))
 
 # ====== 全局配置 ======
 START_BACKEND = True
-ACTIVE_PORT   = "COM4"
+ACTIVE_PORT   = "COM6"
 PASSIVE_PORT  = "COM2"
 BAUDRATE      = 9600
 
@@ -70,16 +70,35 @@ backend_app = None
 db_manager = None
 
 if BACKEND_AVAILABLE:
-    if START_BACKEND:
+    def run_qt_backend():
+        """在后台线程中启动 Qt 事件循环，驱动 Modbus 轮询"""
+        global backend_app
+        from PyQt5.QtWidgets import QApplication
+        
+        # 1. 必须在线程内创建一个 QApplication 实例
+        qt_app = QApplication.instance()
+        if qt_app is None:
+            qt_app = QApplication(sys.argv)
+        
         try:
-            logging.info("Initializing Modbus Backend...")
+            logging.info("Initializing Modbus Backend with Qt Loop...")
+            # 2. 实例化后端
             backend_app = TrainGroupReaderApp(ACTIVE_PORT, PASSIVE_PORT, BAUDRATE)
-            # 在独立线程中启动后端，避免阻塞 Flask
-            backend_thread = threading.Thread(target=backend_app.start, daemon=True)
-            backend_thread.start()
-            logging.info("Modbus Backend thread started")
+            # 3. 启动内部的所有定时器
+            backend_app.start()
+            
+            print(f"Modbus 后端已启动 (串口: {ACTIVE_PORT})，正在轮询激光数据...")
+            # 4. 关键：进入 Qt 事件循环，这会让 QTimer 开始跳动
+            qt_app.exec_()
         except Exception as e:
-            logging.error(f"Modbus 后端启动失败: {e}")
+            logging.error(f"Modbus 后端运行异常: {e}")
+
+    if START_BACKEND:
+        # 使用守护线程启动 Qt 循环
+        backend_thread = threading.Thread(target=run_qt_backend, daemon=True)
+        backend_thread.start()
+        # 给后端一点启动时间
+        time.sleep(1)
 
     try:
         logging.info("Initializing DB Manager...")
@@ -107,15 +126,30 @@ def login():
 
 @app.route('/api/snapshot')
 def get_snapshot():
-    """获取实时的 Modbus 数据快照，若无数据则返回模拟数据"""
-    if BACKEND_AVAILABLE:
-        snap = DATAS.snapshot()
-        # 如果 snap 中没有实际数据，则提供模拟数据
-        if not snap.get("all_data_dict"):
-            snap = get_mock_snapshot()
-    else:
-        snap = get_mock_snapshot()
-    return jsonify(snap)
+    """获取实时的 Modbus 数据快照，强制返回真实数据"""
+    try:
+        if BACKEND_AVAILABLE:
+            # 1. 直接从数据仓库获取最新快照
+            snap = DATAS.snapshot()
+            
+            # 2. 调试打印：在服务器控制台输出当前真实数据内容，方便排查
+            real_data = snap.get("all_data_dict", {})
+            if "read_laser_sensor" in real_data:
+                laser_val = real_data["read_laser_sensor"].get("laser_decimal")
+                print(f"--- 接口正在推送真实激光数据: {laser_val} mm ---")
+            else:
+                print("--- 警告：后端尚未存入 read_laser_sensor 数据 ---")
+            
+            # 3. 即使数据暂时为空，也直接返回 snap，不再使用 get_mock_snapshot 覆盖
+            # 这样如果没数据，界面会显示 "--"，而不是显示误导性的假数据
+            return jsonify(snap)
+        else:
+            return jsonify({"error": "Backend not available", "all_data_dict": {}})
+            
+    except Exception as e:
+        logging.error(f"get_snapshot 接口出错: {e}")
+        print(f"API Error: {e}")
+        return jsonify({"error": str(e), "all_data_dict": {}})
 
 def get_mock_snapshot():
     """生成科技感十足的模拟快照数据"""
@@ -123,7 +157,11 @@ def get_mock_snapshot():
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "all_data_dict": {
             "read_coils_0_13": {"RxData": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
-            "read_holding_registers_32_39": {"RxData": ["001A", "002B", "000F", "03E8", "0000", "0000", "0000", "0000"]}
+            "read_holding_registers_32_39": {"RxData": ["001C", "002B", "000F", "03E8", "0000", "0000", "0000", "0000"]},
+            "read_laser_sensor": {
+                "RxData": ["0x0000", "0x60d4"],
+                "laser_decimal": 24788
+            }
         },
         "vision_result": {
             "train_no": "C64 880256",

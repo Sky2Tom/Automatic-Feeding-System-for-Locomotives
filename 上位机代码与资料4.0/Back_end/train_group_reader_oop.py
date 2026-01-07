@@ -210,10 +210,36 @@ class Analyzer(QObject):
     def analyze(self, func_name: str, parsed: dict) -> dict:
         """
         输入：解析后的 dict
-        输出：可直接给 UI 展示的 dict（可附带单位/标注/组合字段等）
-        这里默认透传；若你有具体规则，可自行实现。
+        输出：可直接给 UI 展示的 dict
         """
-        final_dict = dict(parsed)  # 浅拷贝
+        # 1. 创建副本并处理不可 JSON 序列化的对象 (ModBusCounters)
+        final_dict = {}
+        for k, v in parsed.items():
+            if k == "MdbsCNT":
+                final_dict[k] = {
+                    "CRCerr_CNT": v.CRCerr_CNT,
+                    "Addrerr_CNT": v.Addrerr_CNT,
+                    "IDerr_CNT": v.IDerr_CNT,
+                    "Frabrk_CNT": v.Frabrk_CNT,
+                    "Frame_CNT": v.Frame_CNT
+                }
+            else:
+                final_dict[k] = v
+        
+        # 2. 针对激光传感器的特殊解析逻辑
+        if func_name == "read_laser_sensor" and final_dict.get('RxData'):
+            try:
+                # 检查 RxData 是否为列表且长度足够（例如 ["0x0000", "0x60d4"]）
+                if len(final_dict['RxData']) >= 2:
+                    # 将两个 16 位寄存器组合成一个 32 位整数
+                    high_val = int(final_dict['RxData'][0], 16)
+                    low_val = int(final_dict['RxData'][1], 16)
+                    total_val = (high_val << 16) | low_val
+                    final_dict['laser_decimal'] = total_val
+                    print(f"DEBUG: 解析到激光距离 = {total_val}")
+            except Exception as e:
+                print(f"ERROR: 解析激光数据失败: {e}, 原始数据: {final_dict.get('RxData')}")
+                
         return final_dict
 
 
@@ -295,9 +321,9 @@ class GroupQueryScheduler(QObject):
         # 通知上层
         self.oneQueryFinished.emit(func_name, result)
 
-        # 1 秒后继续
+        # 200ms 后继续下一个查询，加快轮询节奏
         self._idx += 1
-        self._step_timer.start(1000)
+        self._step_timer.start(200)
 
 
 # ---------------------------------------------------------------------
@@ -338,6 +364,9 @@ def read_holding_registers_32_39(): return (3, 3, 4096, 12)
 # def read_holding_registers_2(): return (3, 3, 4096, 12)
 def read_holding_registers_3(): return (3, 3, 4352, 9)
 
+# 新增激光传感器查询函数 (从站 4, 功能码 3, 地址 21, 数量 2)
+def read_laser_sensor(): return (4, 3, 21, 2)
+
 
 # ---------------------------------------------------------------------
 # I) 应用装配（端到端）
@@ -352,17 +381,14 @@ class TrainGroupReaderApp(QObject):
         self.parser = FrameParser()
         self.analyzer = Analyzer()
 
+        # 仅保留激光传感器查询，确保每秒发送一次请求
         functions = [
-            read_coils_0_13,
-            read_coils_16_24,
-            read_coils_27_31,
-            read_holding_registers_0_13,
-            read_holding_registers_16_24,
-            read_holding_registers_32_39,
-            read_holding_registers_3,
+            read_laser_sensor,
         ]
+
+        # cycle_interval_ms=1000 表示每轮查询结束后等待 1 秒再开始下一轮
         self.scheduler = GroupQueryScheduler(
-            self.client, self.parser, functions, cycle_interval_ms=5000, analyzer=self.analyzer
+            self.client, self.parser, functions, cycle_interval_ms=1000, analyzer=self.analyzer
         )
         self.scheduler.oneQueryFinished.connect(self.on_one_query_finished)
         self.scheduler.oneRoundFinished.connect(self.on_one_round_finished)
@@ -406,7 +432,7 @@ class TrainGroupReaderApp(QObject):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
-    active_port = "COM5"   # 主动轮询口
+    active_port = "COM6"   # 主动轮询口
     passive_port = "COM6"  # 被动监听口（如无第二口，可同指 COM5）
     baudrate = 9600
 

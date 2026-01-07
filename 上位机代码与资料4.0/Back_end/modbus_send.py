@@ -478,7 +478,7 @@ if __name__ == "__main__":
     )
     # 创建测试参数
     parameter = {
-        'PortName_master': 'COM5',
+        'PortName_master': 'COM6',
         'BaudRate_master': 9600,
         'data': ''
     }
