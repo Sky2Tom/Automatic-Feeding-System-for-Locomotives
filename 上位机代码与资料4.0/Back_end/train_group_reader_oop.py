@@ -310,7 +310,9 @@ class Analyzer(QObject):
             elif func_name == "read_level_gauge_sensor":
                 # 料位高度 (float) - 2 个寄存器
                 if len(data) >= 2:
-                    final_dict["material_level"] = self._regs_to_float(data[0], data[1])
+                    val = self._regs_to_float(data[0], data[1])
+                    final_dict["material_level"] = val
+                    print(f"DEBUG: 解析到料位高度 = {val} m")
 
             elif func_name == "read_laser_sensor":
                 # 激光距离 (uint32) - 2 个寄存器
@@ -412,26 +414,49 @@ class GroupQueryScheduler(QObject):
 # G) 被动监听（第二路串口线程）
 # ---------------------------------------------------------------------
 class PassiveListener(QObject):
-    def __init__(self, serial_worker: SerialPortWorker, parser: FrameParser):
+    def __init__(self, serial_worker: SerialPortWorker, parser: FrameParser, analyzer: Analyzer = None):
         super().__init__()
         self.serial_worker = serial_worker
         self.parser = parser
+        self.analyzer = analyzer or Analyzer()
         self.serial_worker.frameReceived.connect(self._on_frame)
 
     def _on_frame(self, frame: bytes):
         hex_str = frame.hex()
-        print("\n=== [被动监听-收到外部帧] ===")
-        print("HEX:", hex_str)
+        # print("\n=== [被动监听-收到外部帧] ===")
+        # print("HEX:", hex_str)
         RxAddr, RxFuncID, RxDataLen, RxData, Mdbs_state, MdbsCNT = self.parser.parse(hex_str)
 
-        # 被动帧也更新“最近一帧”，但不写入 all_data_dict（避免覆盖主动查询结果）
+        # 1. 记录最近一帧原始数据
         DATAS.write_last_frame("passive_rx", RxAddr, RxFuncID, RxDataLen, RxData, Mdbs_state)
 
+        # 2. 如果帧有效，尝试进行业务分析并更新汇总字典
         if Mdbs_state & Frame_OK:
-            print(f"解析结果 - 地址:{RxAddr}, 功能码:{RxFuncID}, 数据长度:{RxDataLen}, 数据:{RxData}")
-        else:
-            print("无效帧，无法解析！！")
-        print("============================\n")
+            # 根据地址和功能码推测这可能属于哪个功能函数，以便前端按 Key 读取
+            possible_func = None
+            if RxAddr == 1:
+                if RxFuncID == 1: possible_func = "read_coils_0_21"
+                elif RxFuncID == 3: 
+                    if RxDataLen == 18: possible_func = "read_holding_registers_16_24"
+                    elif RxDataLen == 30: possible_func = "read_holding_registers_0_14"
+            elif RxAddr == 3 and RxFuncID == 3:
+                possible_func = "read_level_gauge_sensor"
+            elif RxAddr == 4 and RxFuncID == 3:
+                possible_func = "read_laser_sensor"
+
+            if possible_func:
+                parsed_info = {
+                    "RxAddr": RxAddr, "RxFuncID": RxFuncID, "RxDataLen": RxDataLen, 
+                    "RxData": RxData, "Mdbs_state": Mdbs_state, "MdbsCNT": MdbsCNT
+                }
+                final_result = self.analyzer.analyze(possible_func, parsed_info)
+                DATAS.write_func_result(possible_func, final_result)
+                print(f"[被动监听] 已识别并更新功能块: {possible_func}")
+            else:
+                print(f"[被动监听] 收到有效帧但未匹配到功能块 (Addr:{RxAddr}, Func:{RxFuncID}, Len:{RxDataLen})")
+        # else:
+        #    print("被动监听：收到无效帧，跳过解析")
+
 
 
 # ---------------------------------------------------------------------
@@ -484,7 +509,7 @@ class TrainGroupReaderApp(QObject):
         self.scheduler.oneQueryFinished.connect(self.on_one_query_finished)
         self.scheduler.oneRoundFinished.connect(self.on_one_round_finished)
 
-        self.passive_listener = PassiveListener(self.passive_serial, self.parser)
+        self.passive_listener = PassiveListener(self.passive_serial, self.parser, self.analyzer)
 
         # 示例：订阅数据仓库的变化（UI 可以直接连这两个信号）
         DATAS.oneFuncUpdated.connect(self.on_func_data_updated)

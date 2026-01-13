@@ -376,7 +376,7 @@
                                 <div class="data-value" id="val-jgjl">--</div>
                             </div>
                             <div class="data-item">
-                                <div class="data-label">料位高度</div>
+                                <div class="data-label">料位距离</div>
                                 <div class="data-value" id="val-lwgd">--</div>
                             </div>
                             <div class="data-item">
@@ -585,36 +585,49 @@
 
         function updateDashboard(snap) {
             const data = snap.all_data_dict || {};
-            // 这里的映射逻辑应根据您的后端 RxData 索引进行调整
-            if (data.read_coils_0_13) {
-                document.getElementById('val-xtzt').innerText = data.read_coils_0_13.RxData[0] ? "ONLINE" : "OFFLINE";
-                document.getElementById('val-xmjzt').innerText = data.read_coils_0_13.RxData[1] ? "NORMAL" : "FAULT";
+            // console.log("Updating dashboard with snap:", snap);
+            
+            // 1. 系统状态 (来自 read_coils_0_21)
+            if (data.read_coils_0_21) {
+                const coils = data.read_coils_0_21;
+                document.getElementById('val-xtzt').innerText = coils.tractor_status ? "ONLINE" : "OFFLINE";
+                document.getElementById('val-xmjzt').innerText = coils.control_system_status ? "NORMAL" : "FAULT";
             }
+            
             document.getElementById('val-czy').innerText = "Admin";
             document.getElementById('val-lch').innerText = snap.vision_result ? snap.vision_result.train_no : "C64-8802";
 
-            if (data.read_holding_registers_32_39) {
-                const regs = data.read_holding_registers_32_39.RxData;
-                document.getElementById('val-fmkd').innerText = parseInt(regs[0], 16);
-                document.getElementById('val-sjgd').innerText = parseInt(regs[1], 16);
-                document.getElementById('val-fbgd').innerText = parseInt(regs[2], 16);
-                document.getElementById('val-zljd').innerText = (parseInt(regs[3], 16) / 10).toFixed(1) + "%";
-
-                // 映射新增加的参数 (假设从寄存器 4 开始，实际根据协议调整)
-                if (regs.length >= 8) {
-                    // document.getElementById('val-jgjl').innerText = parseInt(regs[4], 16) + " mm";
-                    document.getElementById('val-lwgd').innerText = parseInt(regs[5], 16) + " mm";
-                    document.getElementById('val-dwjl').innerText = parseInt(regs[6], 16) + " mm";
-                    document.getElementById('val-cxsd').innerText = (parseInt(regs[7], 16) / 100).toFixed(2) + " m/s";
+            // 2. 运行数据 (来自 read_holding_registers_16_24)
+            if (data.read_holding_registers_16_24) {
+                const regs = data.read_holding_registers_16_24;
+                document.getElementById('val-fmkd').innerText = (regs.bin_gate_opening_status || 0);
+                document.getElementById('val-sjgd').innerText = (regs.lifting_height_status || 0) + " mm";
+                document.getElementById('val-fbgd').innerText = (regs.lower_flap_angle_status || 0) + " °";
+                
+                // 模拟装料进度 (如果到位且正在装料)
+                if (data.read_coils_0_21 && data.read_coils_0_21.is_full) {
+                    document.getElementById('val-zljd').innerText = "100%";
+                } else {
+                    document.getElementById('val-zljd').innerText = "READY";
                 }
+
+                document.getElementById('val-dwjl').innerText = (regs.positioning_distance || 0) + " mm";
+                document.getElementById('val-cxsd').innerText = (regs.train_speed || 0).toFixed(2) + " m/s";
             }
 
-            // 更新激光传感器数据 (来自 read_laser_sensor)
+            // 3. 测量参数 - 激光距离 (来自 read_laser_sensor)
             if (data.read_laser_sensor && data.read_laser_sensor.laser_decimal !== undefined) {
                 document.getElementById('val-jgjl').innerText = data.read_laser_sensor.laser_decimal + " mm";
             }
 
-            // 更新视觉识别详情
+            // 4. 测量参数 - 料位距离 (来自 read_level_gauge_sensor)
+            if (data.read_level_gauge_sensor && data.read_level_gauge_sensor.material_level !== undefined) {
+                const val = data.read_level_gauge_sensor.material_level;
+                document.getElementById('val-lwgd').innerText = typeof val === 'number' ? val.toFixed(2) + " m" : val + " m";
+                // console.log("Updated material_level:", val);
+            }
+
+            // 5. 更新视觉识别详情
             if (snap.vision_result) {
                 const vr = snap.vision_result;
                 document.getElementById('vision-train-no').innerText = vr.train_no;

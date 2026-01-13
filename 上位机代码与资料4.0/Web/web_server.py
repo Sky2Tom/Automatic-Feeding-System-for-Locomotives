@@ -134,11 +134,29 @@ def get_snapshot():
             
             # 2. 调试打印：在服务器控制台输出当前真实数据内容，方便排查
             real_data = snap.get("all_data_dict", {})
+            
+            # 打印最近收到的任何帧（用于排查被动接收）
+            last_func = snap.get("function_name", "None")
+            last_addr = snap.get("RxAddr", 0)
+            last_data = snap.get("RxData", [])
+            print(f"--- [API Debug] 最近一帧来自: {last_func}, 地址: {last_addr}, 数据长度: {len(last_data)} ---")
+            
+            # 打印激光数据
             if "read_laser_sensor" in real_data:
                 laser_val = real_data["read_laser_sensor"].get("laser_decimal")
                 print(f"--- 接口正在推送真实激光数据: {laser_val} mm ---")
-            else:
-                print("--- 警告：后端尚未存入 read_laser_sensor 数据 ---")
+            elif "passive_rx" == last_func and last_addr == 4:
+                print(f"--- 警告：收到地址 4 (激光传感器) 的被动帧，但尚未进入解析逻辑 ---")
+            
+            # 打印料位计数据
+            if "read_level_gauge_sensor" in real_data:
+                level_val = real_data["read_level_gauge_sensor"].get("material_level")
+                print(f"--- 接口正在推送真实料位计数据: {level_val} m ---")
+            elif "passive_rx" == last_func and last_addr == 3:
+                print(f"--- 警告：收到地址 3 (料位计) 的被动帧，但尚未进入解析逻辑 ---")
+            
+            if not real_data:
+                print("--- 警告：后端尚未存入任何汇总解析数据 (all_data_dict 为空) ---")
             
             # 3. 即使数据暂时为空，也直接返回 snap，不再使用 get_mock_snapshot 覆盖
             # 这样如果没数据，界面会显示 "--"，而不是显示误导性的假数据
@@ -156,10 +174,21 @@ def get_mock_snapshot():
     return {
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "all_data_dict": {
-            "read_coils_0_13": {"RxData": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
-            "read_holding_registers_32_39": {"RxData": ["001C", "002B", "000F", "03E8", "0000", "0000", "0000", "0000"]},
+            "read_coils_0_21": {
+                "loading_type": 1, "is_in_place": 1, "tractor_status": 1, 
+                "is_overspeed": 0, "is_alarm": 0, "is_full": 0, "bin_gate_status": 1
+            },
+            "read_holding_registers_16_24": {
+                "train_speed": 0.25,
+                "positioning_distance": 1200,
+                "bin_gate_opening_status": 45,
+                "lifting_height_status": 1500,
+                "lower_flap_angle_status": 30
+            },
+            "read_level_gauge_sensor": {
+                "material_level": 4.25
+            },
             "read_laser_sensor": {
-                "RxData": ["0x0000", "0x60d4"],
                 "laser_decimal": 24788
             }
         },
