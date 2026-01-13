@@ -14,7 +14,7 @@ OOP 版“集群读取”脚本，保留原逻辑与节奏，新增：
 作者：你
 """
 
-import sys, time, threading
+import sys, time, threading, struct
 from PyQt5.QtCore import QObject, pyqtSignal, QTimer, QThread
 from PyQt5.QtWidgets import QApplication
 
@@ -124,6 +124,7 @@ class SerialPortWorker(QObject):
         super().__init__()
         self._port_name = port_name
         self._baudrate = baudrate
+        self._is_opened = False  # 新增：状态跟踪
         self.serial_obj = Serial_Qthread_function()
         self.thread = SerialThread(self.serial_obj)
         self.serial_obj.moveToThread(self.thread)
@@ -139,18 +140,24 @@ class SerialPortWorker(QObject):
             pass
 
     def start(self):
-        self.thread.start()
-        open_param = {'PortName_master': self._port_name, 'BaudRate_master': self._baudrate}
-        self.serial_obj.signal_pushButton_Open.emit(open_param)
+        if not self._is_opened:
+            self.thread.start()
+            open_param = {'PortName_master': self._port_name, 'BaudRate_master': self._baudrate}
+            self.serial_obj.signal_pushButton_Open.emit(open_param)
+            self._is_opened = True
+            print(f"--- 串口 {self._port_name} 已启动并占用 ---")
 
     def stop(self):
-        open_param = {'PortName_master': self._port_name, 'BaudRate_master': self._baudrate}
-        self.serial_obj.signal_pushButton_Open.emit(open_param)  # 触发关闭
+        if self._is_opened:
+            open_param = {'PortName_master': self._port_name, 'BaudRate_master': self._baudrate}
+            self.serial_obj.signal_pushButton_Open.emit(open_param)  # 触发关闭
+            self._is_opened = False
         self.thread.quit()
         self.thread.wait()
 
     def send_bytes(self, data: bytes):
-        self.serial_obj.signal_SendData.emit({'data': data})
+        if self._is_opened:
+            self.serial_obj.signal_SendData.emit({'data': data})
 
 
 # ---------------------------------------------------------------------
@@ -207,10 +214,31 @@ class FrameParser(QObject):
 # 默认直通；如果你已有具体的“分析/解包成业务含义”的函数，可在这里替换。
 # ---------------------------------------------------------------------
 class Analyzer(QObject):
+    def _regs_to_float(self, reg_high, reg_low):
+        """将两个 16 位寄存器（十六进制字符串或整数）转换为 IEEE 754 浮点数"""
+        try:
+            h = int(reg_high, 16) if isinstance(reg_high, str) else reg_high
+            l = int(reg_low, 16) if isinstance(reg_low, str) else reg_low
+            # 组合成 32 位二进制数据 (大端模式)
+            combined = (h << 16) | l
+            # 使用 struct 将 32 位整数转换为浮点数
+            return round(struct.unpack('>f', struct.pack('>I', combined))[0], 3)
+        except Exception:
+            return 0.0
+
+    def _regs_to_uint32(self, reg_high, reg_low):
+        """将两个 16 位寄存器转换为 32 位无符号整数"""
+        try:
+            h = int(reg_high, 16) if isinstance(reg_high, str) else reg_high
+            l = int(reg_low, 16) if isinstance(reg_low, str) else reg_low
+            return (h << 16) | l
+        except Exception:
+            return 0
+
     def analyze(self, func_name: str, parsed: dict) -> dict:
         """
         输入：解析后的 dict
-        输出：可直接给 UI 展示的 dict
+        输出：可直接给 UI 展示的 dict，包含根据业务含义重命名的字段
         """
         # 1. 创建副本并处理不可 JSON 序列化的对象 (ModBusCounters)
         final_dict = {}
@@ -226,19 +254,73 @@ class Analyzer(QObject):
             else:
                 final_dict[k] = v
         
-        # 2. 针对激光传感器的特殊解析逻辑
-        if func_name == "read_laser_sensor" and final_dict.get('RxData'):
-            try:
-                # 检查 RxData 是否为列表且长度足够（例如 ["0x0000", "0x60d4"]）
-                if len(final_dict['RxData']) >= 2:
-                    # 将两个 16 位寄存器组合成一个 32 位整数
-                    high_val = int(final_dict['RxData'][0], 16)
-                    low_val = int(final_dict['RxData'][1], 16)
-                    total_val = (high_val << 16) | low_val
+        data = final_dict.get('RxData', [])
+        if not data:
+            return final_dict
+
+        # 2. 根据不同的查询函数名进行详细解析
+        try:
+            if func_name == "read_coils_0_21":
+                # 22 个线圈状态位
+                mapping = [
+                    "loading_type", "is_in_place", "tractor_status", "is_overspeed",
+                    "is_alarm", "is_feeding_interrupted", "is_full", "bin_gate_status",
+                    "lifting_device_status", "lower_flap_gate_status", "hydraulic_system_status",
+                    "control_system_status", "bin_gate_control", "lifting_device_control",
+                    "lower_flap_gate_control", "hydraulic_system_control", "control_system_control",
+                    "bin_gate_fault", "lifting_device_fault", "lower_flap_gate_fault",
+                    "hydraulic_system_fault", "control_system_fault"
+                ]
+                for i, name in enumerate(mapping):
+                    if i < len(data):
+                        final_dict[name] = data[i]
+
+            elif func_name == "read_holding_registers_0_14":
+                # 15 个保持寄存器
+                if len(data) >= 15:
+                    final_dict["train_model"] = int(data[0], 16)
+                    final_dict["ext_length"] = int(data[1], 16)
+                    final_dict["ext_width"] = int(data[2], 16)
+                    final_dict["ext_height"] = int(data[3], 16)
+                    final_dict["int_length"] = int(data[4], 16)
+                    final_dict["int_width"] = int(data[5], 16)
+                    final_dict["int_height"] = int(data[6], 16)
+                    final_dict["loading_weight"] = int(data[7], 16)
+                    final_dict["total_length"] = int(data[8], 16)
+                    final_dict["floor_height"] = int(data[9], 16)
+                    final_dict["coupler_model"] = int(data[10], 16)
+                    # 容积 (float) - 寄存器 11, 12
+                    final_dict["volume"] = self._regs_to_float(data[11], data[12])
+                    # 焦炭密度 (float) - 寄存器 13, 14
+                    final_dict["coke_density"] = self._regs_to_float(data[13], data[14])
+
+            elif func_name == "read_holding_registers_16_24":
+                # 9 个保持寄存器 (从 16 开始)
+                if len(data) >= 9:
+                    # 火车速度 (float) - 寄存器 16, 17
+                    final_dict["train_speed"] = self._regs_to_float(data[0], data[1])
+                    final_dict["positioning_distance"] = int(data[2], 16)
+                    final_dict["bin_gate_opening_status"] = int(data[3], 16)
+                    final_dict["lifting_height_status"] = int(data[4], 16)
+                    final_dict["lower_flap_angle_status"] = int(data[5], 16)
+                    final_dict["bin_gate_opening_control"] = int(data[6], 16)
+                    final_dict["lifting_height_control"] = int(data[7], 16)
+                    final_dict["lower_flap_angle_control"] = int(data[8], 16)
+
+            elif func_name == "read_level_gauge_sensor":
+                # 料位高度 (float) - 2 个寄存器
+                if len(data) >= 2:
+                    final_dict["material_level"] = self._regs_to_float(data[0], data[1])
+
+            elif func_name == "read_laser_sensor":
+                # 激光距离 (uint32) - 2 个寄存器
+                if len(data) >= 2:
+                    total_val = self._regs_to_uint32(data[0], data[1])
                     final_dict['laser_decimal'] = total_val
                     print(f"DEBUG: 解析到激光距离 = {total_val}")
-            except Exception as e:
-                print(f"ERROR: 解析激光数据失败: {e}, 原始数据: {final_dict.get('RxData')}")
+
+        except Exception as e:
+            print(f"ERROR: 解析 {func_name} 业务数据失败: {e}")
                 
         return final_dict
 
@@ -355,16 +437,15 @@ class PassiveListener(QObject):
 # ---------------------------------------------------------------------
 # H) 查询函数集合（保持你原本的“区间批量读”逻辑 & 参数）
 # ---------------------------------------------------------------------
-def read_coils_0_13():              return (1, 1, 0, 14)
-def read_coils_16_24():             return (1, 1, 16, 10)
-def read_coils_27_31():             return (1, 1, 27, 5)
-def read_holding_registers_0_13():  return (1, 3, 0, 13)
+# 读取 plc 中 0-21号线圈的值（依次为：装料类型unit16、是否到位unit16、牵引车状态unit16、超速与否unit16、告警与否unit16、下料中断与否unit16、装料是否装满unit16、仓口阀门状态位unit16、升降装置状态位unit16、下部翻板阀门状态位unit16、液压系统状态位unit16、控制系统状态位unit16、仓口阀门控制位unit16、升降装置控制位unit16、下部翻板阀门控制位unit16、液压系统控制位unit16、控制系统控制位unit16、仓口阀门是否故障unit16、升降装置是否故障unit16、下部翻板阀门是否故障unit16、液压系统是否故障unit16、控制系统是否故障unit16）
+def read_coils_0_21():              return (1, 1, 0, 22)
+# 读取 plc 中 0-14号保持寄存器的值（依次为：火车型号unit16、外部长度unit16、外部宽度unit16、外部高度unit16、内部长度unit16、内部宽度unit16、内部高度unit16、装车重量unit16、全长unit16、底板面高unit16、车钩型号unit16、容积-高位float、容积-低位float、焦炭密度-高位float、焦炭密度-低位float）
+def read_holding_registers_0_14(): return (1, 3, 0, 15)
+# 读取 plc 中 16-24号保持寄存器的值（依次为：火车速度-高位float、火车速度-低位float、定位距离unit16、仓口阀门开度状态位unit16、升降高度状态位unit16、下部翻板角度状态位unit16、仓口阀门开度控制位unit16、升降高度控制位unit16、下部翻板角度控制位unit16）
 def read_holding_registers_16_24(): return (1, 3, 16, 9)
-def read_holding_registers_32_39(): return (3, 3, 4096, 12)
-# def read_holding_registers_2(): return (3, 3, 4096, 12)
-def read_holding_registers_3(): return (3, 3, 4352, 9)
-
-# 新增激光传感器查询函数 (从站 4, 功能码 3, 地址 21, 数量 2)
+# 读取料位计数据，float类型（依次为：料位高度-高位float、料位高度-低位float）
+def read_level_gauge_sensor(): return (3, 3, 4098, 2)
+# 新增激光传感器查询函数 (从站 4, 功能码 3, 地址 21, 数量 2)，激光距离，数据类型unit32
 def read_laser_sensor(): return (4, 3, 21, 2)
 
 
@@ -374,15 +455,25 @@ def read_laser_sensor(): return (4, 3, 21, 2)
 class TrainGroupReaderApp(QObject):
     def __init__(self, active_port: str, passive_port: str, baudrate: int = 9600):
         super().__init__()
+        # 1. 优化：如果端口相同，则共用同一个串口对象，避免多次打开报错
         self.active_serial = SerialPortWorker(active_port, baudrate)
-        self.passive_serial = SerialPortWorker(passive_port, baudrate)
+        
+        if active_port == passive_port:
+            self.passive_serial = self.active_serial
+            print(f"主动与被动端口相同({active_port})，将共用串口实例。")
+        else:
+            self.passive_serial = SerialPortWorker(passive_port, baudrate)
 
         self.client = ModbusClient(self.active_serial)
         self.parser = FrameParser()
         self.analyzer = Analyzer()
 
-        # 仅保留激光传感器查询，确保每秒发送一次请求
+        # 轮回查询，确保每秒发送一次请求（五帧）
         functions = [
+            read_coils_0_21,
+            read_holding_registers_0_14,
+            read_holding_registers_16_24,
+            read_level_gauge_sensor,
             read_laser_sensor,
         ]
 
@@ -401,12 +492,14 @@ class TrainGroupReaderApp(QObject):
 
     def start(self):
         self.active_serial.start()
-        self.passive_serial.start()
+        if self.passive_serial != self.active_serial:
+            self.passive_serial.start()
         self.scheduler.start()
 
     def stop(self):
         self.active_serial.stop()
-        self.passive_serial.stop()
+        if self.passive_serial != self.active_serial:
+            self.passive_serial.stop()
 
     # —— 调度器回调 —— #
     def on_one_query_finished(self, func_name: str, result: dict):

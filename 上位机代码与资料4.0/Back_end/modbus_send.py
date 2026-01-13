@@ -472,8 +472,8 @@ if __name__ == "__main__":
         register_value=76  # 示例值
     )"""
     data = sender.read_holding_registers(
-        slave_addr=4,
-        start_addr=21,
+        slave_addr=3,
+        start_addr=4098,
         quantity=2
     )
     # 创建测试参数

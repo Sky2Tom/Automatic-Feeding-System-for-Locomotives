@@ -54,7 +54,7 @@ log.addHandler(logging.FileHandler('web_error.log'))
 # ====== 全局配置 ======
 START_BACKEND = True
 ACTIVE_PORT   = "COM6"
-PASSIVE_PORT  = "COM2"
+PASSIVE_PORT  = "COM6"
 BAUDRATE      = 9600
 
 # 数据库配置
