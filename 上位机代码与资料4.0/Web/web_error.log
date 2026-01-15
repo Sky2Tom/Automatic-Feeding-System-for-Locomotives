@@ -61257,3 +61257,1277 @@
 2026-01-13 17:50:22,518 INFO: --- ½Ó¿ÚÕýÔÚÍÆËÍÕæÊµÁÏÎ»¼ÆÊý¾Ý: 2.09 m ---
 127.0.0.1 - - [13/Jan/2026 17:50:22] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
 2026-01-13 17:50:22,518 INFO: 127.0.0.1 - - [13/Jan/2026 17:50:22] "[37mGET /api/snapshot HTTP/1.1[0m" 200 -
+2026-01-15 16:06:02,623 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:06:02,623 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:06:02,662 INFO: Backend modules loaded successfully
+2026-01-15 16:06:02,737 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:06:02,737 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀý¡£
+2026-01-15 16:06:02,737 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:06:02,737 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:06:02,737 INFO: [GroupQuery] Ö´ÐÐµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:06:02,739 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:06:02,739 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:06:02,739 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:06:02,739 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:06:02,739 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:06:02,739 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:06:03,671 INFO: Initializing DB Manager...
+2026-01-15 16:06:03,672 INFO: DB Manager ready
+2026-01-15 16:06:03,790 INFO: Starting Flask app...
+2026-01-15 16:06:03,790 INFO: ========================================
+2026-01-15 16:06:03,790 INFO: »ð³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍÐ÷
+2026-01-15 16:06:03,790 INFO: ÇëÔÚä¯ÀÀÆ÷ÖÐ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:06:03,790 INFO: ========================================
+2026-01-15 16:06:03,791 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:06:03,791 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:06:03,807 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:06:03,807 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:06:04,737 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-15 16:06:04,737 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:06:04,737 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕýÔÚÂÖÑ¯¼¤¹âÊý¾Ý...
+2026-01-15 16:06:04,937 INFO: [GroupQuery] Ö´ÐÐµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:06:04,937 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:06:06,942 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-15 16:06:06,942 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:06:07,146 INFO: [GroupQuery] Ö´ÐÐµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:06:07,146 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+127.0.0.1 - - [15/Jan/2026 16:06:08] "GET / HTTP/1.1" 200 -
+2026-01-15 16:06:08,559 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:08] "GET / HTTP/1.1" 200 -
+2026-01-15 16:06:09,142 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-15 16:06:09,142 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:06:09,347 INFO: [GroupQuery] Ö´ÐÐµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:06:09,347 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+127.0.0.1 - - [15/Jan/2026 16:06:09] "POST /api/login HTTP/1.1" 200 -
+2026-01-15 16:06:09,935 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:09] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:06:10] "GET /video_feed HTTP/1.1" 200 -
+2026-01-15 16:06:10,010 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:10] "GET /video_feed HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:06:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-15 16:06:10,052 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-15 16:06:10,951 INFO: --- [API Debug] ×î½üÒ»Ö¡À´×Ô: , µØÖ·: 0, Êý¾Ý³¤¶È: 0 ---
+2026-01-15 16:06:10,951 INFO: --- ¾¯¸æ£ººó¶ËÉÐÎ´´æÈëÈÎºÎ»ã×Ü½âÎöÊý¾Ý (all_data_dict Îª¿Õ) ---
+127.0.0.1 - - [15/Jan/2026 16:06:10] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:10,951 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:10] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:11,351 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-15 16:06:11,351 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:06:11,553 INFO: [GroupQuery] Ö´ÐÐµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:06:11,553 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:06:11,943 INFO: --- [API Debug] ×î½üÒ»Ö¡À´×Ô: , µØÖ·: 0, Êý¾Ý³¤¶È: 0 ---
+2026-01-15 16:06:11,943 INFO: --- ¾¯¸æ£ººó¶ËÉÐÎ´´æÈëÈÎºÎ»ã×Ü½âÎöÊý¾Ý (all_data_dict Îª¿Õ) ---
+127.0.0.1 - - [15/Jan/2026 16:06:11] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:11,944 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:11] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:12,946 INFO: --- [API Debug] ×î½üÒ»Ö¡À´×Ô: , µØÖ·: 0, Êý¾Ý³¤¶È: 0 ---
+2026-01-15 16:06:12,946 INFO: --- ¾¯¸æ£ººó¶ËÉÐÎ´´æÈëÈÎºÎ»ã×Ü½âÎöÊý¾Ý (all_data_dict Îª¿Õ) ---
+127.0.0.1 - - [15/Jan/2026 16:06:12] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:12,946 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:12] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:13,547 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-15 16:06:13,547 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:06:13,762 INFO: ËùÓÐ²éÑ¯Ö´ÐÐÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ý 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:06:13,762 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:06:13,940 INFO: --- [API Debug] ×î½üÒ»Ö¡À´×Ô: , µØÖ·: 0, Êý¾Ý³¤¶È: 0 ---
+2026-01-15 16:06:13,940 INFO: --- ¾¯¸æ£ººó¶ËÉÐÎ´´æÈëÈÎºÎ»ã×Ü½âÎöÊý¾Ý (all_data_dict Îª¿Õ) ---
+127.0.0.1 - - [15/Jan/2026 16:06:13] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:13,940 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:13] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:14,754 INFO: [GroupQuery] Ö´ÐÐµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:06:14,754 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:06:14,946 INFO: --- [API Debug] ×î½üÒ»Ö¡À´×Ô: , µØÖ·: 0, Êý¾Ý³¤¶È: 0 ---
+2026-01-15 16:06:14,947 INFO: --- ¾¯¸æ£ººó¶ËÉÐÎ´´æÈëÈÎºÎ»ã×Ü½âÎöÊý¾Ý (all_data_dict Îª¿Õ) ---
+127.0.0.1 - - [15/Jan/2026 16:06:14] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:14,947 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:14] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:06:15] "GET /api/train_models HTTP/1.1" 200 -
+2026-01-15 16:06:15,854 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:15] "GET /api/train_models HTTP/1.1" 200 -
+2026-01-15 16:06:15,943 INFO: --- [API Debug] ×î½üÒ»Ö¡À´×Ô: , µØÖ·: 0, Êý¾Ý³¤¶È: 0 ---
+2026-01-15 16:06:15,943 INFO: --- ¾¯¸æ£ººó¶ËÉÐÎ´´æÈëÈÎºÎ»ã×Ü½âÎöÊý¾Ý (all_data_dict Îª¿Õ) ---
+127.0.0.1 - - [15/Jan/2026 16:06:15] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:15,943 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:15] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:16,755 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-15 16:06:16,755 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:06:16,940 INFO: --- [API Debug] ×î½üÒ»Ö¡À´×Ô: , µØÖ·: 0, Êý¾Ý³¤¶È: 0 ---
+2026-01-15 16:06:16,940 INFO: --- ¾¯¸æ£ººó¶ËÉÐÎ´´æÈëÈÎºÎ»ã×Ü½âÎöÊý¾Ý (all_data_dict Îª¿Õ) ---
+127.0.0.1 - - [15/Jan/2026 16:06:16] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:16,940 INFO: 127.0.0.1 - - [15/Jan/2026 16:06:16] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:06:16,957 INFO: [GroupQuery] Ö´ÐÐµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:06:16,958 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:10:29,349 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:10:29,349 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:10:29,383 INFO: Backend modules loaded successfully
+2026-01-15 16:10:29,404 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:10:29,404 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀý¡£
+2026-01-15 16:10:29,405 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:10:29,405 INFO: [GroupQuery] Ö´ÐÐµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:10:29,405 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:10:29,405 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:10:29,406 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:10:29,406 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:10:29,406 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:10:29,406 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:10:29,406 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:10:30,393 INFO: Initializing DB Manager...
+2026-01-15 16:10:30,393 INFO: DB Manager ready
+2026-01-15 16:10:30,393 INFO: Initializing PaddleOCR...
+2026-01-15 16:10:30,393 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:132: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:10:31,392 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-15 16:10:31,392 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:10:31,392 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕýÔÚÂÖÑ¯¼¤¹âÊý¾Ý...
+2026-01-15 16:10:31,552 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+2026-01-15 16:10:31,603 INFO: [GroupQuery] Ö´ÐÐµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:10:31,604 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:10:32,236 ERROR: --- Logging error ---
+2026-01-15 16:10:32,237 ERROR: Traceback (most recent call last):
+2026-01-15 16:10:32,237 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:10:32,237 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:10:32,237 ERROR: Call stack:
+2026-01-15 16:10:32,242 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:10:32,242 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:10:32,242 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:10:32,242 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:10:32,243 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:10:32,243 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:10:32,243 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:10:32,243 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:10:32,243 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 117, in __init__
+    self.text_det_model = self.create_model(
+2026-01-15 16:10:32,243 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 98, in create_model
+    logging.info("Creating model: %s", (config["model_name"], model_dir))
+2026-01-15 16:10:32,243 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:10:32,243 ERROR: Message: 'Creating model: %s'
+Arguments: (('PP-OCRv5_server_det', None),)
+2026-01-15 16:10:32,243 ERROR: --- Logging error ---
+2026-01-15 16:10:32,243 ERROR: Traceback (most recent call last):
+2026-01-15 16:10:32,243 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:10:32,243 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:10:32,243 ERROR: Call stack:
+2026-01-15 16:10:32,245 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 117, in __init__
+    self.text_det_model = self.create_model(
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 106, in create_model
+    model = create_predictor(
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\models\__init__.py", line 73, in create_predictor
+    model_dir = official_models[model_name]
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 633, in __getitem__
+    return self._get_model_local_path(model_name)
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 591, in _get_model_local_path
+    logging.info(
+2026-01-15 16:10:32,245 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:10:32,245 ERROR: Message: 'Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\\Users\\admin\\.paddlex\\official_models\\PP-OCRv5_server_det`.'
+Arguments: ()
+2026-01-15 16:10:33,294 ERROR: --- Logging error ---
+2026-01-15 16:10:33,294 ERROR: Traceback (most recent call last):
+2026-01-15 16:10:33,294 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:10:33,294 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:10:33,294 ERROR: Call stack:
+2026-01-15 16:10:33,295 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:10:33,295 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 135, in __init__
+    self.text_rec_model = self.create_model(
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 98, in create_model
+    logging.info("Creating model: %s", (config["model_name"], model_dir))
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:10:33,296 ERROR: Message: 'Creating model: %s'
+Arguments: (('en_PP-OCRv5_mobile_rec', None),)
+2026-01-15 16:10:33,296 ERROR: --- Logging error ---
+2026-01-15 16:10:33,296 ERROR: Traceback (most recent call last):
+2026-01-15 16:10:33,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:10:33,296 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:10:33,297 ERROR: Call stack:
+2026-01-15 16:10:33,298 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:10:33,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:10:33,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:10:33,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 135, in __init__
+    self.text_rec_model = self.create_model(
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 106, in create_model
+    model = create_predictor(
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\models\__init__.py", line 73, in create_predictor
+    model_dir = official_models[model_name]
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 633, in __getitem__
+    return self._get_model_local_path(model_name)
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 591, in _get_model_local_path
+    logging.info(
+2026-01-15 16:10:33,299 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:10:33,299 ERROR: Message: 'Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\\Users\\admin\\.paddlex\\official_models\\en_PP-OCRv5_mobile_rec`.'
+Arguments: ()
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:10:34,289 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:10:34,289 INFO: [33mPress CTRL+C to quit[0m
+127.0.0.1 - - [15/Jan/2026 16:10:34] "GET / HTTP/1.1" 200 -
+2026-01-15 16:10:34,476 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:34] "GET /video_feed HTTP/1.1" 200 -
+2026-01-15 16:10:34,829 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:34] "GET /video_feed HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-15 16:10:34,843 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-15 16:10:35,275 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:174: DeprecationWarning: Please use `predict` instead.
+  result = ocr_instance.ocr(rgb_frame)
+127.0.0.1 - - [15/Jan/2026 16:10:35] "POST /api/login HTTP/1.1" 200 -
+2026-01-15 16:10:35,299 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:35] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:36] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:36,306 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:36] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:37] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:37,308 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:37] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:38] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:38,303 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:38] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:39] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:39,311 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:39] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:40] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:40,310 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:40] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:41] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:41,306 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:41] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:42] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:42,307 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:42] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:43] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:43,304 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:43] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:44] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:44,305 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:44] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:45] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:45,306 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:45] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:46] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:46,305 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:46] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:47] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:47,307 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:47] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:48] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:48,303 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:48] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:49] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:49,304 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:49] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:50] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:50,305 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:50] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:51] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:51,303 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:51] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:52] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:52,307 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:52] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:53] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:53,305 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:53] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:54] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:54,305 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:54] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:55] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:55,305 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:55] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:56] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:56,303 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:56] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:57] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:57,304 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:57] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:58,095 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:10:58] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:58,303 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:58] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:10:59] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:10:59,321 INFO: 127.0.0.1 - - [15/Jan/2026 16:10:59] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:00] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:00,307 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:00] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:01] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:01,306 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:01] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:02] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:02,305 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:02] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:03] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:03,305 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:03] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:04] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:04,307 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:04] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:05] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:05,305 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:05] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:06] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:06,303 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:06] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:30,338 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:11:30,338 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:11:30,375 INFO: Backend modules loaded successfully
+2026-01-15 16:11:30,397 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:11:30,397 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀý¡£
+2026-01-15 16:11:30,399 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:11:30,399 INFO: [GroupQuery] Ö´ÐÐµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:11:30,399 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:11:30,400 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:11:30,400 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:11:30,400 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:11:30,400 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:11:30,400 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:11:30,400 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:11:31,380 INFO: Initializing DB Manager...
+2026-01-15 16:11:31,380 INFO: DB Manager ready
+2026-01-15 16:11:31,380 INFO: Initializing PaddleOCR...
+2026-01-15 16:11:31,380 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:132: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:11:32,391 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-15 16:11:32,391 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:11:32,391 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕýÔÚÂÖÑ¯¼¤¹âÊý¾Ý...
+2026-01-15 16:11:32,515 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+2026-01-15 16:11:32,598 INFO: [GroupQuery] Ö´ÐÐµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:11:32,599 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:11:33,218 ERROR: --- Logging error ---
+2026-01-15 16:11:33,219 ERROR: Traceback (most recent call last):
+2026-01-15 16:11:33,219 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:11:33,219 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:11:33,219 ERROR: Call stack:
+2026-01-15 16:11:33,221 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 117, in __init__
+    self.text_det_model = self.create_model(
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 98, in create_model
+    logging.info("Creating model: %s", (config["model_name"], model_dir))
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:11:33,221 ERROR: Message: 'Creating model: %s'
+Arguments: (('PP-OCRv5_server_det', None),)
+2026-01-15 16:11:33,221 ERROR: --- Logging error ---
+2026-01-15 16:11:33,221 ERROR: Traceback (most recent call last):
+2026-01-15 16:11:33,221 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:11:33,221 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:11:33,221 ERROR: Call stack:
+2026-01-15 16:11:33,223 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 117, in __init__
+    self.text_det_model = self.create_model(
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 106, in create_model
+    model = create_predictor(
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\models\__init__.py", line 73, in create_predictor
+    model_dir = official_models[model_name]
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 633, in __getitem__
+    return self._get_model_local_path(model_name)
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 591, in _get_model_local_path
+    logging.info(
+2026-01-15 16:11:33,223 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:11:33,223 ERROR: Message: 'Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\\Users\\admin\\.paddlex\\official_models\\PP-OCRv5_server_det`.'
+Arguments: ()
+2026-01-15 16:11:34,294 ERROR: --- Logging error ---
+2026-01-15 16:11:34,294 ERROR: Traceback (most recent call last):
+2026-01-15 16:11:34,294 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:11:34,294 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:11:34,294 ERROR: Call stack:
+2026-01-15 16:11:34,295 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 135, in __init__
+    self.text_rec_model = self.create_model(
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 98, in create_model
+    logging.info("Creating model: %s", (config["model_name"], model_dir))
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:11:34,296 ERROR: Message: 'Creating model: %s'
+Arguments: (('en_PP-OCRv5_mobile_rec', None),)
+2026-01-15 16:11:34,296 ERROR: --- Logging error ---
+2026-01-15 16:11:34,296 ERROR: Traceback (most recent call last):
+2026-01-15 16:11:34,296 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:11:34,297 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:11:34,297 ERROR: Call stack:
+2026-01-15 16:11:34,298 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 135, in __init__
+    self.text_rec_model = self.create_model(
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 106, in create_model
+    model = create_predictor(
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\models\__init__.py", line 73, in create_predictor
+    model_dir = official_models[model_name]
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 633, in __getitem__
+    return self._get_model_local_path(model_name)
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 591, in _get_model_local_path
+    logging.info(
+2026-01-15 16:11:34,298 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:11:34,298 ERROR: Message: 'Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\\Users\\admin\\.paddlex\\official_models\\en_PP-OCRv5_mobile_rec`.'
+Arguments: ()
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:11:35,320 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:11:35,320 INFO: [33mPress CTRL+C to quit[0m
+127.0.0.1 - - [15/Jan/2026 16:11:35] "GET / HTTP/1.1" 200 -
+2026-01-15 16:11:35,428 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:35] "GET /video_feed HTTP/1.1" 200 -
+2026-01-15 16:11:35,875 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:35] "GET /video_feed HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-15 16:11:35,901 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-15 16:11:36,319 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:174: DeprecationWarning: Please use `predict` instead.
+  result = ocr_instance.ocr(rgb_frame)
+127.0.0.1 - - [15/Jan/2026 16:11:38] "POST /api/login HTTP/1.1" 200 -
+2026-01-15 16:11:38,210 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:38] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:39] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:39,218 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:39] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:40] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:40,216 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:40] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:41] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:41,215 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:41] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:42] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:42,226 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:42] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:43] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:43,222 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:43] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:44] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:44,216 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:44] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:45] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:45,215 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:45] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:46] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:46,216 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:46] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:47] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:47,219 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:47] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:48] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:48,217 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:48] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:49] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:49,216 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:49] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:50] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:50,217 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:50] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:51] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:51,218 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:51] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:52] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:52,216 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:52] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:53] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:53,216 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:53] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:54] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:54,215 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:54] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:54,834 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:11:55] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:55,217 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:55] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:56] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:56,229 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:56] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:57] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:57,215 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:57] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:58] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:58,225 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:58] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:11:59] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:11:59,217 INFO: 127.0.0.1 - - [15/Jan/2026 16:11:59] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:00] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:00,217 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:00] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:01] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:01,217 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:01] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:02] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:02,227 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:02] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:15,878 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:12:15,878 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:12:15,926 INFO: Backend modules loaded successfully
+2026-01-15 16:12:15,955 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:12:15,955 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀý¡£
+2026-01-15 16:12:15,955 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:12:15,955 INFO: [GroupQuery] Ö´ÐÐµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:12:15,956 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:12:15,957 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:12:15,958 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:12:15,958 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:12:15,958 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:12:15,958 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:12:15,958 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:12:16,941 INFO: Initializing DB Manager...
+2026-01-15 16:12:16,941 INFO: DB Manager ready
+2026-01-15 16:12:16,941 INFO: Initializing PaddleOCR...
+2026-01-15 16:12:16,941 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:132: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:12:17,958 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-15 16:12:17,958 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:12:17,958 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕýÔÚÂÖÑ¯¼¤¹âÊý¾Ý...
+2026-01-15 16:12:18,158 INFO: [GroupQuery] Ö´ÐÐµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:12:18,159 INFO: ³¢ÊÔ·¢ËÍÊý¾Ýµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:12:18,223 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+2026-01-15 16:12:19,069 ERROR: --- Logging error ---
+2026-01-15 16:12:19,069 ERROR: Traceback (most recent call last):
+2026-01-15 16:12:19,070 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:12:19,070 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:12:19,070 ERROR: Call stack:
+2026-01-15 16:12:19,072 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 117, in __init__
+    self.text_det_model = self.create_model(
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 98, in create_model
+    logging.info("Creating model: %s", (config["model_name"], model_dir))
+2026-01-15 16:12:19,072 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:12:19,072 ERROR: Message: 'Creating model: %s'
+Arguments: (('PP-OCRv5_server_det', None),)
+2026-01-15 16:12:19,073 ERROR: --- Logging error ---
+2026-01-15 16:12:19,073 ERROR: Traceback (most recent call last):
+2026-01-15 16:12:19,073 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:12:19,073 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:12:19,073 ERROR: Call stack:
+2026-01-15 16:12:19,075 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:12:19,075 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:12:19,075 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:12:19,075 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:12:19,075 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:12:19,075 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:12:19,075 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:12:19,075 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:12:19,076 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 117, in __init__
+    self.text_det_model = self.create_model(
+2026-01-15 16:12:19,076 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 106, in create_model
+    model = create_predictor(
+2026-01-15 16:12:19,076 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\models\__init__.py", line 73, in create_predictor
+    model_dir = official_models[model_name]
+2026-01-15 16:12:19,076 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 633, in __getitem__
+    return self._get_model_local_path(model_name)
+2026-01-15 16:12:19,076 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 591, in _get_model_local_path
+    logging.info(
+2026-01-15 16:12:19,076 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:12:19,076 ERROR: Message: 'Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\\Users\\admin\\.paddlex\\official_models\\PP-OCRv5_server_det`.'
+Arguments: ()
+2026-01-15 16:12:20,990 ERROR: --- Logging error ---
+2026-01-15 16:12:20,991 ERROR: Traceback (most recent call last):
+2026-01-15 16:12:20,991 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:12:20,991 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:12:20,991 ERROR: Call stack:
+2026-01-15 16:12:20,992 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:12:20,992 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:12:20,992 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:12:20,992 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:12:20,992 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:12:20,992 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:12:20,992 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:12:20,992 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:12:20,992 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 135, in __init__
+    self.text_rec_model = self.create_model(
+2026-01-15 16:12:20,992 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 98, in create_model
+    logging.info("Creating model: %s", (config["model_name"], model_dir))
+2026-01-15 16:12:20,993 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:12:20,993 ERROR: Message: 'Creating model: %s'
+Arguments: (('en_PP-OCRv5_mobile_rec', None),)
+2026-01-15 16:12:20,993 ERROR: --- Logging error ---
+2026-01-15 16:12:20,993 ERROR: Traceback (most recent call last):
+2026-01-15 16:12:20,993 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+2026-01-15 16:12:20,993 ERROR: AttributeError: 'NoneType' object has no attribute 'write'
+2026-01-15 16:12:20,993 ERROR: Call stack:
+2026-01-15 16:12:20,995 ERROR: File "c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py", line 132, in <module>
+    ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:12:20,995 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\ocr.py", line 163, in __init__
+    super().__init__(**base_params)
+2026-01-15 16:12:20,995 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 67, in __init__
+    self.paddlex_pipeline = self._create_paddlex_pipeline()
+2026-01-15 16:12:20,995 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddleocr\_pipelines\base.py", line 105, in _create_paddlex_pipeline
+    return create_pipeline(config=self._merged_paddlex_config, **kwargs)
+2026-01-15 16:12:20,995 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\__init__.py", line 167, in create_pipeline
+    pipeline = BasePipeline.get(pipeline_name)(
+2026-01-15 16:12:20,995 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\deps.py", line 206, in _wrapper
+    return old_init_func(self, *args, **kwargs)
+2026-01-15 16:12:20,996 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 103, in __init__
+    self._pipeline = self._create_internal_pipeline(config, self.device)
+2026-01-15 16:12:20,996 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 158, in _create_internal_pipeline
+    return self._pipeline_cls(
+2026-01-15 16:12:20,996 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 135, in __init__
+    self.text_rec_model = self.create_model(
+2026-01-15 16:12:20,996 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\pipelines\base.py", line 106, in create_model
+    model = create_predictor(
+2026-01-15 16:12:20,996 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\models\__init__.py", line 73, in create_predictor
+    model_dir = official_models[model_name]
+2026-01-15 16:12:20,996 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 633, in __getitem__
+    return self._get_model_local_path(model_name)
+2026-01-15 16:12:20,996 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\inference\utils\official_models.py", line 591, in _get_model_local_path
+    logging.info(
+2026-01-15 16:12:20,996 ERROR: File "C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddlex\utils\logging.py", line 63, in info
+    _logger.info(msg, *args, **kwargs)
+2026-01-15 16:12:20,996 ERROR: Message: 'Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\\Users\\admin\\.paddlex\\official_models\\en_PP-OCRv5_mobile_rec`.'
+Arguments: ()
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:12:21,983 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:12:21,983 INFO: [33mPress CTRL+C to quit[0m
+127.0.0.1 - - [15/Jan/2026 16:12:22] "GET / HTTP/1.1" 200 -
+2026-01-15 16:12:22,132 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:22] "GET /video_feed HTTP/1.1" 200 -
+2026-01-15 16:12:22,600 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:22] "GET /video_feed HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-15 16:12:22,620 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-15 16:12:22,983 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:174: DeprecationWarning: Please use `predict` instead.
+  result = ocr_instance.ocr(rgb_frame)
+127.0.0.1 - - [15/Jan/2026 16:12:24] "POST /api/login HTTP/1.1" 200 -
+2026-01-15 16:12:24,048 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:24] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:25] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:25,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:25] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:26] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:26,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:26] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:27] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:27,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:27] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:28] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:28,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:28] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:29] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:29,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:29] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:30] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:30,059 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:30] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:31] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:31,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:31] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:32] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:32,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:32] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:33] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:33,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:33] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:34] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:34,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:34] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:35] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:35,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:35] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:36] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:36,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:36] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:37] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:37,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:37] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:38] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:38,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:38] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:39] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:39,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:39] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:40] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:40,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:40] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:41] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:41,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:41] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:42,045 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:12:42] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:42,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:42] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:43] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:43,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:43] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:44] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:44,061 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:44] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:45] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:45,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:45] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:46] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:46,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:46] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:47] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:47,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:47] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:48] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:48,052 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:48] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:49] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:49,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:49] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:50] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:50,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:50] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:51] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:51,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:51] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:52,006 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:12:52] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:52,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:52] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:53] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:53,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:53] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:54] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:54,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:54] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:55] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:55,059 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:55] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:56] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:56,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:56] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:57] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:57,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:57] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:58] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:58,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:58] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:12:59] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:12:59,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:12:59] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:00] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:00,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:00] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:01] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:01,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:01] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:01,847 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:13:02] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:02,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:02] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:03] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:03,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:03] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:04] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:04,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:04] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:05] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:05,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:05] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:06] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:06,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:06] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:07] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:07,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:07] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:08] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:08,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:08] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:09] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:09,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:09] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:10] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:10,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:10] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:11] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:11,064 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:11] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:12] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:12,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:12] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:13] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:13,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:13] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:14] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:14,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:14] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:15] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:15,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:15] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:16] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:16,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:16] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:17] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:17,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:17] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:18] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:18,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:18] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:19] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:19,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:19] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:20] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:20,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:20] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:21] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:21,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:21] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:22] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:22,059 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:22] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:23] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:23,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:23] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:24] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:24,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:24] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:25] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:25,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:25] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:26] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:26,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:26] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:27] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:27,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:27] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:28] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:28,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:28] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:29] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:29,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:29] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:30] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:30,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:30] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:31] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:31,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:31] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:32] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:32,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:32] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:33] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:33,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:33] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:34] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:34,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:34] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:35] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:35,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:35] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:36] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:36,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:36] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:37] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:37,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:37] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:38] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:38,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:38] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:39] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:39,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:39] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:40] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:40,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:40] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:41] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:41,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:41] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:42] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:42,062 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:42] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:43] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:43,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:43] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:44] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:44,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:44] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:45] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:45,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:45] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:46] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:46,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:46] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:47] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:47,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:47] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:48] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:48,059 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:48] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:49] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:49,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:49] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:50] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:50,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:50] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:51] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:51,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:51] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:52] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:52,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:52] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:53] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:53,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:53] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:54] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:54,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:54] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:55] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:55,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:55] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:56] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:56,059 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:56] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:57] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:57,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:57] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:58] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:58,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:58] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:13:59] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:13:59,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:13:59] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:00] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:00,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:00] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:01] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:01,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:01] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:02] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:02,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:02] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:03] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:03,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:03] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:04] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:04,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:04] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:05] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:05,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:05] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:06] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:06,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:06] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:07] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:07,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:07] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:07,309 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:14:08] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:08,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:08] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:09] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:09,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:09] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:10] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:10,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:10] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:11] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:11,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:11] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:12] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:12,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:12] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:13] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:13,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:13] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:14] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:14,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:14] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:15] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:15,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:15] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:16] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:16,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:16] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:17] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:17,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:17] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:18] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:18,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:18] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:19] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:19,059 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:19] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:20] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:20,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:20] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:21] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:21,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:21] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:22] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:22,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:22] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:23] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:23,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:23] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:24] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:24,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:24] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:25] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:25,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:25] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:26] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:26,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:26] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:27] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:27,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:27] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:28] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:28,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:28] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:29] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:29,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:29] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:30] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:30,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:30] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:31] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:31,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:31] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:32] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:32,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:32] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:33] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:33,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:33] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:34] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:34,062 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:34] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:35] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:35,065 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:35] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:36] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:36,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:36] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:37] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:37,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:37] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:38] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:38,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:38] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:39] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:39,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:39] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:40] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:40,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:40] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:40,268 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:14:41] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:41,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:41] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:42] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:42,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:42] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:43] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:43,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:43] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:44] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:44,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:44] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:45] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:45,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:45] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:46] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:46,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:46] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:47] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:47,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:47] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:48] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:48,052 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:48] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:49] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:49,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:49] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:50] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:50,052 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:50] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:50,467 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:14:51] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:51,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:51] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:52] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:52,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:52] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:53] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:53,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:53] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:54] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:54,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:54] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:55] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:55,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:55] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:56] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:56,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:56] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:57] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:57,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:57] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:58] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:58,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:58] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:14:59] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:14:59,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:14:59] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:00] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:00,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:00] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:00,437 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:15:01] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:01,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:01] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:02] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:02,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:02] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:03] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:03,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:03] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:04] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:04,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:04] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:05] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:05,060 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:05] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:06] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:06,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:06] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:07] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:07,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:07] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:08] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:08,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:08] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:09] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:09,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:09] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:10] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:10,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:10] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:11] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:11,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:11] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:12] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:12,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:12] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:13] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:13,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:13] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:14] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:14,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:14] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:15] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:15,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:15] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:16] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:16,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:16] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:17] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:17,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:17] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:18] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:18,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:18] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:19] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:19,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:19] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:20] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:20,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:20] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:21] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:21,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:21] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:22] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:22,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:22] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:23] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:23,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:23] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:24] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:24,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:24] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:25] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:25,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:25] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:26] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:26,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:26] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:27] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:27,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:27] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:28] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:28,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:28] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:29] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:29,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:29] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:30] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:30,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:30] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:31] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:31,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:31] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:32] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:32,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:32] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:33] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:33,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:33] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:34] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:34,066 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:34] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:35] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:35,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:35] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:36] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:36,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:36] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:37] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:37,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:37] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:38] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:38,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:38] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:39] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:39,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:39] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:40] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:40,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:40] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:41] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:41,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:41] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:42] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:42,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:42] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:43] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:43,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:43] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:44] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:44,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:44] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:45] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:45,071 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:45] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:46] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:46,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:46] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:47] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:47,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:47] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:48] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:48,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:48] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:49] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:49,060 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:49] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:50] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:50,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:50] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:51] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:51,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:51] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:52] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:52,052 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:52] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:53] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:53,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:53] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:54] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:54,063 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:54] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:55] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:55,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:55] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:56] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:56,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:56] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:57] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:57,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:57] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:58] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:58,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:58] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:15:59] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:15:59,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:15:59] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:00] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:00,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:00] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:01] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:01,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:01] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:02] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:02,052 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:02] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:03] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:03,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:03] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:04] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:04,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:04] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:05] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:05,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:05] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:06] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:06,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:06] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:06,298 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:16:07] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:07,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:07] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:08] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:08,059 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:08] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:09] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:09,060 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:09] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:10] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:10,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:10] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:11] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:11,059 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:11] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:12] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:12,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:12] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:13] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:13,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:13] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:14] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:14,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:14] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:15] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:15,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:15] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:16] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:16,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:16] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:16,309 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:16:17] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:17,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:17] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:18] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:18,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:18] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:19] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:19,063 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:19] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:20] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:20,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:20] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:21] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:21,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:21] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:22] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:22,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:22] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:23] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:23,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:23] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:24] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:24,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:24] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:25] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:25,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:25] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:26] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:26,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:26] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:26,359 ERROR: Database lookup failed during OCR match: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]ÃüÃû¹ÜµÀÌá¹©³ÌÐò: ÎÞ·¨´ò¿ªÓë SQL Server µÄÁ¬½Ó [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]µÇÂ¼³¬Ê±ÒÑ¹ýÆÚ (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Óë SQL Server ½¨Á¢Á¬½ÓÊ±·¢ÉúÁËÓëÍøÂçÏà¹ØµÄ»òÌØ¶¨ÓÚÊµÀýµÄ´íÎó¡£ÕÒ²»µ½»òÎÞ·¨·ÃÎÊ·þÎñÆ÷¡£Çë¼ì²éÊµÀýÃû³ÆÊÇ·ñÕýÈ·ÒÔ¼° SQL Server ÊÇ·ñÅäÖÃÎªÔÊÐíÔ¶³ÌÁ¬½Ó¡£ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ SQL Server Áª»ú´ÔÊé¡£ (53)')
+127.0.0.1 - - [15/Jan/2026 16:16:27] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:27,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:27] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:28] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:28,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:28] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:29] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:29,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:29] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:30] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:30,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:30] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:31] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:31,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:31] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:32] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:32,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:32] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:33] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:33,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:33] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:34] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:34,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:34] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:35] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:35,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:35] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:36] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:36,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:36] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:37] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:37,059 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:37] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:38] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:38,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:38] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:39] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:39,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:39] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:40] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:40,058 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:40] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:41] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:41,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:41] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:42] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:42,057 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:42] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:43] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:43,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:43] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:44] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:44,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:44] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:45] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:45,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:45] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:46] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:46,056 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:46] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:47] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:47,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:47] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:48] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:48,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:48] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:49] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:49,054 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:49] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:50] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:50,053 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:50] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:51] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:51,055 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:51] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jan/2026 16:16:52] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-15 16:16:52,068 INFO: 127.0.0.1 - - [15/Jan/2026 16:16:52] "GET /api/snapshot HTTP/1.1" 200 -
