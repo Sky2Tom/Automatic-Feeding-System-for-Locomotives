@@ -206,26 +206,63 @@ class CameraManager:
 
     def _match_train_info(self, train_no):
         global LATEST_VISION_RESULT, db_manager
-        # 简单逻辑：如果包含 C64, C70 等关键字，则填充对应数据
-        # 实际应从数据库查询
+        import re
+        
+        # 1. 预处理：转大写并清理干扰字符
+        train_no_upper = train_no.upper()
+        
+        # OCR 容错：处理常见的 'C' 被误识为 'G'、'0'、'6' 的情况
+        # 货车编号通常以 C (敞车)、P (棚车)、N (平车) 等开头
+        if re.match(r'^[G06](70|64|80|62)', train_no_upper):
+            train_no_upper = 'C' + train_no_upper[1:]
+        
+        train_no_clean = re.sub(r'[^A-Z0-9]', '', train_no_upper)
+        
         matched = False
         
-        # 预置一些常用型号（作为兜底）
+        # 2. 预置车型尺寸库（涵盖更多型号及变体）
         defaults = {
-            "C64": {"model": "通用敞车 C64", "dim_l": "12500 mm", "dim_w": "3200 mm", "dim_h": "3500 mm"},
-            "C70": {"model": "通用敞车 C70", "dim_l": "13976 mm", "dim_w": "3180 mm", "dim_h": "3600 mm"},
-            "C80": {"model": "通用敞车 C80", "dim_l": "12000 mm", "dim_w": "3200 mm", "dim_h": "3800 mm"}
+            "C62": {"model": "C62", "dim_l": "12488 mm", "dim_w": "2798 mm", "dim_h": "2000 mm"},
+            "C64": {"model": "C64", "dim_l": "12500 mm", "dim_w": "3200 mm", "dim_h": "2500 mm"},
+            "C64K": {"model": "C64K", "dim_l": "12490 mm", "dim_w": "2890 mm", "dim_h": "2500 mm"},
+            "C70": {"model": "C70", "dim_l": "13000 mm", "dim_w": "2892 mm", "dim_h": "2050 mm"},
+            "C70H": {"model": "C70H", "dim_l": "13000 mm", "dim_w": "2892 mm", "dim_h": "2050 mm"},
+            "C76": {"model": "C76", "dim_l": "10520 mm", "dim_w": "2974 mm", "dim_h": "--"},
+            "C76A": {"model": "C76A", "dim_l": "10520 mm", "dim_w": "2974 mm", "dim_h": "--"},
+            "C76B": {"model": "C76B", "dim_l": "10400 mm", "dim_w": "2974 mm", "dim_h": "--"},
+            "C76C": {"model": "C76C", "dim_l": "10400 mm", "dim_w": "2974 mm", "dim_h": "--"},
+            "C76H": {"model": "C76H", "dim_l": "10520 mm", "dim_w": "2974 mm", "dim_h": "--"},
+            "C80": {"model": "C80", "dim_l": "10728 mm", "dim_w": "2946 mm", "dim_h": "3500 mm"},
+            "C80A": {"model": "C80A", "dim_l": "10550 mm", "dim_w": "2876 mm", "dim_h": "2700 mm"},
+            "C80B": {"model": "C80B", "dim_l": "10550 mm", "dim_w": "2876 mm", "dim_h": "2700 mm"},
+            "C80C": {"model": "C80C", "dim_l": "10000 mm", "dim_w": "2700 mm", "dim_h": "--"},
+            "NX70": {"model": "NX70", "dim_l": "13500 mm", "dim_w": "3000 mm", "dim_h": "--"},
+            "P62": {"model": "P62", "dim_l": "16438 mm", "dim_w": "3200 mm", "dim_h": "4200 mm"}
         }
         
-        for key in defaults:
-            if key in train_no.upper():
-                info = defaults[key]
-                LATEST_VISION_RESULT.update(info)
+        # 排序：优先匹配较长的关键字（如 C70H 优先于 C70）
+        sorted_keys = sorted(defaults.keys(), key=len, reverse=True)
+        
+        # 3. 匹配策略：先尝试前缀匹配，再尝试包含匹配
+        # 首先尝试前缀匹配
+        for key in sorted_keys:
+            if train_no_clean.startswith(key):
+                LATEST_VISION_RESULT.update(defaults[key])
                 matched = True
+                logging.info(f"车型前缀匹配成功: {train_no} -> {key}")
                 break
         
-        # 如果数据库可用，尝试实时查询
-        if db_manager:
+        # 如果前缀没匹配上，尝试子串匹配
+        if not matched:
+            for key in sorted_keys:
+                if key in train_no_clean:
+                    LATEST_VISION_RESULT.update(defaults[key])
+                    matched = True
+                    logging.info(f"车型子串匹配成功: {train_no} -> {key}")
+                    break
+        
+        # 4. 如果本地库未匹配，尝试数据库查询
+        if not matched and db_manager:
             try:
                 # 这里的查询逻辑取决于数据库表结构，暂按 ID 模糊匹配
                 with db_manager._connect() as conn:
@@ -274,6 +311,18 @@ class CameraManager:
 camera_mgr = CameraManager(0)
 
 # ====== 路由定义 ======
+
+HISTORY_FILE = os.path.join(current_dir, "feeding_history.json")
+
+def load_history_from_json():
+    if not os.path.exists(HISTORY_FILE):
+        return []
+    try:
+        with open(HISTORY_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        logging.error(f"加载历史数据失败: {e}")
+        return []
 
 @app.route('/')
 def index():
@@ -397,29 +446,34 @@ def get_train_models():
 
 @app.route('/api/history', methods=['GET'])
 def get_history():
-    """获取下料历史，若数据库连接失败则返回假数据"""
-    if db_manager:
-        try:
-            minutes = request.args.get('minutes', default=60, type=int)
-            with db_manager._connect() as conn:
-                cur = conn.cursor()
-                query = f"SELECT TOP 100 * FROM [dbo].[Layoff History Table] WHERE [Time] >= DATEADD(MINUTE, -{minutes}, GETDATE()) ORDER BY [Time] DESC"
-                cur.execute(query)
-                rows = cur.fetchall()
-                cols = [d[0] for d in cur.description]
-                result = [dict(zip(cols, [str(v) if v is not None else "" for v in r])) for r in rows]
-                return jsonify(result)
-        except Exception:
-            pass
+    """获取下料历史，从JSON文件读取并支持过滤"""
+    start_time = request.args.get('start_time')
+    end_time = request.args.get('end_time')
+    feeder_id = request.args.get('feeder_id')
+    locomotive_id = request.args.get('locomotive_id')
 
-    # 假历史记录
-    mock_history = [
-        {"Time": "2025-12-25 16:30:05", "MaterialID": "M001", "WarehouseID": "WH111", "TrainTypeID": "C64", "LayoffWeight": "15.5"},
-        {"Time": "2025-12-25 16:15:20", "MaterialID": "M002", "WarehouseID": "WH111", "TrainTypeID": "C70", "LayoffWeight": "22.3"},
-        {"Time": "2025-12-25 15:55:45", "MaterialID": "M001", "WarehouseID": "WH112", "TrainTypeID": "C80", "LayoffWeight": "30.1"},
-        {"Time": "2025-12-25 15:20:10", "MaterialID": "M003", "WarehouseID": "WH111", "TrainTypeID": "C64", "LayoffWeight": "12.8"}
-    ]
-    return jsonify(mock_history)
+    all_history = load_history_from_json()
+    filtered_history = []
+
+    for item in all_history:
+        # 时间过滤
+        if start_time and item['time'] < start_time:
+            continue
+        if end_time and item['time'] > end_time:
+            continue
+        # 下料机号过滤
+        if feeder_id and feeder_id != item['feeder_id']:
+            continue
+        # 车号过滤
+        if locomotive_id and locomotive_id not in item['locomotive_id']:
+            continue
+        
+        filtered_history.append(item)
+
+    # 按时间倒序
+    filtered_history.sort(key=lambda x: x['time'], reverse=True)
+    
+    return jsonify(filtered_history)
 
 # 摄像头串流 (MJPEG)
 def gen_frames():

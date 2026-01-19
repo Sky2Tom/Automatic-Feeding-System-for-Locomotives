@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>火车加料智能监控系统 - WEB 控制台</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --bg-color: #050b1a;
@@ -497,24 +498,58 @@
                 <div id="history" class="module">
                     <div class="card">
                         <div class="card-header">
-                            <h3>LAYOFF LOGS 下料历史记录</h3>
-                            <div>
-                                <select id="history-filter" style="background: var(--panel-bg); color: white; border: 1px solid var(--border-color); padding: 5px;" onchange="loadHistory()">
-                                    <option value="60">最近1小时</option>
-                                    <option value="1440">最近24小时</option>
-                                    <option value="10080">最近一周</option>
-                                </select>
+                            <h3>QUERY FILTERS 历史记录查询</h3>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                            <div class="input-group" style="margin-bottom: 0;">
+                                <label>开始时间</label>
+                                <input type="datetime-local" id="query-start-time" style="padding: 5px;">
                             </div>
+                            <div class="input-group" style="margin-bottom: 0;">
+                                <label>结束时间</label>
+                                <input type="datetime-local" id="query-end-time" style="padding: 5px;">
+                            </div>
+                            <div class="input-group" style="margin-bottom: 0;">
+                                <label>下料机号</label>
+                                <input type="text" id="query-feeder-id" placeholder="如: 001" style="padding: 5px;">
+                            </div>
+                            <div class="input-group" style="margin-bottom: 0;">
+                                <label>车号</label>
+                                <input type="text" id="query-locomotive-id" placeholder="如: C64" style="padding: 5px;">
+                            </div>
+                            <div style="display: flex; align-items: flex-end;">
+                                <button class="btn" style="width: 100%; height: 35px;" onclick="loadHistory()">查询</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>CAPACITY TREND 下料容量折线图</h3>
+                            </div>
+                            <canvas id="lineChart" style="max-height: 300px;"></canvas>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>CAPACITY DISTRIBUTION 下料容量柱状图</h3>
+                            </div>
+                            <canvas id="barChart" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>LAYOFF LOGS 下料历史记录</h3>
                         </div>
                         <div style="overflow-x: auto;">
                             <table id="history-table">
                                 <thead>
                                     <tr>
                                         <th>时间</th>
-                                        <th>机号</th>
-                                        <th>仓库</th>
-                                        <th>物料ID</th>
-                                        <th>重量</th>
+                                        <th>下料机号</th>
+                                        <th>车号</th>
+                                        <th>下料容量</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -665,20 +700,96 @@
         }
 
         // 加载历史记录
+        let lineChart = null;
+        let barChart = null;
+
         async function loadHistory() {
-            const min = document.getElementById('history-filter').value;
-            const res = await fetch(`/api/history?minutes=${min}`);
+            const startTime = document.getElementById('query-start-time').value.replace('T', ' ');
+            const endTime = document.getElementById('query-end-time').value.replace('T', ' ');
+            const feederId = document.getElementById('query-feeder-id').value;
+            const locomotiveId = document.getElementById('query-locomotive-id').value;
+
+            let url = `/api/history?`;
+            if (startTime) url += `start_time=${startTime}&`;
+            if (endTime) url += `end_time=${endTime}&`;
+            if (feederId) url += `feeder_id=${feederId}&`;
+            if (locomotiveId) url += `locomotive_id=${locomotiveId}&`;
+
+            const res = await fetch(url);
             const data = await res.json();
+            
+            // 更新表格
             const tbody = document.querySelector('#history-table tbody');
             tbody.innerHTML = data.map(r => `
                 <tr>
-                    <td>${r.Time}</td>
-                    <td>${r.MaterialID}</td>
-                    <td>${r.WarehouseID}</td>
-                    <td>${r.TrainTypeID}</td>
-                    <td>${r.LayoffWeight}</td>
+                    <td>${r.time}</td>
+                    <td>${r.feeder_id}</td>
+                    <td>${r.locomotive_id}</td>
+                    <td>${r.capacity}</td>
                 </tr>
             `).join('');
+
+            // 更新图表
+            updateCharts(data);
+        }
+
+        function updateCharts(data) {
+            // 对数据进行升序排序，以便图表按时间显示
+            const chartData = [...data].sort((a, b) => new Date(a.time) - new Date(b.time));
+            
+            const labels = chartData.map(r => r.time);
+            const capacities = chartData.map(r => r.capacity);
+
+            // 折线图
+            if (lineChart) lineChart.destroy();
+            const ctxLine = document.getElementById('lineChart').getContext('2d');
+            lineChart = new Chart(ctxLine, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '下料容量',
+                        data: capacities,
+                        borderColor: '#00f2ff',
+                        backgroundColor: 'rgba(0, 242, 255, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#8892b0' } },
+                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#8892b0' } }
+                    },
+                    plugins: { legend: { labels: { color: '#e0e6ed' } } }
+                }
+            });
+
+            // 柱状图
+            if (barChart) barChart.destroy();
+            const ctxBar = document.getElementById('barChart').getContext('2d');
+            barChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '下料容量',
+                        data: capacities,
+                        backgroundColor: 'rgba(0, 242, 255, 0.6)',
+                        borderColor: '#00f2ff',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#8892b0' } },
+                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#8892b0' } }
+                    },
+                    plugins: { legend: { labels: { color: '#e0e6ed' } } }
+                }
+            });
         }
 
         // 发送控制命令
