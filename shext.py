@@ -26,25 +26,23 @@ while True:
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     # 执行OCR识别
-    result = ocr.ocr(rgb_frame, cls=False)
+    result = ocr.ocr(rgb_frame)
 
     # 提取所有识别结果中的文本和置信度
     filtered_texts = []
-    if result and result[0]:
-        for line in result[0]:
-            if line and len(line) >= 2:
-                # PaddleOCR返回格式: [[[坐标], ('文本', 置信度)], ...]
-                text_info = line[1]
-                if isinstance(text_info, (list, tuple)) and len(text_info) >= 2:
-                    texta = text_info[0]  # 提取文本
-                    confidence = text_info[1]  # 提取置信度
-                    # 检查置信度≥0.7
-                    if confidence >= 0.7:
-                        filtered_texts.append(texta)
+    for line in result:
+        if line:  # 确保行不为空
+            text = line["rec_texts"]
+            con = line["rec_scores"]
+            for i, confidence in enumerate(con):
+                texta = text[i]  # 提取文本
+                # 检查置信度≥0.7且文本为纯数字
+                if confidence >= 0.7:
+                    filtered_texts.append(texta)
 
     # 如果有识别到的数字，打印出来
     if filtered_texts:
-        final_result = "".join(filtered_texts)
+        final_result = ''.join(filtered_texts)
         print(f"识别到的数字: {final_result}")
         if final_result == 'C64':
             print("车厢信息：120,240,15,20,17")

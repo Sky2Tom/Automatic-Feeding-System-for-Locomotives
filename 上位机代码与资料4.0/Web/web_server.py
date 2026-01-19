@@ -5,6 +5,14 @@ import threading
 import json
 import logging
 from flask import Flask, render_template, Response, jsonify, request, send_from_directory
+import cv2
+import numpy as np
+try:
+    from paddleocr import PaddleOCR
+    OCR_AVAILABLE = True
+except ImportError:
+    OCR_AVAILABLE = False
+    logging.error("PaddleOCR not installed. Please install paddleocr and paddlepaddle.")
 
 # 配置日志
 logging.basicConfig(filename='web_error.log', level=logging.DEBUG, 
@@ -107,6 +115,164 @@ if BACKEND_AVAILABLE:
     except Exception as e:
         logging.error(f"数据库连接失败: {e}")
 
+# ====== 视觉识别 (OCR) 全局状态 ======
+LATEST_VISION_RESULT = {
+    "train_no": "--",
+    "model": "--",
+    "dim_l": "--",
+    "dim_w": "--",
+    "dim_h": "--"
+}
+
+ocr_instance = None
+if OCR_AVAILABLE:
+    try:
+        logging.info("Initializing PaddleOCR...")
+        # 参照 shext.py 的初始化参数
+        ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True, 
+                                 use_doc_unwarping=False, use_doc_orientation_classify=False)
+        logging.info("PaddleOCR initialized successfully")
+    except Exception as e:
+        logging.error(f"PaddleOCR initialization failed: {e}")
+        ocr_instance = None
+
+class CameraManager:
+    """单例摄像头管理器，支持 MJPEG 推流和后台 OCR"""
+    def __init__(self, device_index=0):
+        self.cap = cv2.VideoCapture(device_index)
+        self.lock = threading.Lock()
+        self.running = True
+        self.latest_frame = None
+        
+        # 启动抓帧线程
+        self.capture_thread = threading.Thread(target=self._capture_loop, daemon=True)
+        self.capture_thread.start()
+        
+        # 启动 OCR 线程
+        self.ocr_thread = threading.Thread(target=self._ocr_loop, daemon=True)
+        self.ocr_thread.start()
+
+    def _capture_loop(self):
+        while self.running:
+            success, frame = self.cap.read()
+            if success:
+                with self.lock:
+                    self.latest_frame = frame
+            time.sleep(0.03)  # 约 30fps
+
+    def _ocr_loop(self):
+        global LATEST_VISION_RESULT
+        while self.running:
+            if ocr_instance and self.latest_frame is not None:
+                try:
+                    # 复制当前帧进行处理
+                    with self.lock:
+                        img = self.latest_frame.copy()
+                    
+                    # 参照 shext.py 的处理逻辑
+                    rgb_frame = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                    result = ocr_instance.ocr(rgb_frame)
+                    
+                    filtered_texts = []
+                    if result:
+                        for line in result:
+                            if line:
+                                # 严格参照 shext.py 的访问方式
+                                try:
+                                    text = line["rec_texts"]
+                                    scores = line["rec_scores"]
+                                    for i, confidence in enumerate(scores):
+                                        if confidence >= 0.7:
+                                            filtered_texts.append(text[i])
+                                except (KeyError, TypeError):
+                                    # 兼容标准 PaddleOCR 格式 [[[box], [text, score]], ...]
+                                    if isinstance(line, list) and len(line) > 0:
+                                        for res in line:
+                                            if isinstance(res, list) and len(res) == 2:
+                                                box, (txt, score) = res
+                                                if score >= 0.7:
+                                                    filtered_texts.append(txt)
+                    
+                    if filtered_texts:
+                        final_text = "".join(filtered_texts)
+                        LATEST_VISION_RESULT["train_no"] = final_text
+                        
+                        # 如果识别到特定的型号（如 C64），尝试从数据库或预设匹配
+                        self._match_train_info(final_text)
+                except Exception as e:
+                    logging.error(f"OCR process error: {e}")
+            
+            time.sleep(1)  # OCR 识别不需要太频繁，每秒一次即可
+
+    def _match_train_info(self, train_no):
+        global LATEST_VISION_RESULT, db_manager
+        # 简单逻辑：如果包含 C64, C70 等关键字，则填充对应数据
+        # 实际应从数据库查询
+        matched = False
+        
+        # 预置一些常用型号（作为兜底）
+        defaults = {
+            "C64": {"model": "通用敞车 C64", "dim_l": "12500 mm", "dim_w": "3200 mm", "dim_h": "3500 mm"},
+            "C70": {"model": "通用敞车 C70", "dim_l": "13976 mm", "dim_w": "3180 mm", "dim_h": "3600 mm"},
+            "C80": {"model": "通用敞车 C80", "dim_l": "12000 mm", "dim_w": "3200 mm", "dim_h": "3800 mm"}
+        }
+        
+        for key in defaults:
+            if key in train_no.upper():
+                info = defaults[key]
+                LATEST_VISION_RESULT.update(info)
+                matched = True
+                break
+        
+        # 如果数据库可用，尝试实时查询
+        if db_manager:
+            try:
+                # 这里的查询逻辑取决于数据库表结构，暂按 ID 模糊匹配
+                with db_manager._connect() as conn:
+                    cur = conn.cursor()
+                    # 尝试匹配 TrainTypeID
+                    for key in ["C64", "C70", "C80", "P62"]:
+                        if key in train_no.upper():
+                            cur.execute(f"SELECT * FROM [dbo].[Train Model Table] WHERE TrainTypeID = '{key}'")
+                            row = cur.fetchone()
+                            if row:
+                                cols = [d[0] for d in cur.description]
+                                r = dict(zip(cols, row))
+                                LATEST_VISION_RESULT.update({
+                                    "model": f"型号: {r['TrainTypeID']}",
+                                    "dim_l": f"{r['ExLength']} mm",
+                                    "dim_w": f"{r['ExWidth']} mm",
+                                    "dim_h": f"{r['ExHeight']} mm"
+                                })
+                                matched = True
+                                break
+            except Exception as e:
+                logging.error(f"Database lookup failed during OCR match: {e}")
+
+        if not matched:
+            LATEST_VISION_RESULT.update({
+                "model": "未知型号",
+                "dim_l": "--", "dim_w": "--", "dim_h": "--"
+            })
+
+    def get_frame_bytes(self):
+        if self.latest_frame is None:
+            return None
+        with self.lock:
+            # 可以在这里在画面上画出识别结果，类似 shext.py
+            display_frame = self.latest_frame.copy()
+            if LATEST_VISION_RESULT["train_no"] != "--":
+                cv2.putText(display_frame, f"TRAIN: {LATEST_VISION_RESULT['train_no']}", (10, 30),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+            
+            success, buffer = cv2.imencode('.jpg', display_frame)
+            if success:
+                return buffer.tobytes()
+        return None
+
+# 初始化摄像头管理器
+camera_mgr = CameraManager(0)
+
 # ====== 路由定义 ======
 
 @app.route('/')
@@ -160,9 +326,13 @@ def get_snapshot():
             
             # 3. 即使数据暂时为空，也直接返回 snap，不再使用 get_mock_snapshot 覆盖
             # 这样如果没数据，界面会显示 "--"，而不是显示误导性的假数据
+            
+            # 注入真实的视觉识别结果
+            snap["vision_result"] = LATEST_VISION_RESULT
+            
             return jsonify(snap)
         else:
-            return jsonify({"error": "Backend not available", "all_data_dict": {}})
+            return jsonify({"error": "Backend not available", "all_data_dict": {}, "vision_result": LATEST_VISION_RESULT})
             
     except Exception as e:
         logging.error(f"get_snapshot 接口出错: {e}")
@@ -252,20 +422,14 @@ def get_history():
     return jsonify(mock_history)
 
 # 摄像头串流 (MJPEG)
-import cv2
 def gen_frames():
-    camera = cv2.VideoCapture(0)
     while True:
-        success, frame = camera.read()
-        if not success:
-            break
-        else:
-            # 可以在这里添加 OCR 逻辑，或者直接推流
-            ret, buffer = cv2.imencode('.jpg', frame)
-            frame_bytes = buffer.tobytes()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
-    camera.release()
+        frame_bytes = camera_mgr.get_frame_bytes()
+        if frame_bytes is None:
+            time.sleep(0.1)
+            continue
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
 
 @app.route('/video_feed')
 def video_feed():

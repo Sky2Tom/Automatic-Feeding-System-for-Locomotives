@@ -1,0 +1,638 @@
+2026-01-15 16:00:52,630 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:00:52,630 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:00:52,670 INFO: Backend modules loaded successfully
+2026-01-15 16:00:53,199 ERROR: [33mChecking connectivity to the model hosters, this may take a while. To bypass this check, set `DISABLE_MODEL_SOURCE_CHECK` to `True`.[0m
+2026-01-15 16:00:53,203 DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2026-01-15 16:00:53,215 DEBUG: Starting new HTTPS connection (1): aistudio.baidu.com:443
+2026-01-15 16:00:53,246 DEBUG: Starting new HTTPS connection (1): modelscope.cn:443
+2026-01-15 16:00:53,255 DEBUG: Starting new HTTPS connection (1): paddle-model-ecology.bj.bcebos.com:443
+2026-01-15 16:00:53,275 ERROR: [33mNo model hoster is available! Please check your network connection to one of the following model hoster: HuggingFace (https://huggingface.co), ModelScope (https://modelscope.cn), AIStudio (https://aistudio.baidu.com), or BOS (https://paddle-model-ecology.bj.bcebos.com). Otherwise, only local models can be used.[0m
+2026-01-15 16:00:54,374 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:56: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True, show_log=False)
+2026-01-15 16:00:54,374 ERROR: OCR Ä£¿é³õÊ¼»¯Ê§°Ü: Unknown argument: show_log
+2026-01-15 16:00:54,400 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:00:54,400 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:00:54,400 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:00:54,401 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:00:54,401 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:00:54,402 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:00:54,402 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:00:54,403 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:00:54,403 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:00:54,403 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:00:54,403 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:00:55,380 INFO: Initializing DB Manager...
+2026-01-15 16:00:55,380 INFO: DB Manager ready
+2026-01-15 16:00:55,381 INFO: Starting Flask app...
+2026-01-15 16:00:55,381 INFO: ========================================
+2026-01-15 16:00:55,381 INFO: »ğ³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍĞ÷
+2026-01-15 16:00:55,381 INFO: ÇëÔÚä¯ÀÀÆ÷ÖĞ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:00:55,381 INFO: ========================================
+2026-01-15 16:00:55,383 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:00:55,383 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:00:55,393 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:00:55,393 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:00:56,401 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:00:56,401 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:00:56,401 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕıÔÚÂÖÑ¯¼¤¹âÊı¾İ...
+2026-01-15 16:00:56,600 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:00:56,600 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:00:58,599 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:00:58,600 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:00:58,799 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:00:58,800 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:00,805 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:00,806 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:01:01,004 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:01:01,006 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:03,011 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:03,011 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:01:03,211 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:01:03,211 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:05,215 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:05,216 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:01:05,406 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:01:05,406 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:01:06,414 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:01:06,422 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:08,414 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:08,414 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:01:08,609 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:01:08,609 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:10,621 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:10,621 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:01:10,813 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:01:10,814 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:12,817 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:12,817 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:01:13,019 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:01:13,019 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:19,958 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:01:19,958 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:01:19,996 INFO: Backend modules loaded successfully
+2026-01-15 16:01:20,504 ERROR: [33mChecking connectivity to the model hosters, this may take a while. To bypass this check, set `DISABLE_MODEL_SOURCE_CHECK` to `True`.[0m
+2026-01-15 16:01:20,507 DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2026-01-15 16:01:20,518 DEBUG: Starting new HTTPS connection (1): aistudio.baidu.com:443
+2026-01-15 16:01:20,527 DEBUG: Starting new HTTPS connection (1): modelscope.cn:443
+2026-01-15 16:01:20,535 DEBUG: Starting new HTTPS connection (1): paddle-model-ecology.bj.bcebos.com:443
+2026-01-15 16:01:20,543 ERROR: [33mNo model hoster is available! Please check your network connection to one of the following model hoster: HuggingFace (https://huggingface.co), ModelScope (https://modelscope.cn), AIStudio (https://aistudio.baidu.com), or BOS (https://paddle-model-ecology.bj.bcebos.com). Otherwise, only local models can be used.[0m
+2026-01-15 16:01:21,456 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:56: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True, show_log=False)
+2026-01-15 16:01:21,456 ERROR: OCR Ä£¿é³õÊ¼»¯Ê§°Ü: Unknown argument: show_log
+2026-01-15 16:01:21,479 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:01:21,479 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:01:21,479 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:01:21,479 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:01:21,479 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:01:21,480 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:01:21,481 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:01:21,481 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:01:21,481 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:01:21,481 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:01:21,481 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:22,467 INFO: Initializing DB Manager...
+2026-01-15 16:01:22,467 INFO: DB Manager ready
+2026-01-15 16:01:22,468 INFO: Starting Flask app...
+2026-01-15 16:01:22,468 INFO: ========================================
+2026-01-15 16:01:22,468 INFO: »ğ³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍĞ÷
+2026-01-15 16:01:22,468 INFO: ÇëÔÚä¯ÀÀÆ÷ÖĞ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:01:22,468 INFO: ========================================
+2026-01-15 16:01:22,469 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:01:22,469 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:01:22,477 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:01:22,477 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:01:23,476 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:23,476 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:01:23,476 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕıÔÚÂÖÑ¯¼¤¹âÊı¾İ...
+2026-01-15 16:01:23,678 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:01:23,679 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:25,678 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:25,678 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:01:25,875 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:01:25,876 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:35,123 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:01:35,123 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:01:35,160 INFO: Backend modules loaded successfully
+2026-01-15 16:01:35,659 ERROR: [33mChecking connectivity to the model hosters, this may take a while. To bypass this check, set `DISABLE_MODEL_SOURCE_CHECK` to `True`.[0m
+2026-01-15 16:01:35,662 DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2026-01-15 16:01:35,672 DEBUG: Starting new HTTPS connection (1): aistudio.baidu.com:443
+2026-01-15 16:01:35,681 DEBUG: Starting new HTTPS connection (1): modelscope.cn:443
+2026-01-15 16:01:35,690 DEBUG: Starting new HTTPS connection (1): paddle-model-ecology.bj.bcebos.com:443
+2026-01-15 16:01:35,696 ERROR: [33mNo model hoster is available! Please check your network connection to one of the following model hoster: HuggingFace (https://huggingface.co), ModelScope (https://modelscope.cn), AIStudio (https://aistudio.baidu.com), or BOS (https://paddle-model-ecology.bj.bcebos.com). Otherwise, only local models can be used.[0m
+2026-01-15 16:01:36,599 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:56: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True, show_log=False)
+2026-01-15 16:01:36,599 ERROR: OCR Ä£¿é³õÊ¼»¯Ê§°Ü: Unknown argument: show_log
+2026-01-15 16:01:36,621 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:01:36,621 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:01:36,621 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:01:36,621 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:01:36,621 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:01:36,622 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:01:36,622 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:01:36,623 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:01:36,623 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:01:36,623 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:01:36,623 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:37,605 INFO: Initializing DB Manager...
+2026-01-15 16:01:37,605 INFO: DB Manager ready
+2026-01-15 16:01:37,606 INFO: Starting Flask app...
+2026-01-15 16:01:37,606 INFO: ========================================
+2026-01-15 16:01:37,606 INFO: »ğ³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍĞ÷
+2026-01-15 16:01:37,606 INFO: ÇëÔÚä¯ÀÀÆ÷ÖĞ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:01:37,606 INFO: ========================================
+2026-01-15 16:01:37,607 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:01:37,607 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:01:37,615 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:01:37,615 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:01:38,616 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:38,616 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:01:38,616 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕıÔÚÂÖÑ¯¼¤¹âÊı¾İ...
+2026-01-15 16:01:38,817 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:01:38,817 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:40,817 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:40,817 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:01:41,022 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:01:41,023 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:43,016 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:43,016 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:01:43,229 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:01:43,229 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:45,222 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:45,222 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:01:45,433 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:01:45,434 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:47,426 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:47,426 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:01:47,627 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:01:47,627 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:01:48,636 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:01:48,637 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:50,630 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:50,630 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:01:50,832 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:01:50,832 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:52,828 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:52,828 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:01:53,033 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:01:53,033 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:01:55,038 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:01:55,038 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:01:55,240 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:01:55,241 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:02:01,879 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:02:01,879 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:02:01,918 INFO: Backend modules loaded successfully
+2026-01-15 16:02:02,444 ERROR: [33mChecking connectivity to the model hosters, this may take a while. To bypass this check, set `DISABLE_MODEL_SOURCE_CHECK` to `True`.[0m
+2026-01-15 16:02:02,446 DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2026-01-15 16:02:02,458 DEBUG: Starting new HTTPS connection (1): aistudio.baidu.com:443
+2026-01-15 16:02:02,467 DEBUG: Starting new HTTPS connection (1): modelscope.cn:443
+2026-01-15 16:02:02,476 DEBUG: Starting new HTTPS connection (1): paddle-model-ecology.bj.bcebos.com:443
+2026-01-15 16:02:02,483 ERROR: [33mNo model hoster is available! Please check your network connection to one of the following model hoster: HuggingFace (https://huggingface.co), ModelScope (https://modelscope.cn), AIStudio (https://aistudio.baidu.com), or BOS (https://paddle-model-ecology.bj.bcebos.com). Otherwise, only local models can be used.[0m
+2026-01-15 16:02:03,514 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:56: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True, show_log=False)
+2026-01-15 16:02:03,514 ERROR: OCR Ä£¿é³õÊ¼»¯Ê§°Ü: Unknown argument: show_log
+2026-01-15 16:02:03,541 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:02:03,543 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:02:03,543 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:02:03,543 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:02:03,543 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:02:03,544 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:02:03,544 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:02:03,544 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:02:03,544 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:02:03,544 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:02:03,544 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:02:04,526 INFO: Initializing DB Manager...
+2026-01-15 16:02:04,526 INFO: DB Manager ready
+2026-01-15 16:02:04,528 INFO: Starting Flask app...
+2026-01-15 16:02:04,529 INFO: ========================================
+2026-01-15 16:02:04,529 INFO: »ğ³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍĞ÷
+2026-01-15 16:02:04,529 INFO: ÇëÔÚä¯ÀÀÆ÷ÖĞ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:02:04,529 INFO: ========================================
+2026-01-15 16:02:04,530 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:02:04,530 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:02:04,539 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:02:04,539 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:02:05,532 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:02:05,532 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:02:05,532 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕıÔÚÂÖÑ¯¼¤¹âÊı¾İ...
+2026-01-15 16:02:05,736 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:02:05,739 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:02:07,735 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:02:07,735 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:02:07,936 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:02:07,938 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:02:09,939 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:02:09,939 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:02:10,141 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:02:10,141 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:02:12,153 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:02:12,154 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:02:12,353 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:02:12,354 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:02:14,352 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:02:14,352 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:02:14,551 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:02:14,551 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:02:15,559 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:02:15,559 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:07,228 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:03:07,229 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:03:07,265 INFO: Backend modules loaded successfully
+2026-01-15 16:03:07,752 ERROR: [33mChecking connectivity to the model hosters, this may take a while. To bypass this check, set `DISABLE_MODEL_SOURCE_CHECK` to `True`.[0m
+2026-01-15 16:03:07,755 DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2026-01-15 16:03:07,768 DEBUG: Starting new HTTPS connection (1): aistudio.baidu.com:443
+2026-01-15 16:03:07,779 DEBUG: Starting new HTTPS connection (1): modelscope.cn:443
+2026-01-15 16:03:07,788 DEBUG: Starting new HTTPS connection (1): paddle-model-ecology.bj.bcebos.com:443
+2026-01-15 16:03:07,797 ERROR: [33mNo model hoster is available! Please check your network connection to one of the following model hoster: HuggingFace (https://huggingface.co), ModelScope (https://modelscope.cn), AIStudio (https://aistudio.baidu.com), or BOS (https://paddle-model-ecology.bj.bcebos.com). Otherwise, only local models can be used.[0m
+2026-01-15 16:03:08,707 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:56: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True, show_log=False)
+2026-01-15 16:03:08,707 ERROR: OCR Ä£¿é³õÊ¼»¯Ê§°Ü: Unknown argument: show_log
+2026-01-15 16:03:08,709 INFO: Initializing DB Manager...
+2026-01-15 16:03:08,709 INFO: DB Manager ready
+2026-01-15 16:03:08,730 INFO: Initializing Modbus Backend...
+2026-01-15 16:03:08,730 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:03:08,731 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:03:08,731 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:03:08,731 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:03:08,731 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:03:08,732 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:03:08,732 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:03:08,732 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:03:08,732 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:03:08,732 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:10,722 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:03:10,722 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:03:10,722 INFO: Modbus ºó¶ËÒÑ³õÊ¼»¯ (´®¿Ú: COM6)
+2026-01-15 16:03:10,722 INFO: Starting Flask app in background thread...
+2026-01-15 16:03:10,722 INFO: ========================================
+2026-01-15 16:03:10,722 INFO: »ğ³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍĞ÷
+2026-01-15 16:03:10,723 INFO: ÇëÔÚä¯ÀÀÆ÷ÖĞ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:03:10,723 INFO: ========================================
+2026-01-15 16:03:10,725 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:03:10,725 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:03:10,731 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:03:10,732 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:03:10,924 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:03:10,924 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:12,930 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:03:12,930 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:03:13,131 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:03:13,132 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:15,133 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:03:15,133 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:03:15,335 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:03:15,335 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:21,218 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:03:21,218 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:03:21,256 INFO: Backend modules loaded successfully
+2026-01-15 16:03:21,728 ERROR: [33mChecking connectivity to the model hosters, this may take a while. To bypass this check, set `DISABLE_MODEL_SOURCE_CHECK` to `True`.[0m
+2026-01-15 16:03:21,732 DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2026-01-15 16:03:21,745 DEBUG: Starting new HTTPS connection (1): aistudio.baidu.com:443
+2026-01-15 16:03:21,752 DEBUG: Starting new HTTPS connection (1): modelscope.cn:443
+2026-01-15 16:03:21,760 DEBUG: Starting new HTTPS connection (1): paddle-model-ecology.bj.bcebos.com:443
+2026-01-15 16:03:21,786 ERROR: [33mNo model hoster is available! Please check your network connection to one of the following model hoster: HuggingFace (https://huggingface.co), ModelScope (https://modelscope.cn), AIStudio (https://aistudio.baidu.com), or BOS (https://paddle-model-ecology.bj.bcebos.com). Otherwise, only local models can be used.[0m
+2026-01-15 16:03:22,705 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:56: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True, show_log=False)
+2026-01-15 16:03:22,705 ERROR: OCR Ä£¿é³õÊ¼»¯Ê§°Ü: Unknown argument: show_log
+2026-01-15 16:03:22,707 INFO: Initializing DB Manager...
+2026-01-15 16:03:22,707 INFO: DB Manager ready
+2026-01-15 16:03:22,728 INFO: Initializing Modbus Backend...
+2026-01-15 16:03:22,728 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:03:22,729 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:03:22,729 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:03:22,729 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:03:22,729 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:03:22,730 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:03:22,730 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:03:22,730 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:03:22,730 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:03:22,730 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:24,720 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:03:24,720 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:03:24,720 INFO: Modbus ºó¶ËÒÑ³õÊ¼»¯ (´®¿Ú: COM6)
+2026-01-15 16:03:24,720 INFO: Starting Flask app in background thread...
+2026-01-15 16:03:24,721 INFO: ========================================
+2026-01-15 16:03:24,721 INFO: »ğ³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍĞ÷
+2026-01-15 16:03:24,721 INFO: ÇëÔÚä¯ÀÀÆ÷ÖĞ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:03:24,721 INFO: ========================================
+2026-01-15 16:03:24,722 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:03:24,722 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:03:24,728 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:03:24,729 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:03:24,921 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:03:24,921 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:26,928 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:03:26,928 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:03:27,135 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:03:27,135 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:29,134 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:03:29,134 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:03:29,329 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:03:29,329 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:31,333 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:03:31,333 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:03:31,536 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:03:31,536 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:03:33,534 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:03:33,535 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:03:33,737 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:03:33,737 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:03:34,734 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:03:34,734 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:21,405 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:04:21,405 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:04:21,443 INFO: Backend modules loaded successfully
+2026-01-15 16:04:21,520 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:04:21,520 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:04:21,520 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:04:21,520 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:04:21,520 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:04:21,524 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:04:21,524 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:04:21,524 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:04:21,524 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:04:21,524 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:04:21,524 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:22,456 INFO: Initializing DB Manager...
+2026-01-15 16:04:22,456 INFO: DB Manager ready
+2026-01-15 16:04:22,572 INFO: Starting Flask app...
+2026-01-15 16:04:22,572 INFO: ========================================
+2026-01-15 16:04:22,573 INFO: »ğ³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍĞ÷
+2026-01-15 16:04:22,573 INFO: ÇëÔÚä¯ÀÀÆ÷ÖĞ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:04:22,573 INFO: ========================================
+2026-01-15 16:04:22,573 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:04:22,574 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:04:22,589 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:04:22,591 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:04:23,520 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:23,520 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:04:23,521 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕıÔÚÂÖÑ¯¼¤¹âÊı¾İ...
+2026-01-15 16:04:23,723 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:04:23,723 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:25,731 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:25,731 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:04:25,933 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:04:25,933 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:27,927 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:27,927 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:04:28,128 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:04:28,130 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:30,124 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:30,124 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:04:30,342 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:04:30,343 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:32,328 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:32,328 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:04:32,531 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:04:32,531 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:04:33,542 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:04:33,542 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:35,533 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:35,533 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:04:35,735 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:04:35,735 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:37,736 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:37,736 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:04:37,944 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:04:37,945 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:39,938 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:39,938 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:04:40,143 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:04:40,143 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:42,153 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:42,153 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:04:42,344 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:04:42,345 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:44,344 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:44,344 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:04:44,547 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:04:44,547 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:04:45,558 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:04:45,560 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:47,549 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:47,549 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:04:47,751 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:04:47,751 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:49,757 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:49,757 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:04:49,957 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:04:49,957 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:51,965 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:51,965 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:04:52,166 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:04:52,167 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:54,170 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:54,170 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:04:54,374 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:04:54,374 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:56,380 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:56,380 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:04:56,580 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:04:56,580 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:04:57,578 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:04:57,578 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:04:59,580 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:04:59,580 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:04:59,795 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:04:59,796 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:01,799 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:01,799 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:05:01,999 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:05:01,999 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:04,005 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:04,005 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:05:04,209 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:05:04,209 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:06,208 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:06,208 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:05:06,419 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:05:06,419 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:08,406 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:08,406 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:05:08,616 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:05:08,616 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:05:09,611 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:05:09,612 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:14,745 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:05:14,745 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:05:14,782 INFO: Backend modules loaded successfully
+2026-01-15 16:05:14,860 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:05:14,860 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:05:14,861 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:05:14,861 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:05:14,861 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:05:14,864 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:05:14,864 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:05:14,864 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:05:14,864 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:05:14,864 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:05:14,864 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:15,787 INFO: Initializing DB Manager...
+2026-01-15 16:05:15,787 INFO: DB Manager ready
+2026-01-15 16:05:15,903 INFO: Starting Flask app...
+2026-01-15 16:05:15,903 INFO: ========================================
+2026-01-15 16:05:15,903 INFO: »ğ³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍĞ÷
+2026-01-15 16:05:15,903 INFO: ÇëÔÚä¯ÀÀÆ÷ÖĞ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:05:15,903 INFO: ========================================
+2026-01-15 16:05:15,904 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:05:15,904 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:05:15,921 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:05:15,921 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:05:16,862 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:16,862 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:05:16,862 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕıÔÚÂÖÑ¯¼¤¹âÊı¾İ...
+2026-01-15 16:05:17,065 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:05:17,065 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:19,076 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:19,076 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:05:19,267 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:05:19,268 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:32,218 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:05:32,218 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:05:32,255 INFO: Backend modules loaded successfully
+2026-01-15 16:05:32,339 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:05:32,340 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:05:32,340 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:05:32,340 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:05:32,340 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:05:32,341 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:05:32,341 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:05:32,341 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:05:32,341 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:05:32,342 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:05:32,342 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:33,260 INFO: Initializing DB Manager...
+2026-01-15 16:05:33,260 INFO: DB Manager ready
+2026-01-15 16:05:33,392 INFO: Starting Flask app...
+2026-01-15 16:05:33,392 INFO: ========================================
+2026-01-15 16:05:33,392 INFO: »ğ³µ¼ÓÁÏÖÇÄÜ¼à¿ØÏµÍ³ - Web °æÒÑ¾ÍĞ÷
+2026-01-15 16:05:33,392 INFO: ÇëÔÚä¯ÀÀÆ÷ÖĞ·ÃÎÊ: http://127.0.0.1:5001
+2026-01-15 16:05:33,392 INFO: ========================================
+2026-01-15 16:05:33,393 INFO: b"* Serving Flask app 'web_server'"
+2026-01-15 16:05:33,393 INFO: b'* Debug mode: off'
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:05:33,410 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:05:33,410 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:05:34,332 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:34,332 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:05:34,332 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕıÔÚÂÖÑ¯¼¤¹âÊı¾İ...
+2026-01-15 16:05:34,536 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:05:34,536 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:36,532 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:36,533 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:05:36,742 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:05:36,742 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:38,741 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:38,741 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:05:38,940 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:05:38,941 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:40,943 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:40,943 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:05:41,140 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:05:41,140 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:43,146 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:43,146 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:05:43,344 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:05:43,344 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:05:44,346 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:05:44,347 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:46,343 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:46,343 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:05:46,559 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:05:46,561 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:48,548 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:48,548 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:05:48,753 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:05:48,754 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:50,758 INFO: [GroupQuery][TIMEOUT] read_holding_registers_16_24: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:50,758 INFO: [»Øµ÷] read_holding_registers_16_24 -> ok=False
+2026-01-15 16:05:50,959 INFO: [GroupQuery] Ö´ĞĞµÚ 4/5 ¸ö£ºread_level_gauge_sensor
+2026-01-15 16:05:50,959 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:52,963 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:52,963 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-15 16:05:53,165 INFO: [GroupQuery] Ö´ĞĞµÚ 5/5 ¸ö£ºread_laser_sensor
+2026-01-15 16:05:53,165 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:55,169 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:55,169 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-15 16:05:55,371 INFO: ËùÓĞ²éÑ¯Ö´ĞĞÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ı 1.0 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-15 16:05:55,371 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-15 16:05:56,364 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:05:56,365 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:05:58,359 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:05:58,359 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:05:58,563 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:05:58,565 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:06:00,563 INFO: [GroupQuery][TIMEOUT] read_holding_registers_0_14: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:06:00,563 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=False
+2026-01-15 16:06:00,779 INFO: [GroupQuery] Ö´ĞĞµÚ 3/5 ¸ö£ºread_holding_registers_16_24
+2026-01-15 16:06:00,779 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:10:03,944 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-15 16:10:03,944 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-15 16:10:03,980 INFO: Backend modules loaded successfully
+2026-01-15 16:10:04,003 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-15 16:10:04,003 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-15 16:10:04,003 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-15 16:10:04,003 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-15 16:10:04,003 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-15 16:10:04,004 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-15 16:10:04,004 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-15 16:10:04,004 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-15 16:10:04,004 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:10:04,004 INFO: ´®¿Ú²»´æÔÚ£¡
+2026-01-15 16:10:04,004 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-15 16:10:04,996 INFO: Initializing DB Manager...
+2026-01-15 16:10:04,996 INFO: DB Manager ready
+2026-01-15 16:10:04,996 INFO: Initializing PaddleOCR...
+2026-01-15 16:10:04,996 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:132: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-15 16:10:05,936 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+2026-01-15 16:10:06,003 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-15 16:10:06,003 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-15 16:10:06,003 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕıÔÚÂÖÑ¯¼¤¹âÊı¾İ...
+2026-01-15 16:10:06,205 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-15 16:10:06,205 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-15 16:10:08,771 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-15 16:10:08,771 INFO: [33mPress CTRL+C to quit[0m
+2026-01-15 16:10:09,763 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:174: DeprecationWarning: Please use `predict` instead.
+  result = ocr_instance.ocr(rgb_frame)
