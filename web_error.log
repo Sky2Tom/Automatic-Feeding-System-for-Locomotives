@@ -914,3 +914,107 @@
 2026-01-19 14:24:32,148 INFO: [33mPress CTRL+C to quit[0m
 2026-01-19 14:24:33,143 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:174: DeprecationWarning: Please use `predict` instead.
   result = ocr_instance.ocr(rgb_frame)
+2026-01-20 13:31:37,600 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-20 13:31:37,600 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-20 13:31:37,651 INFO: Backend modules loaded successfully
+2026-01-20 13:31:37,679 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-20 13:31:37,680 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-20 13:31:37,680 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-20 13:31:37,680 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-20 13:31:37,680 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-20 13:31:37,682 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-20 13:31:37,682 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-20 13:31:37,683 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-20 13:31:37,683 INFO: ´®¿ÚÒÑ±»Õ¼ÓÃ£¡
+2026-01-20 13:31:37,683 INFO: ´®¿ÚÒÑ±»Õ¼ÓÃ£¡
+2026-01-20 13:31:37,683 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-20 13:31:38,658 INFO: Initializing DB Manager...
+2026-01-20 13:31:38,658 INFO: DB Manager ready
+2026-01-20 13:31:38,658 INFO: Initializing PaddleOCR...
+2026-01-20 13:31:38,658 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:132: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-20 13:31:39,548 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+2026-01-20 13:31:39,684 INFO: [GroupQuery][TIMEOUT] read_coils_0_21: Î´ÊÕµ½ÓĞĞ§ÏìÓ¦
+2026-01-20 13:31:39,684 INFO: [»Øµ÷] read_coils_0_21 -> ok=False
+2026-01-20 13:31:39,684 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕıÔÚÂÖÑ¯¼¤¹âÊı¾İ...
+2026-01-20 13:31:39,885 INFO: [GroupQuery] Ö´ĞĞµÚ 2/5 ¸ö£ºread_holding_registers_0_14
+2026-01-20 13:31:39,886 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-20 13:31:43,067 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-20 13:31:43,067 INFO: [33mPress CTRL+C to quit[0m
+2026-01-20 13:31:44,072 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:174: DeprecationWarning: Please use `predict` instead.
+  result = ocr_instance.ocr(rgb_frame)
+2026-01-20 13:33:55,251 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-20 13:33:55,251 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-20 13:33:55,297 INFO: Backend modules loaded successfully
+2026-01-20 13:33:55,327 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-20 13:33:55,327 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-20 13:33:55,328 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-20 13:33:55,328 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-20 13:33:55,328 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-20 13:33:55,329 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-20 13:33:55,329 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-20 13:33:55,329 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-20 13:33:55,329 INFO: ´®¿ÚÒÑ±»Õ¼ÓÃ£¡
+2026-01-20 13:33:55,329 INFO: ´®¿ÚÒÑ±»Õ¼ÓÃ£¡
+2026-01-20 13:33:55,329 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-20 13:33:56,312 INFO: Initializing DB Manager...
+2026-01-20 13:33:56,312 INFO: DB Manager ready
+2026-01-20 13:33:56,312 INFO: Initializing PaddleOCR...
+2026-01-20 13:33:56,312 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:132: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-20 13:33:56,778 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-20 13:33:59,038 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-20 13:33:59,039 INFO: [33mPress CTRL+C to quit[0m
+2026-01-20 13:34:00,033 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:174: DeprecationWarning: Please use `predict` instead.
+  result = ocr_instance.ocr(rgb_frame)
+2026-01-20 13:39:25,177 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-20 13:39:25,177 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-20 13:39:25,215 INFO: Backend modules loaded successfully
+2026-01-20 13:39:25,247 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-20 13:39:25,247 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-20 13:39:25,248 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-20 13:39:25,248 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-20 13:39:25,248 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-20 13:39:25,249 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-20 13:39:25,249 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-20 13:39:25,249 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-20 13:39:25,249 INFO: ´®¿ÚÒÑ±»Õ¼ÓÃ£¡
+2026-01-20 13:39:25,249 INFO: ´®¿ÚÒÑ±»Õ¼ÓÃ£¡
+2026-01-20 13:39:25,249 INFO: ³¢ÊÔ·¢ËÍÊı¾İµ«´®¿ÚÎ´´ò¿ª
+2026-01-20 13:39:26,219 INFO: Initializing DB Manager...
+2026-01-20 13:39:26,219 INFO: DB Manager ready
+2026-01-20 13:39:26,219 INFO: Initializing PaddleOCR...
+2026-01-20 13:39:26,219 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:132: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-20 13:39:26,696 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+2026-01-20 13:50:57,437 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-20 13:50:57,437 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-20 13:50:57,470 INFO: Backend modules loaded successfully
+2026-01-20 13:50:57,495 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-20 13:50:57,495 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀı¡£
+2026-01-20 13:50:57,495 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-20 13:50:57,495 INFO: [GroupQuery] Ö´ĞĞµÚ 1/5 ¸ö£ºread_coils_0_21
+2026-01-20 13:50:57,496 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-20 13:50:57,499 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-20 13:50:57,499 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-20 13:50:57,499 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-20 13:50:57,500 INFO: ´®¿Ú COM6 ÒÑ³É¹¦´ò¿ª
+2026-01-20 13:50:57,500 INFO: ·¢ËÍÊı¾İ: 010100000016bdc4 (¹² 8 ×Ö½Ú)
+2026-01-20 13:50:58,485 INFO: Initializing DB Manager...
+2026-01-20 13:50:58,485 INFO: DB Manager ready
+2026-01-20 13:50:58,485 INFO: Initializing PaddleOCR...
+2026-01-20 13:50:58,485 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:132: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-20 13:50:58,971 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)

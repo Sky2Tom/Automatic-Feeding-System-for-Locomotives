@@ -466,15 +466,16 @@ if __name__ == "__main__":
     #     start_addr=0,
     #     quantity=3  # 示例：读取从站1的0-2号线圈（共3个线圈）
     # )
-    """data = sender.write_single_register(
-        slave_addr=1,
-        register_addr=1,
-        register_value=76  # 示例值
-    )"""
-    data = sender.read_holding_registers(
-        slave_addr=3,
-        start_addr=4098,
-        quantity=2
+    data = sender.write_single_coil(
+        slave_addr=2,
+        output_addr=0,
+        output_value=65280  # 示例值
+    )
+
+    data1 = sender.write_single_register(
+        slave_addr=2,
+        register_addr=0,
+        register_value=6  # 示例值
     )
     # 创建测试参数
     parameter = {

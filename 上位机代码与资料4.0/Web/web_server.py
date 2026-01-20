@@ -492,11 +492,35 @@ def video_feed():
 
 @app.route('/api/control', methods=['POST'])
 def control_machine():
-    """下料机控制接口 (模拟 Modbus 写操作)"""
-    # 实际应用中应调用 backend_app 提供的写接口
+    """下料机控制接口 (调用 Modbus 写操作)"""
+    if not BACKEND_AVAILABLE or not backend_app:
+        return jsonify({"status": "error", "message": "Backend not available"}), 503
+        
     data = request.json
-    print(f"接收到控制指令: {data}")
-    return jsonify({"status": "success", "data_received": data})
+    cmd = data.get('command')
+    print(f"接收到控制指令: {cmd}")
+    
+    # 根据指令类型调用写函数
+    # 映射示例：将前端指令转为具体的 Modbus 地址和值
+    try:
+        if cmd == 'VALVE_OPEN':
+            # 假设地址 12 是阀门控制线圈，0xFF00 表示打开
+            DATAS.add_write_task('write_valve_open', 2, 5, 12, 0xFF00)
+        elif cmd == 'VALVE_CLOSE':
+            DATAS.add_write_task('write_valve_close', 2, 5, 12, 0x0000)
+        elif cmd == 'LIFT_UP':
+            # 假设地址 16 是升降高度寄存器
+            DATAS.add_write_task('write_lift_up', 2, 6, 13, 2000)
+        elif cmd == 'LIFT_DOWN':
+            DATAS.add_write_task('write_lift_down', 2, 6, 13, 0)
+        else:
+            print(f"接收到未知控制指令: {cmd}")
+            return jsonify({"status": "error", "message": f"Unknown command: {cmd}"})
+            
+        return jsonify({"status": "success", "command_queued": cmd})
+    except Exception as e:
+        logging.error(f"发送控制指令失败: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 if __name__ == '__main__':
     # 仅支持本地打开 (localhost)

@@ -58,6 +58,9 @@ class SharedDataStore(QObject):
         # === 原全局变量：汇总展示用字典 ===
         self.all_data_dict = {}
 
+        # === 写操作任务队列 ===
+        self.pending_writes = []  # 存储待执行的写任务: [{'name':str, 'params':tuple}]
+
         # 线程并发保护
         self._lock = threading.Lock()
 
@@ -67,6 +70,22 @@ class SharedDataStore(QObject):
             if cls._instance is None:
                 cls._instance = SharedDataStore()
             return cls._instance
+
+    def add_write_task(self, func_name, slave, func_id, addr, value):
+        """添加一个写任务到队列中"""
+        with self._lock:
+            self.pending_writes.append({
+                'name': func_name,
+                'params': (slave, func_id, addr, value)
+            })
+            print(f"[DataStore] 已加入写任务队列: {func_name} (Addr:{addr}, Val:{value})")
+
+    def pop_write_task(self):
+        """取出一个写任务"""
+        with self._lock:
+            if self.pending_writes:
+                return self.pending_writes.pop(0)
+            return None
 
     # —— 写入一帧的“原始字段”（解析结果） —— #
     def write_last_frame(self, fn_name: str, RxAddr: int, RxFuncID: int,
@@ -357,7 +376,33 @@ class GroupQueryScheduler(QObject):
         self._do_one()
 
     def _do_one(self):
+        # --- 新增逻辑：在本轮轮询(所有读函数)执行完后，优先处理写任务队列 ---
         if self._idx >= len(self.functions):
+            write_task = DATAS.pop_write_task()
+            if write_task:
+                func_name = write_task['name']
+                slave, fid, start, val = write_task['params']
+                print(f"[GroupQuery] --- 触发写操作指令: {func_name} ---")
+                
+                # 执行写操作 (重用 client.modbus_query)
+                hex_str = self.client.modbus_query(slave, fid, start, val)
+                
+                if hex_str:
+                    RxAddr, RxFuncID, RxDataLen, RxData, Mdbs_state, MdbsCNT = self.parser.parse(hex_str)
+                    if Mdbs_state & Frame_OK:
+                        print(f"--- [SUCCESS] 写指令 {func_name} 执行成功，从站已响应 ---")
+                        # 记录最近一帧
+                        DATAS.write_last_frame(func_name, RxAddr, RxFuncID, RxDataLen, RxData, Mdbs_state)
+                    else:
+                        print(f"--- [ERROR] 写指令 {func_name} 响应异常 (CRC错误等) ---")
+                else:
+                    print(f"--- [TIMEOUT] 写指令 {func_name} 无响应 ---")
+                
+                # 执行完一个写任务后，再次触发定时器检查队列中是否还有更多写任务，或者结束本轮
+                self._step_timer.start(200)
+                return
+
+            # 如果没有写任务，则按原逻辑结束本轮
             print(f"所有查询执行完成，本轮结束。等待 {self._cycle_interval_ms/1000} 秒进入下一轮...")
             self.oneRoundFinished.emit()
             self._between_round_timer.start(self._cycle_interval_ms)
@@ -472,6 +517,12 @@ def read_holding_registers_16_24(): return (1, 3, 16, 9)
 def read_level_gauge_sensor(): return (3, 3, 4098, 2)
 # 新增激光传感器查询函数 (从站 4, 功能码 3, 地址 21, 数量 2)，激光距离，数据类型unit32
 def read_laser_sensor(): return (4, 3, 21, 2)
+
+# --- 新增写函数 (功能码 0x05, 0x06) ---
+# 写单个线圈 (0x05): value 为 0xFF00 为开, 0x0000 为关
+def write_single_coil(slave, addr, value): return (slave, 5, addr, value)
+# 写单个保持寄存器 (0x06): value 为要写入的数值 (0-65535)
+def write_single_register(slave, addr, value): return (slave, 6, addr, value)
 
 
 # ---------------------------------------------------------------------
