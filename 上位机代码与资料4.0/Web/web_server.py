@@ -498,7 +498,8 @@ def control_machine():
         
     data = request.json
     cmd = data.get('command')
-    print(f"接收到控制指令: {cmd}")
+    val = data.get('value')
+    print(f"接收到控制指令: {cmd}, 参数: {val}")
     
     # 根据指令类型调用写函数
     # 映射示例：将前端指令转为具体的 Modbus 地址和值
@@ -509,15 +510,27 @@ def control_machine():
         elif cmd == 'VALVE_CLOSE':
             DATAS.add_write_task('write_valve_close', 2, 5, 12, 0x0000)
         elif cmd == 'LIFT_UP':
-            # 假设地址 16 是升降高度寄存器
+            # 假设地址 13 是升降高度寄存器
             DATAS.add_write_task('write_lift_up', 2, 6, 13, 2000)
         elif cmd == 'LIFT_DOWN':
             DATAS.add_write_task('write_lift_down', 2, 6, 13, 0)
+        
+        # --- 新增机器控制参数设置 (功能码 0x06) ---
+        elif cmd == 'SET_VALVE_OPENING':
+            # 仓口阀门开度 (uint16), 假设地址 14
+            DATAS.add_write_task('set_valve_opening', 2, 6, 14, int(val))
+        elif cmd == 'SET_LIFT_HEIGHT':
+            # 升降器高度 (uint16), 地址 13
+            DATAS.add_write_task('set_lift_height', 2, 6, 13, int(val))
+        elif cmd == 'SET_FLAP_ANGLE':
+            # 下部翻板角度 (uint16), 假设地址 15
+            DATAS.add_write_task('set_flap_angle', 2, 6, 15, int(val))
+            
         else:
             print(f"接收到未知控制指令: {cmd}")
             return jsonify({"status": "error", "message": f"Unknown command: {cmd}"})
             
-        return jsonify({"status": "success", "command_queued": cmd})
+        return jsonify({"status": "success", "command_queued": cmd, "value": val})
     except Exception as e:
         logging.error(f"发送控制指令失败: {e}")
         return jsonify({"status": "error", "message": str(e)}), 500

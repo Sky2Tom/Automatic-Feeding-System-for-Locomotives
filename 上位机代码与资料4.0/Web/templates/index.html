@@ -287,6 +287,148 @@
         .btn-danger:hover {
             background: rgba(255, 48, 76, 0.2);
         }
+
+        /* ========== 增强控制台样式 ========== */
+        .control-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .ctrl-card {
+            background: rgba(10, 25, 47, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ctrl-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            opacity: 0.5;
+        }
+
+        .ctrl-card.danger::before {
+            background: var(--danger-color);
+        }
+
+        .ctrl-group-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ctrl-group-title span {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border-color), transparent);
+        }
+
+        .action-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .action-btn {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            border-radius: 4px;
+        }
+
+        .action-btn:hover {
+            border-color: var(--accent-color);
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .action-btn i {
+            font-size: 18px;
+        }
+
+        .action-btn.stop {
+            border-color: rgba(255, 48, 76, 0.3);
+        }
+
+        .action-btn.stop:hover {
+            border-color: var(--danger-color);
+            background: rgba(255, 48, 76, 0.1);
+            color: var(--danger-color);
+        }
+
+        .param-input-group {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(30, 58, 95, 0.3);
+        }
+
+        .param-input-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--muted-color);
+            margin-bottom: 8px;
+        }
+
+        .param-control {
+            display: flex;
+            gap: 10px;
+        }
+
+        .param-control input {
+            flex: 1;
+            background: #050b1a;
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            color: var(--accent-color);
+            font-family: 'Consolas', monospace;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .param-control input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(0, 242, 255, 0.2);
+        }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: #050b1a;
+            border: none;
+            padding: 0 20px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 11px;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            filter: brightness(1.2);
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 
@@ -444,25 +586,77 @@
 
                 <!-- CONTROL -->
                 <div id="control" class="module">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>REMOTE CONTROL 控制台</h3>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            <div>
-                                <h4 style="margin-bottom: 15px;">系统操作</h4>
-                                <div style="display: flex; gap: 10px;">
-                                    <button class="btn" onclick="sendCommand('START')">系统启动</button>
-                                    <button class="btn btn-danger" onclick="sendCommand('STOP')">紧急停止</button>
+                    <div class="control-grid">
+                        <!-- 第一列：核心系统操作 -->
+                        <div class="ctrl-card danger">
+                            <div class="ctrl-group-title">SYSTEM CORE 系统核心操作 <span></span></div>
+                            <div class="action-row">
+                                <div class="action-btn" onclick="sendCommand('START')">
+                                    <span style="font-size: 24px;">▶</span>
+                                    <span>系统启动</span>
+                                </div>
+                                <div class="action-btn stop" onclick="sendCommand('STOP')">
+                                    <span style="font-size: 24px;">■</span>
+                                    <span>紧急停止</span>
                                 </div>
                             </div>
-                            <div>
-                                <h4 style="margin-bottom: 15px;">部件控制</h4>
-                                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                    <button class="btn" onclick="sendCommand('VALVE_OPEN')">阀门打开</button>
-                                    <button class="btn" onclick="sendCommand('VALVE_CLOSE')">阀门关闭</button>
-                                    <button class="btn" onclick="sendCommand('LIFT_UP')">升降上升</button>
-                                    <button class="btn" onclick="sendCommand('LIFT_DOWN')">升降下降</button>
+                            <p style="font-size: 11px; color: var(--danger-color); margin-top: 10px; opacity: 0.8;">
+                                * 紧急停止将立即切断所有执行机构输出并锁定系统。
+                            </p>
+                        </div>
+
+                        <!-- 第二列：手动部件开关 -->
+                        <div class="ctrl-card">
+                            <div class="ctrl-group-title">MANUAL OVERRIDE 部件手动操作 <span></span></div>
+                            <div class="action-row">
+                                <div class="action-btn" onclick="sendCommand('VALVE_OPEN')">
+                                    <span>⇧</span>
+                                    <span>阀门打开</span>
+                                </div>
+                                <div class="action-btn" onclick="sendCommand('VALVE_CLOSE')">
+                                    <span>⇩</span>
+                                    <span>阀门关闭</span>
+                                </div>
+                            </div>
+                            <div class="action-row">
+                                <div class="action-btn" onclick="sendCommand('LIFT_UP')">
+                                    <span>▲</span>
+                                    <span>升降上升</span>
+                                </div>
+                                <div class="action-btn" onclick="sendCommand('LIFT_DOWN')">
+                                    <span>▼</span>
+                                    <span>升降下降</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第三列：参数精准调节 -->
+                        <div class="ctrl-card">
+                            <div class="ctrl-group-title">PRECISION TUNING 参数精准调节 <span></span></div>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div class="param-input-group">
+                                    <label>仓口阀门开度 (VALVE OPENING)</label>
+                                    <div class="param-control">
+                                        <input type="number" id="ctrl-valve-opening" placeholder="0-100">
+                                        <span style="padding: 8px 5px; color: var(--muted-color);">%</span>
+                                        <button class="submit-btn" onclick="sendParamCommand('SET_VALVE_OPENING', 'ctrl-valve-opening')">写入</button>
+                                    </div>
+                                </div>
+                                <div class="param-input-group">
+                                    <label>升降器高度 (LIFTING HEIGHT)</label>
+                                    <div class="param-control">
+                                        <input type="number" id="ctrl-lift-height" placeholder="0-5000">
+                                        <span style="padding: 8px 5px; color: var(--muted-color);">cm</span>
+                                        <button class="submit-btn" onclick="sendParamCommand('SET_LIFT_HEIGHT', 'ctrl-lift-height')">写入</button>
+                                    </div>
+                                </div>
+                                <div class="param-input-group">
+                                    <label>下部翻板角度 (FLAP ANGLE)</label>
+                                    <div class="param-control">
+                                        <input type="number" id="ctrl-flap-angle" placeholder="0-90">
+                                        <span style="padding: 8px 5px; color: var(--muted-color);">%</span>
+                                        <button class="submit-btn" onclick="sendParamCommand('SET_FLAP_ANGLE', 'ctrl-flap-angle')">写入</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -806,6 +1000,34 @@
             });
             if (res.ok) {
                 console.log("Command sent: " + cmd);
+            }
+        }
+
+        // 发送带参数的控制命令
+        async function sendParamCommand(cmd, inputId) {
+            const val = document.getElementById(inputId).value;
+            if (val === "") {
+                alert("请输入数值");
+                return;
+            }
+            
+            const res = await fetch('/api/control', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    command: cmd,
+                    value: parseInt(val),
+                    timestamp: Date.now()
+                })
+            });
+            
+            if (res.ok) {
+                console.log(`Param command sent: ${cmd}, value: ${val}`);
+                alert("指令已提交");
+            } else {
+                alert("提交失败");
             }
         }
     </script>
