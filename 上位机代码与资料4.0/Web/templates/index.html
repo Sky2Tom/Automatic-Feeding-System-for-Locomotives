@@ -532,6 +532,16 @@
                             </div>
                         </div>
                     </div>
+                    <!-- 新增：实时装料曲线卡片 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>FEEDING PROGRESS CURVE 实时装料料位曲线</h3>
+                            <div id="active-train-label" style="font-size: 12px; color: var(--accent-color);">TRAIN: NONE</div>
+                        </div>
+                        <div style="height: 300px; width: 100%;">
+                            <canvas id="feedingCurve"></canvas>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- VISION -->
@@ -594,7 +604,7 @@
                                 <div class="action-btn" onclick="sendCommand('START')">
                                     <span style="font-size: 24px;">▶</span>
                                     <span>系统启动</span>
-                                </div>
+                        </div>
                                 <div class="action-btn stop" onclick="sendCommand('STOP')">
                                     <span style="font-size: 24px;">■</span>
                                     <span>紧急停止</span>
@@ -603,7 +613,7 @@
                             <p style="font-size: 11px; color: var(--danger-color); margin-top: 10px; opacity: 0.8;">
                                 * 紧急停止将立即切断所有执行机构输出并锁定系统。
                             </p>
-                        </div>
+                                </div>
 
                         <!-- 第二列：手动部件开关 -->
                         <div class="ctrl-card">
@@ -612,7 +622,7 @@
                                 <div class="action-btn" onclick="sendCommand('VALVE_OPEN')">
                                     <span>⇧</span>
                                     <span>阀门打开</span>
-                                </div>
+                            </div>
                                 <div class="action-btn" onclick="sendCommand('VALVE_CLOSE')">
                                     <span>⇩</span>
                                     <span>阀门关闭</span>
@@ -693,7 +703,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3>QUERY FILTERS 历史记录查询</h3>
-                        </div>
+                            </div>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px;">
                             <div class="input-group" style="margin-bottom: 0;">
                                 <label>开始时间</label>
@@ -796,7 +806,54 @@
         }
 
         // 定时轮询快照
+        let feedingChart = null;
+        let lastTrainNo = "";
+        let feedingData = [];
+        let feedingLabels = [];
+
+        function initFeedingChart() {
+            const ctx = document.getElementById('feedingCurve').getContext('2d');
+            feedingChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: feedingLabels,
+                    datasets: [{
+                        label: '实时料位 (m)',
+                        data: feedingData,
+                        borderColor: '#00f2ff',
+                        backgroundColor: 'rgba(0, 242, 255, 0.1)',
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: false,
+                    scales: {
+                        x: {
+                            display: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#8892b0', maxTicksLimit: 10 }
+                        },
+                        y: {
+                            display: true,
+                            title: { display: true, text: '高度 (m)', color: '#8892b0' },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#8892b0' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
         function startPolling() {
+            initFeedingChart();
             setInterval(async () => {
                 try {
                     const res = await fetch('/api/snapshot');
@@ -814,7 +871,22 @@
 
         function updateDashboard(snap) {
             const data = snap.all_data_dict || {};
-            // console.log("Updating dashboard with snap:", snap);
+            const vision = snap.vision_result || {};
+            const currentTrain = vision.train_no || "--";
+
+            // 检测车号变化，重置曲线
+            if (currentTrain !== "--" && currentTrain !== lastTrainNo) {
+                lastTrainNo = currentTrain;
+                feedingData = [];
+                feedingLabels = [];
+                if (feedingChart) {
+                    feedingChart.data.labels = feedingLabels;
+                    feedingChart.data.datasets[0].data = feedingData;
+                    feedingChart.update();
+                }
+                document.getElementById('active-train-label').innerText = "TRAIN: " + currentTrain;
+                console.log("New train detected, resetting feeding curve:", currentTrain);
+            }
             
             // 1. 系统状态 (来自 read_coils_0_21)
             if (data.read_coils_0_21) {
@@ -853,7 +925,23 @@
             if (data.read_level_gauge_sensor && data.read_level_gauge_sensor.material_level !== undefined) {
                 const val = data.read_level_gauge_sensor.material_level;
                 document.getElementById('val-lwgd').innerText = typeof val === 'number' ? val.toFixed(2) + " m" : val + " m";
-                // console.log("Updated material_level:", val);
+                
+                // 更新实时装料曲线
+                if (currentTrain !== "--" && typeof val === 'number') {
+                    const now = new Date().toLocaleTimeString();
+                    feedingLabels.push(now);
+                    feedingData.push(val);
+                    
+                    // 限制曲线点数，防止性能问题（例如保留最近100个点）
+                    if (feedingLabels.length > 100) {
+                        feedingLabels.shift();
+                        feedingData.shift();
+                    }
+                    
+                    if (feedingChart) {
+                        feedingChart.update('none'); // 'none' 禁用平滑动画提升性能
+                    }
+                }
             }
 
             // 5. 更新视觉识别详情

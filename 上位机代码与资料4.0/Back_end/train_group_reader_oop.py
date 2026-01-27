@@ -215,7 +215,7 @@ class ModbusClient(QObject):
         self.serial_worker.send_bytes(payload)
 
         # 等待一帧（带超时）
-        hex_str = wait_for_last_frame(self.serial_worker.serial_obj, timeout_ms=2000)
+        hex_str = wait_for_last_frame(self.serial_worker.serial_obj, timeout_ms=200)
         return hex_str
 
 
@@ -399,7 +399,7 @@ class GroupQueryScheduler(QObject):
                     print(f"--- [TIMEOUT] 写指令 {func_name} 无响应 ---")
                 
                 # 执行完一个写任务后，再次触发定时器检查队列中是否还有更多写任务，或者结束本轮
-                self._step_timer.start(200)
+                self._step_timer.start(80)
                 return
 
             # 如果没有写任务，则按原逻辑结束本轮
@@ -452,7 +452,7 @@ class GroupQueryScheduler(QObject):
 
         # 200ms 后继续下一个查询，加快轮询节奏
         self._idx += 1
-        self._step_timer.start(200)
+        self._step_timer.start(70)
 
 
 # ---------------------------------------------------------------------
@@ -553,9 +553,9 @@ class TrainGroupReaderApp(QObject):
             read_laser_sensor,
         ]
 
-        # cycle_interval_ms=1000 表示每轮查询结束后等待 1 秒再开始下一轮
+        # cycle_interval_ms=100 表示每轮查询结束后等待 1 秒再开始下一轮
         self.scheduler = GroupQueryScheduler(
-            self.client, self.parser, functions, cycle_interval_ms=1000, analyzer=self.analyzer
+            self.client, self.parser, functions, cycle_interval_ms=100, analyzer=self.analyzer
         )
         self.scheduler.oneQueryFinished.connect(self.on_one_query_finished)
         self.scheduler.oneRoundFinished.connect(self.on_one_round_finished)
