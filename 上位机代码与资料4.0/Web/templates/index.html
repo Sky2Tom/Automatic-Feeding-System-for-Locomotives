@@ -533,13 +533,24 @@
                         </div>
                     </div>
                     <!-- 新增：实时装料曲线卡片 -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>FEEDING PROGRESS CURVE 实时装料料位曲线</h3>
-                            <div id="active-train-label" style="font-size: 12px; color: var(--accent-color);">TRAIN: NONE</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <div class="card" style="margin-bottom: 0;">
+                            <div class="card-header">
+                                <h3>MATERIAL LEVEL CURVE 实时料位高度曲线</h3>
+                                <div class="active-train-display" style="font-size: 12px; color: var(--accent-color);">TRAIN: NONE</div>
+                            </div>
+                            <div style="height: 250px; width: 100%;">
+                                <canvas id="feedingCurve"></canvas>
+                            </div>
                         </div>
-                        <div style="height: 300px; width: 100%;">
-                            <canvas id="feedingCurve"></canvas>
+                        <div class="card" style="margin-bottom: 0;">
+                            <div class="card-header">
+                                <h3>FEEDING PROGRESS 实时装料进度 (%)</h3>
+                                <div class="active-train-display" style="font-size: 12px; color: var(--accent-color);">TRAIN: NONE</div>
+                            </div>
+                            <div style="height: 250px; width: 100%;">
+                                <canvas id="progressCurve"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -807,18 +818,20 @@
 
         // 定时轮询快照
         let feedingChart = null;
+        let progressChart = null; // 新增：进度图表实例
         let lastTrainNo = "";
         let feedingData = [];
+        let progressData = []; 
         let feedingLabels = [];
 
         function initFeedingChart() {
-            const ctx = document.getElementById('feedingCurve').getContext('2d');
-            feedingChart = new Chart(ctx, {
+            const ctxLevel = document.getElementById('feedingCurve').getContext('2d');
+            feedingChart = new Chart(ctxLevel, {
                 type: 'line',
                 data: {
                     labels: feedingLabels,
                     datasets: [{
-                        label: '实时料位 (m)',
+                        label: '料位 (m)',
                         data: feedingData,
                         borderColor: '#00f2ff',
                         backgroundColor: 'rgba(0, 242, 255, 0.1)',
@@ -833,21 +846,38 @@
                     maintainAspectRatio: false,
                     animation: false,
                     scales: {
-                        x: {
-                            display: true,
-                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: { color: '#8892b0', maxTicksLimit: 10 }
-                        },
-                        y: {
-                            display: true,
-                            title: { display: true, text: '高度 (m)', color: '#8892b0' },
-                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: { color: '#8892b0' }
-                        }
+                        x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#8892b0', maxTicksLimit: 10 } },
+                        y: { title: { display: true, text: '高度 (m)', color: '#8892b0' }, grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#8892b0' } }
                     },
-                    plugins: {
-                        legend: { display: false }
-                    }
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            const ctxProgress = document.getElementById('progressCurve').getContext('2d');
+            progressChart = new Chart(ctxProgress, {
+                type: 'line',
+                data: {
+                    labels: feedingLabels,
+                    datasets: [{
+                        label: '进度 (%)',
+                        data: progressData,
+                        borderColor: '#ffcc00',
+                        backgroundColor: 'rgba(255, 204, 0, 0.1)',
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: false,
+                    scales: {
+                        x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#8892b0', maxTicksLimit: 10 } },
+                        y: { min: 0, max: 100, title: { display: true, text: '百分比 (%)', color: '#8892b0' }, grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#8892b0' } }
+                    },
+                    plugins: { legend: { display: false } }
                 }
             });
         }
@@ -878,14 +908,22 @@
             if (currentTrain !== "--" && currentTrain !== lastTrainNo) {
                 lastTrainNo = currentTrain;
                 feedingData = [];
+                progressData = []; // 重置进度
                 feedingLabels = [];
                 if (feedingChart) {
                     feedingChart.data.labels = feedingLabels;
                     feedingChart.data.datasets[0].data = feedingData;
                     feedingChart.update();
                 }
-                document.getElementById('active-train-label').innerText = "TRAIN: " + currentTrain;
-                console.log("New train detected, resetting feeding curve:", currentTrain);
+                if (progressChart) {
+                    progressChart.data.labels = feedingLabels;
+                    progressChart.data.datasets[0].data = progressData;
+                    progressChart.update();
+                }
+                document.querySelectorAll('.active-train-display').forEach(el => {
+                    el.innerText = "TRAIN: " + currentTrain;
+                });
+                console.log("New train detected, resetting both curves:", currentTrain);
             }
             
             // 1. 系统状态 (来自 read_coils_0_21)
@@ -929,17 +967,34 @@
                 // 更新实时装料曲线
                 if (currentTrain !== "--" && typeof val === 'number') {
                     const now = new Date().toLocaleTimeString();
+                    
+                    // 计算进度百分比
+                    let progress = 0;
+                    if (vision.dim_h && vision.dim_h !== "--") {
+                        // 解析高度值，如 "2050 mm" 转换为 2.05 m
+                        const heightMm = parseFloat(vision.dim_h.replace(/[^\d.]/g, ''));
+                        if (heightMm > 0) {
+                            const heightM = heightMm / 1000;
+                            progress = Math.min(100, (val / heightM) * 100);
+                        }
+                    }
+
                     feedingLabels.push(now);
                     feedingData.push(val);
+                    progressData.push(progress); // 存入百分比
                     
                     // 限制曲线点数，防止性能问题（例如保留最近100个点）
                     if (feedingLabels.length > 100) {
                         feedingLabels.shift();
                         feedingData.shift();
+                        progressData.shift();
                     }
                     
                     if (feedingChart) {
-                        feedingChart.update('none'); // 'none' 禁用平滑动画提升性能
+                        feedingChart.update('none'); 
+                    }
+                    if (progressChart) {
+                        progressChart.update('none');
                     }
                 }
             }
