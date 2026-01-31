@@ -505,26 +505,26 @@ def control_machine():
     # 映射示例：将前端指令转为具体的 Modbus 地址和值
     try:
         if cmd == 'VALVE_OPEN':
-            # 假设地址 12 是阀门控制线圈，0xFF00 表示打开
-            DATAS.add_write_task('write_valve_open', 2, 5, 12, 0xFF00)
+            # 地址 20 是阀门控制位，0xFF00 表示打开
+            DATAS.add_write_task('write_valve_open', 1, 5, 20, 0xFF00)
         elif cmd == 'VALVE_CLOSE':
-            DATAS.add_write_task('write_valve_close', 2, 5, 12, 0x0000)
+            DATAS.add_write_task('write_valve_close', 1, 5, 20, 0x0000)
         elif cmd == 'LIFT_UP':
-            # 假设地址 13 是升降高度寄存器
-            DATAS.add_write_task('write_lift_up', 2, 6, 13, 2000)
+            # 地址 23 是升降高度寄存器
+            DATAS.add_write_task('write_lift_up', 1, 6, 23, 2000)
         elif cmd == 'LIFT_DOWN':
-            DATAS.add_write_task('write_lift_down', 2, 6, 13, 0)
+            DATAS.add_write_task('write_lift_down', 1, 6, 23, 0)
         
         # --- 新增机器控制参数设置 (功能码 0x06) ---
         elif cmd == 'SET_VALVE_OPENING':
-            # 仓口阀门开度 (uint16), 假设地址 14
-            DATAS.add_write_task('set_valve_opening', 2, 6, 14, int(val))
+            # 仓口阀门开度 (uint16), 地址 22
+            DATAS.add_write_task('set_valve_opening', 1, 6, 22, int(val))
         elif cmd == 'SET_LIFT_HEIGHT':
-            # 升降器高度 (uint16), 地址 13
-            DATAS.add_write_task('set_lift_height', 2, 6, 13, int(val))
+            # 升降器高度 (uint16), 地址 23
+            DATAS.add_write_task('set_lift_height', 1, 6, 23, int(val))
         elif cmd == 'SET_FLAP_ANGLE':
-            # 下部翻板角度 (uint16), 假设地址 15
-            DATAS.add_write_task('set_flap_angle', 2, 6, 15, int(val))
+            # 下部翻板角度 (uint16), 地址 21
+            DATAS.add_write_task('set_flap_angle', 1, 6, 21, int(val))
             
         else:
             print(f"接收到未知控制指令: {cmd}")
