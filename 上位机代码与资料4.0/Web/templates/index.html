@@ -926,32 +926,32 @@
                 console.log("New train detected, resetting both curves:", currentTrain);
             }
             
-            // 1. 系统状态 (来自 read_coils_0_21)
-            if (data.read_coils_0_21) {
-                const coils = data.read_coils_0_21;
-                document.getElementById('val-xtzt').innerText = coils.tractor_status ? "ONLINE" : "OFFLINE";
-                document.getElementById('val-xmjzt').innerText = coils.control_system_status ? "NORMAL" : "FAULT";
+            // 1. 系统状态 (来自 read_coils_16_35)
+            if (data.read_coils_16_35) {
+                const coils = data.read_coils_16_35;
+                document.getElementById('val-xtzt').innerText = coils.plc_status ? "ONLINE" : "OFFLINE";
+                document.getElementById('val-xmjzt').innerText = coils.control_system_control ? "NORMAL" : "FAULT";
             }
             
             document.getElementById('val-czy').innerText = "Admin";
-            document.getElementById('val-lch').innerText = snap.vision_result ? snap.vision_result.train_no : "C64-8802";
+            document.getElementById('val-lch').innerText = currentTrain;
 
-            // 2. 运行数据 (来自 read_holding_registers_16_24)
-            if (data.read_holding_registers_16_24) {
-                const regs = data.read_holding_registers_16_24;
-                document.getElementById('val-fmkd').innerText = (regs.bin_gate_opening_status || 0);
-                document.getElementById('val-sjgd').innerText = (regs.lifting_height_status || 0) + " mm";
-                document.getElementById('val-fbgd').innerText = (regs.lower_flap_angle_status || 0) + " °";
+            // 2. 运行数据 (来自 read_holding_registers_0_14)
+            if (data.read_holding_registers_0_14) {
+                const regs = data.read_holding_registers_0_14;
+                document.getElementById('val-fmkd').innerText = (regs.bin_gate_opening_status || 0) + " %";
+                document.getElementById('val-sjgd').innerText = (regs.lifting_height_status || 0) + " cm";
+                document.getElementById('val-fbgd').innerText = (regs.lower_flap_angle_status || 0) + " %";
                 
                 // 模拟装料进度 (如果到位且正在装料)
-                if (data.read_coils_0_21 && data.read_coils_0_21.is_full) {
+                if (data.read_coils_16_35 && data.read_coils_16_35.is_full) {
                     document.getElementById('val-zljd').innerText = "100%";
                 } else {
                     document.getElementById('val-zljd').innerText = "READY";
                 }
 
                 document.getElementById('val-dwjl').innerText = (regs.positioning_distance || 0) + " mm";
-                document.getElementById('val-cxsd').innerText = (regs.train_speed || 0).toFixed(2) + " m/s";
+                document.getElementById('val-cxsd').innerText = (regs.train_speed || 0) + " mm/s";
             }
 
             // 3. 测量参数 - 激光距离 (来自 read_laser_sensor)

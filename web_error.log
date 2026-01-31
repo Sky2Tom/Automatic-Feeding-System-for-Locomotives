@@ -1018,3 +1018,400 @@
   ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
 2026-01-20 13:50:58,971 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
   warnings.warn(warning_message)
+2026-01-31 15:00:49,925 INFO: Current dir: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web
+2026-01-31 15:00:49,925 INFO: Back_end path: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Back_end
+2026-01-31 15:00:49,970 INFO: Backend modules loaded successfully
+2026-01-31 15:00:49,992 INFO: Initializing Modbus Backend with Qt Loop...
+2026-01-31 15:00:49,993 INFO: Ö÷¶¯Óë±»¶¯¶Ë¿ÚÏàÍ¬(COM6)£¬½«¹²ÓÃ´®¿ÚÊµÀý¡£
+2026-01-31 15:00:49,993 INFO: --- ´®¿Ú COM6 ÒÑÆô¶¯²¢Õ¼ÓÃ ---
+2026-01-31 15:00:49,993 INFO: [GroupQuery] Ö´ÐÐµÚ 1/4 ¸ö£ºread_coils_16_35
+2026-01-31 15:00:49,993 INFO: ´®¿ÚÏß³ÌÆô¶¯
+2026-01-31 15:00:49,994 INFO: ³¢ÊÔ´ò¿ª´®¿Ú:
+2026-01-31 15:00:49,995 INFO: {'PortName_master': 'COM6', 'BaudRate_master': 9600}
+2026-01-31 15:00:49,995 INFO: ´®¿Ú³õÊ¼»¯Íê³É
+2026-01-31 15:00:49,995 INFO: ´®¿Ú COM6 ÒÑ³É¹¦´ò¿ª
+2026-01-31 15:00:49,995 INFO: ·¢ËÍÊý¾Ý: 0101001000143dc0 (¹² 8 ×Ö½Ú)
+2026-01-31 15:00:50,020 INFO: ÊÕµ½Êý¾Ý: 0101030100006d8e
+2026-01-31 15:00:50,020 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x6D, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x8E, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:50,021 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:50,021 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:50,021 INFO: [DataStore] read_coils_0_21 ¸üÐÂ£º{'RxAddr': 1, 'RxFuncID': 1, 'RxDataLen': 3, 'RxData': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}}
+2026-01-31 15:00:50,021 INFO: [±»¶¯¼àÌý] ÒÑÊ¶±ð²¢¸üÐÂ¹¦ÄÜ¿é: read_coils_0_21
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x6D, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x8E, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:50,021 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:50,021 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:50,021 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:50,021 INFO: [DataStore] read_coils_16_35 ¸üÐÂ£º{'RxAddr': 1, 'RxFuncID': 1, 'RxDataLen': 3, 'RxData': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'plc_status': 1, 'is_overspeed': 0, 'bin_gate_control': 0, 'lifting_device_control': 0, 'lower_flap_gate_control': 0, 'hydraulic_system_control': 0, 'control_system_control': 0, 'bin_gate_fault': 0, 'lifting_device_fault': 0, 'lower_flap_gate_fault': 0, 'reserved_1': 0, 'reserved_2': 0, 'reserved_3': 0, 'reserved_4': 0, 'reserved_5': 0, 'reserved_6': 0, 'is_full': 0, 'bin_gate_status': 0, 'lifting_device_status': 0, 'lower_flap_gate_status': 0}
+2026-01-31 15:00:50,021 INFO: [GroupQuery][OK] read_coils_16_35: {'RxAddr': 1, 'RxFuncID': 1, 'RxDataLen': 3, 'RxData': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'plc_status': 1, 'is_overspeed': 0, 'bin_gate_control': 0, 'lifting_device_control': 0, 'lower_flap_gate_control': 0, 'hydraulic_system_control': 0, 'control_system_control': 0, 'bin_gate_fault': 0, 'lifting_device_fault': 0, 'lower_flap_gate_fault': 0, 'reserved_1': 0, 'reserved_2': 0, 'reserved_3': 0, 'reserved_4': 0, 'reserved_5': 0, 'reserved_6': 0, 'is_full': 0, 'bin_gate_status': 0, 'lifting_device_status': 0, 'lower_flap_gate_status': 0}
+2026-01-31 15:00:50,021 INFO: [»Øµ÷] read_coils_16_35 -> ok=True
+2026-01-31 15:00:50,021 INFO: Modbus ºó¶ËÒÑÆô¶¯ (´®¿Ú: COM6)£¬ÕýÔÚÂÖÑ¯¼¤¹âÊý¾Ý...
+2026-01-31 15:00:50,094 INFO: [GroupQuery] Ö´ÐÐµÚ 2/4 ¸ö£ºread_holding_registers_0_14
+2026-01-31 15:00:50,094 INFO: ·¢ËÍÊý¾Ý: 01030000001ac401 (¹² 8 ×Ö½Ú)
+2026-01-31 15:00:50,170 INFO: ÊÕµ½Êý¾Ý: 01033400000000000000000060001000900569056009651122223300020978123422340050002100540004000600080009000500551a2b1dd8
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 9 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 10 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 11 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 12 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x60, ÒÑ½ÓÊÕ 13 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 14 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x10, ÒÑ½ÓÊÕ 15 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 16 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x90, ÒÑ½ÓÊÕ 17 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 18 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x69, ÒÑ½ÓÊÕ 19 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 20 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x60, ÒÑ½ÓÊÕ 21 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 22 ×Ö½Ú
+2026-01-31 15:00:50,171 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x65, ÒÑ½ÓÊÕ 23 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x11, ÒÑ½ÓÊÕ 24 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 25 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 26 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x33, ÒÑ½ÓÊÕ 27 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 28 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x02, ÒÑ½ÓÊÕ 29 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 30 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x78, ÒÑ½ÓÊÕ 31 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x12, ÒÑ½ÓÊÕ 32 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 33 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 34 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 35 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 36 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x50, ÒÑ½ÓÊÕ 37 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 38 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x21, ÒÑ½ÓÊÕ 39 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 40 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x54, ÒÑ½ÓÊÕ 41 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 42 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x04, ÒÑ½ÓÊÕ 43 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 44 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x06, ÒÑ½ÓÊÕ 45 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 46 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x08, ÒÑ½ÓÊÕ 47 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 48 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 49 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 50 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 51 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 52 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x55, ÒÑ½ÓÊÕ 53 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x1A, ÒÑ½ÓÊÕ 54 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x2B, ÒÑ½ÓÊÕ 55 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x1D, ÒÑ½ÓÊÕ 56 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0xD8, ÒÑ½ÓÊÕ 57 ×Ö½Ú
+2026-01-31 15:00:50,172 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:50,172 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:50,173 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:50,173 INFO: [±»¶¯¼àÌý] ÊÕµ½ÓÐÐ§Ö¡µ«Î´Æ¥Åäµ½¹¦ÄÜ¿é (Addr:1, Func:3, Len:52)
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 9 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 10 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 11 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 12 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x60, ÒÑ½ÓÊÕ 13 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 14 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x10, ÒÑ½ÓÊÕ 15 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 16 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x90, ÒÑ½ÓÊÕ 17 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 18 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x69, ÒÑ½ÓÊÕ 19 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 20 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x60, ÒÑ½ÓÊÕ 21 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 22 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x65, ÒÑ½ÓÊÕ 23 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x11, ÒÑ½ÓÊÕ 24 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 25 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 26 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x33, ÒÑ½ÓÊÕ 27 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 28 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x02, ÒÑ½ÓÊÕ 29 ×Ö½Ú
+2026-01-31 15:00:50,173 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 30 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x78, ÒÑ½ÓÊÕ 31 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x12, ÒÑ½ÓÊÕ 32 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 33 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 34 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 35 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 36 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x50, ÒÑ½ÓÊÕ 37 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 38 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x21, ÒÑ½ÓÊÕ 39 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 40 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x54, ÒÑ½ÓÊÕ 41 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 42 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x04, ÒÑ½ÓÊÕ 43 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 44 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x06, ÒÑ½ÓÊÕ 45 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 46 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x08, ÒÑ½ÓÊÕ 47 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 48 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 49 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 50 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 51 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 52 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x55, ÒÑ½ÓÊÕ 53 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x1A, ÒÑ½ÓÊÕ 54 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x2B, ÒÑ½ÓÊÕ 55 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x1D, ÒÑ½ÓÊÕ 56 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0xD8, ÒÑ½ÓÊÕ 57 ×Ö½Ú
+2026-01-31 15:00:50,174 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:50,174 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:50,174 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:50,174 INFO: [DataStore] read_holding_registers_0_14 ¸üÐÂ£º{'RxAddr': 1, 'RxFuncID': 3, 'RxDataLen': 52, 'RxData': ['0x0000', '0x0000', '0x0000', '0x0000', '0x0060', '0x0010', '0x0090', '0x0569', '0x0560', '0x0965', '0x1122', '0x2233', '0x0002', '0x0978', '0x1234', '0x2234', '0x0050', '0x0021', '0x0054', '0x0004', '0x0006', '0x0008', '0x0009', '0x0005', '0x0055', '0x1a2b'], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'train_model': 0, 'int_length': 0, 'int_width': 0, 'int_height': 0, 'floor_height': 96, 'volume': 0.0, 'coke_density': 0.0, 'bin_gate_opening_control': 2405, 'lifting_height_control': 4386, 'lower_flap_angle_control': 8755, 'train_speed': 5242913, 'material_level_plc': 0.0, 'laser_distance_plc': 393224, 'positioning_distance': 9, 'bin_gate_opening_status': 5, 'lifting_height_status': 85, 'lower_flap_angle_status': 6699}
+2026-01-31 15:00:50,175 INFO: [GroupQuery][OK] read_holding_registers_0_14: {'RxAddr': 1, 'RxFuncID': 3, 'RxDataLen': 52, 'RxData': ['0x0000', '0x0000', '0x0000', '0x0000', '0x0060', '0x0010', '0x0090', '0x0569', '0x0560', '0x0965', '0x1122', '0x2233', '0x0002', '0x0978', '0x1234', '0x2234', '0x0050', '0x0021', '0x0054', '0x0004', '0x0006', '0x0008', '0x0009', '0x0005', '0x0055', '0x1a2b'], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'train_model': 0, 'int_length': 0, 'int_width': 0, 'int_height': 0, 'floor_height': 96, 'volume': 0.0, 'coke_density': 0.0, 'bin_gate_opening_control': 2405, 'lifting_height_control': 4386, 'lower_flap_angle_control': 8755, 'train_speed': 5242913, 'material_level_plc': 0.0, 'laser_distance_plc': 393224, 'positioning_distance': 9, 'bin_gate_opening_status': 5, 'lifting_height_status': 85, 'lower_flap_angle_status': 6699}
+2026-01-31 15:00:50,175 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=True
+2026-01-31 15:00:50,249 INFO: [GroupQuery] Ö´ÐÐµÚ 3/4 ¸ö£ºread_level_gauge_sensor
+2026-01-31 15:00:50,250 INFO: ·¢ËÍÊý¾Ý: 03031002000260e9 (¹² 8 ×Ö½Ú)
+2026-01-31 15:00:50,450 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-31 15:00:50,450 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-31 15:00:50,517 INFO: [GroupQuery] Ö´ÐÐµÚ 4/4 ¸ö£ºread_laser_sensor
+2026-01-31 15:00:50,518 INFO: ·¢ËÍÊý¾Ý: 040300150002d59a (¹² 8 ×Ö½Ú)
+2026-01-31 15:00:50,718 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-31 15:00:50,718 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-31 15:00:50,800 INFO: ËùÓÐ²éÑ¯Ö´ÐÐÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ý 0.1 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-31 15:00:50,800 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-31 15:00:50,905 INFO: [GroupQuery] Ö´ÐÐµÚ 1/4 ¸ö£ºread_coils_16_35
+2026-01-31 15:00:50,905 INFO: ·¢ËÍÊý¾Ý: 0101001000143dc0 (¹² 8 ×Ö½Ú)
+2026-01-31 15:00:50,930 INFO: ÊÕµ½Êý¾Ý: 0101030100006d8e
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x6D, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x8E, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:50,930 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:50,930 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:50,930 INFO: [DataStore] read_coils_0_21 ¸üÐÂ£º{'RxAddr': 1, 'RxFuncID': 1, 'RxDataLen': 3, 'RxData': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}}
+2026-01-31 15:00:50,930 INFO: [±»¶¯¼àÌý] ÒÑÊ¶±ð²¢¸üÐÂ¹¦ÄÜ¿é: read_coils_0_21
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:50,930 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:50,931 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:50,931 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x6D, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:50,931 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x8E, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:50,931 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:50,931 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:50,931 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:50,931 INFO: [DataStore] read_coils_16_35 ¸üÐÂ£º{'RxAddr': 1, 'RxFuncID': 1, 'RxDataLen': 3, 'RxData': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'plc_status': 1, 'is_overspeed': 0, 'bin_gate_control': 0, 'lifting_device_control': 0, 'lower_flap_gate_control': 0, 'hydraulic_system_control': 0, 'control_system_control': 0, 'bin_gate_fault': 0, 'lifting_device_fault': 0, 'lower_flap_gate_fault': 0, 'reserved_1': 0, 'reserved_2': 0, 'reserved_3': 0, 'reserved_4': 0, 'reserved_5': 0, 'reserved_6': 0, 'is_full': 0, 'bin_gate_status': 0, 'lifting_device_status': 0, 'lower_flap_gate_status': 0}
+2026-01-31 15:00:50,931 INFO: [GroupQuery][OK] read_coils_16_35: {'RxAddr': 1, 'RxFuncID': 1, 'RxDataLen': 3, 'RxData': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'plc_status': 1, 'is_overspeed': 0, 'bin_gate_control': 0, 'lifting_device_control': 0, 'lower_flap_gate_control': 0, 'hydraulic_system_control': 0, 'control_system_control': 0, 'bin_gate_fault': 0, 'lifting_device_fault': 0, 'lower_flap_gate_fault': 0, 'reserved_1': 0, 'reserved_2': 0, 'reserved_3': 0, 'reserved_4': 0, 'reserved_5': 0, 'reserved_6': 0, 'is_full': 0, 'bin_gate_status': 0, 'lifting_device_status': 0, 'lower_flap_gate_status': 0}
+2026-01-31 15:00:50,931 INFO: [»Øµ÷] read_coils_16_35 -> ok=True
+2026-01-31 15:00:50,972 INFO: Initializing DB Manager...
+2026-01-31 15:00:50,972 INFO: DB Manager ready
+2026-01-31 15:00:50,972 INFO: Initializing PaddleOCR...
+2026-01-31 15:00:50,972 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:132: DeprecationWarning: The parameter `use_angle_cls` has been deprecated and will be removed in the future. Please use `use_textline_orientation` instead.
+  ocr_instance = PaddleOCR(use_angle_cls=False, lang='en', enable_mkldnn=True,
+2026-01-31 15:00:51,000 INFO: [GroupQuery] Ö´ÐÐµÚ 2/4 ¸ö£ºread_holding_registers_0_14
+2026-01-31 15:00:51,000 INFO: ·¢ËÍÊý¾Ý: 01030000001ac401 (¹² 8 ×Ö½Ú)
+2026-01-31 15:00:51,076 INFO: ÊÕµ½Êý¾Ý: 01033400000000000000000060001000900569056009651122223300020978123422340050002100540004000600080009000500551a2b1dd8
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 9 ×Ö½Ú
+2026-01-31 15:00:51,076 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 10 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 11 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 12 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x60, ÒÑ½ÓÊÕ 13 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 14 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x10, ÒÑ½ÓÊÕ 15 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 16 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x90, ÒÑ½ÓÊÕ 17 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 18 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x69, ÒÑ½ÓÊÕ 19 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 20 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x60, ÒÑ½ÓÊÕ 21 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 22 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x65, ÒÑ½ÓÊÕ 23 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x11, ÒÑ½ÓÊÕ 24 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 25 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 26 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x33, ÒÑ½ÓÊÕ 27 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 28 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x02, ÒÑ½ÓÊÕ 29 ×Ö½Ú
+2026-01-31 15:00:51,077 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 30 ×Ö½Ú
+2026-01-31 15:00:51,079 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x78, ÒÑ½ÓÊÕ 31 ×Ö½Ú
+2026-01-31 15:00:51,079 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x12, ÒÑ½ÓÊÕ 32 ×Ö½Ú
+2026-01-31 15:00:51,079 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 33 ×Ö½Ú
+2026-01-31 15:00:51,079 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 34 ×Ö½Ú
+2026-01-31 15:00:51,079 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 35 ×Ö½Ú
+2026-01-31 15:00:51,079 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 36 ×Ö½Ú
+2026-01-31 15:00:51,079 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x50, ÒÑ½ÓÊÕ 37 ×Ö½Ú
+2026-01-31 15:00:51,079 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 38 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x21, ÒÑ½ÓÊÕ 39 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 40 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x54, ÒÑ½ÓÊÕ 41 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 42 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x04, ÒÑ½ÓÊÕ 43 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 44 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x06, ÒÑ½ÓÊÕ 45 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 46 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x08, ÒÑ½ÓÊÕ 47 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 48 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 49 ×Ö½Ú
+2026-01-31 15:00:51,080 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 50 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 51 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 52 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x55, ÒÑ½ÓÊÕ 53 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x1A, ÒÑ½ÓÊÕ 54 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x2B, ÒÑ½ÓÊÕ 55 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x1D, ÒÑ½ÓÊÕ 56 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0xD8, ÒÑ½ÓÊÕ 57 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:51,081 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:51,081 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:51,081 INFO: [±»¶¯¼àÌý] ÊÕµ½ÓÐÐ§Ö¡µ«Î´Æ¥Åäµ½¹¦ÄÜ¿é (Addr:1, Func:3, Len:52)
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:51,081 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 9 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 10 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 11 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 12 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x60, ÒÑ½ÓÊÕ 13 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 14 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x10, ÒÑ½ÓÊÕ 15 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 16 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x90, ÒÑ½ÓÊÕ 17 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 18 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x69, ÒÑ½ÓÊÕ 19 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 20 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x60, ÒÑ½ÓÊÕ 21 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 22 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x65, ÒÑ½ÓÊÕ 23 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x11, ÒÑ½ÓÊÕ 24 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 25 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 26 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x33, ÒÑ½ÓÊÕ 27 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 28 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x02, ÒÑ½ÓÊÕ 29 ×Ö½Ú
+2026-01-31 15:00:51,082 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 30 ×Ö½Ú
+2026-01-31 15:00:51,083 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x78, ÒÑ½ÓÊÕ 31 ×Ö½Ú
+2026-01-31 15:00:51,083 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x12, ÒÑ½ÓÊÕ 32 ×Ö½Ú
+2026-01-31 15:00:51,083 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 33 ×Ö½Ú
+2026-01-31 15:00:51,083 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x22, ÒÑ½ÓÊÕ 34 ×Ö½Ú
+2026-01-31 15:00:51,083 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x34, ÒÑ½ÓÊÕ 35 ×Ö½Ú
+2026-01-31 15:00:51,083 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 36 ×Ö½Ú
+2026-01-31 15:00:51,083 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x50, ÒÑ½ÓÊÕ 37 ×Ö½Ú
+2026-01-31 15:00:51,083 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 38 ×Ö½Ú
+2026-01-31 15:00:51,084 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x21, ÒÑ½ÓÊÕ 39 ×Ö½Ú
+2026-01-31 15:00:51,084 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 40 ×Ö½Ú
+2026-01-31 15:00:51,084 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x54, ÒÑ½ÓÊÕ 41 ×Ö½Ú
+2026-01-31 15:00:51,084 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 42 ×Ö½Ú
+2026-01-31 15:00:51,084 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x04, ÒÑ½ÓÊÕ 43 ×Ö½Ú
+2026-01-31 15:00:51,084 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 44 ×Ö½Ú
+2026-01-31 15:00:51,084 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x06, ÒÑ½ÓÊÕ 45 ×Ö½Ú
+2026-01-31 15:00:51,084 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 46 ×Ö½Ú
+2026-01-31 15:00:51,084 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x08, ÒÑ½ÓÊÕ 47 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 48 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x09, ÒÑ½ÓÊÕ 49 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 50 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x05, ÒÑ½ÓÊÕ 51 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 52 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x55, ÒÑ½ÓÊÕ 53 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x1A, ÒÑ½ÓÊÕ 54 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x2B, ÒÑ½ÓÊÕ 55 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x1D, ÒÑ½ÓÊÕ 56 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0xD8, ÒÑ½ÓÊÕ 57 ×Ö½Ú
+2026-01-31 15:00:51,085 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:51,085 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:51,085 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:51,113 INFO: [DataStore] read_holding_registers_0_14 ¸üÐÂ£º{'RxAddr': 1, 'RxFuncID': 3, 'RxDataLen': 52, 'RxData': ['0x0000', '0x0000', '0x0000', '0x0000', '0x0060', '0x0010', '0x0090', '0x0569', '0x0560', '0x0965', '0x1122', '0x2233', '0x0002', '0x0978', '0x1234', '0x2234', '0x0050', '0x0021', '0x0054', '0x0004', '0x0006', '0x0008', '0x0009', '0x0005', '0x0055', '0x1a2b'], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'train_model': 0, 'int_length': 0, 'int_width': 0, 'int_height': 0, 'floor_height': 96, 'volume': 0.0, 'coke_density': 0.0, 'bin_gate_opening_control': 2405, 'lifting_height_control': 4386, 'lower_flap_angle_control': 8755, 'train_speed': 5242913, 'material_level_plc': 0.0, 'laser_distance_plc': 393224, 'positioning_distance': 9, 'bin_gate_opening_status': 5, 'lifting_height_status': 85, 'lower_flap_angle_status': 6699}
+2026-01-31 15:00:51,113 INFO: [GroupQuery][OK] read_holding_registers_0_14: {'RxAddr': 1, 'RxFuncID': 3, 'RxDataLen': 52, 'RxData': ['0x0000', '0x0000', '0x0000', '0x0000', '0x0060', '0x0010', '0x0090', '0x0569', '0x0560', '0x0965', '0x1122', '0x2233', '0x0002', '0x0978', '0x1234', '0x2234', '0x0050', '0x0021', '0x0054', '0x0004', '0x0006', '0x0008', '0x0009', '0x0005', '0x0055', '0x1a2b'], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'train_model': 0, 'int_length': 0, 'int_width': 0, 'int_height': 0, 'floor_height': 96, 'volume': 0.0, 'coke_density': 0.0, 'bin_gate_opening_control': 2405, 'lifting_height_control': 4386, 'lower_flap_angle_control': 8755, 'train_speed': 5242913, 'material_level_plc': 0.0, 'laser_distance_plc': 393224, 'positioning_distance': 9, 'bin_gate_opening_status': 5, 'lifting_height_status': 85, 'lower_flap_angle_status': 6699}
+2026-01-31 15:00:51,113 INFO: [»Øµ÷] read_holding_registers_0_14 -> ok=True
+2026-01-31 15:00:51,190 INFO: [GroupQuery] Ö´ÐÐµÚ 3/4 ¸ö£ºread_level_gauge_sensor
+2026-01-31 15:00:51,190 INFO: ·¢ËÍÊý¾Ý: 03031002000260e9 (¹² 8 ×Ö½Ú)
+2026-01-31 15:00:51,390 INFO: [GroupQuery][TIMEOUT] read_level_gauge_sensor: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-31 15:00:51,392 INFO: [»Øµ÷] read_level_gauge_sensor -> ok=False
+2026-01-31 15:00:51,445 ERROR: C:\Users\admin\AppData\Local\Programs\Python\Python39\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+2026-01-31 15:00:51,470 INFO: [GroupQuery] Ö´ÐÐµÚ 4/4 ¸ö£ºread_laser_sensor
+2026-01-31 15:00:51,472 INFO: ·¢ËÍÊý¾Ý: 040300150002d59a (¹² 8 ×Ö½Ú)
+2026-01-31 15:00:51,671 INFO: [GroupQuery][TIMEOUT] read_laser_sensor: Î´ÊÕµ½ÓÐÐ§ÏìÓ¦
+2026-01-31 15:00:51,672 INFO: [»Øµ÷] read_laser_sensor -> ok=False
+2026-01-31 15:00:51,751 INFO: ËùÓÐ²éÑ¯Ö´ÐÐÍê³É£¬±¾ÂÖ½áÊø¡£µÈ´ý 0.1 Ãë½øÈëÏÂÒ»ÂÖ...
+2026-01-31 15:00:51,751 INFO: [»Øµ÷] ±¾ÂÖ²éÑ¯Íê³É¡£
+2026-01-31 15:00:51,858 INFO: [GroupQuery] Ö´ÐÐµÚ 1/4 ¸ö£ºread_coils_16_35
+2026-01-31 15:00:51,858 INFO: ·¢ËÍÊý¾Ý: 0101001000143dc0 (¹² 8 ×Ö½Ú)
+2026-01-31 15:00:51,904 INFO: ÊÕµ½Êý¾Ý: 0101030100006d8e
+2026-01-31 15:00:51,905 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:51,905 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:51,905 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:51,905 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:51,905 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:51,905 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:51,905 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x6D, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:51,905 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x8E, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:51,905 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:51,905 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:51,905 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:51,905 INFO: [DataStore] read_coils_0_21 ¸üÐÂ£º{'RxAddr': 1, 'RxFuncID': 1, 'RxDataLen': 3, 'RxData': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}}
+2026-01-31 15:00:51,905 INFO: [±»¶¯¼àÌý] ÒÑÊ¶±ð²¢¸üÐÂ¹¦ÄÜ¿é: read_coils_0_21
+2026-01-31 15:00:51,906 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½µÚÒ»¸ö×Ö½Ú 0x01, ÒÑ½ÓÊÕ 1 ×Ö½Ú
+2026-01-31 15:00:51,906 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 2 ×Ö½Ú
+2026-01-31 15:00:51,906 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x03, ÒÑ½ÓÊÕ 3 ×Ö½Ú
+2026-01-31 15:00:51,906 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x01, ÒÑ½ÓÊÕ 4 ×Ö½Ú
+2026-01-31 15:00:51,906 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 5 ×Ö½Ú
+2026-01-31 15:00:51,906 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x00, ÒÑ½ÓÊÕ 6 ×Ö½Ú
+2026-01-31 15:00:51,906 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x6D, ÒÑ½ÓÊÕ 7 ×Ö½Ú
+2026-01-31 15:00:51,906 INFO: ModBus_Rcv_Callback: ½ÓÊÕµ½×Ö½Ú 0x8E, ÒÑ½ÓÊÕ 8 ×Ö½Ú
+2026-01-31 15:00:51,906 INFO: ÕýÔÚ½âÎöÊÇ·ñÎªÓÐÐ§Ö¡...
+2026-01-31 15:00:51,906 INFO: ÓÐÐ§Ö¡£¬¼ÌÐø½ø³Ì...
+2026-01-31 15:00:51,906 INFO: ÒÑ¾­Íê³ÉÖ¡¼ì²é£¡£¡
+2026-01-31 15:00:51,906 INFO: [DataStore] read_coils_16_35 ¸üÐÂ£º{'RxAddr': 1, 'RxFuncID': 1, 'RxDataLen': 3, 'RxData': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'plc_status': 1, 'is_overspeed': 0, 'bin_gate_control': 0, 'lifting_device_control': 0, 'lower_flap_gate_control': 0, 'hydraulic_system_control': 0, 'control_system_control': 0, 'bin_gate_fault': 0, 'lifting_device_fault': 0, 'lower_flap_gate_fault': 0, 'reserved_1': 0, 'reserved_2': 0, 'reserved_3': 0, 'reserved_4': 0, 'reserved_5': 0, 'reserved_6': 0, 'is_full': 0, 'bin_gate_status': 0, 'lifting_device_status': 0, 'lower_flap_gate_status': 0}
+2026-01-31 15:00:51,906 INFO: [GroupQuery][OK] read_coils_16_35: {'RxAddr': 1, 'RxFuncID': 1, 'RxDataLen': 3, 'RxData': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'Mdbs_state': 32, 'MdbsCNT': {'CRCerr_CNT': 0, 'Addrerr_CNT': 0, 'IDerr_CNT': 0, 'Frabrk_CNT': 0, 'Frame_CNT': 1}, 'plc_status': 1, 'is_overspeed': 0, 'bin_gate_control': 0, 'lifting_device_control': 0, 'lower_flap_gate_control': 0, 'hydraulic_system_control': 0, 'control_system_control': 0, 'bin_gate_fault': 0, 'lifting_device_fault': 0, 'lower_flap_gate_fault': 0, 'reserved_1': 0, 'reserved_2': 0, 'reserved_3': 0, 'reserved_4': 0, 'reserved_5': 0, 'reserved_6': 0, 'is_full': 0, 'bin_gate_status': 0, 'lifting_device_status': 0, 'lower_flap_gate_status': 0}
+2026-01-31 15:00:51,906 INFO: [»Øµ÷] read_coils_16_35 -> ok=True
+2026-01-31 15:00:51,984 INFO: [GroupQuery] Ö´ÐÐµÚ 2/4 ¸ö£ºread_holding_registers_0_14
+2026-01-31 15:00:51,985 INFO: ·¢ËÍÊý¾Ý: 01030000001ac401 (¹² 8 ×Ö½Ú)
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-01-31 15:00:54,046 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+2026-01-31 15:00:54,046 INFO: [33mPress CTRL+C to quit[0m
+2026-01-31 15:00:55,037 ERROR: c:\Users\admin\Desktop\Automatic-Feeding-System-for-Locomotives\ÉÏÎ»»ú´úÂëÓë×ÊÁÏ4.0\Web\web_server.py:174: DeprecationWarning: Please use `predict` instead.
+  result = ocr_instance.ocr(rgb_frame)
+127.0.0.1 - - [31/Jan/2026 15:00:55] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-31 15:00:55,237 INFO: 127.0.0.1 - - [31/Jan/2026 15:00:55] "GET /api/snapshot HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 15:00:55] "GET /api/snapshot HTTP/1.1" 200 -
+2026-01-31 15:00:55,246 INFO: 127.0.0.1 - - [31/Jan/2026 15:00:55] "GET /api/snapshot HTTP/1.1" 200 -

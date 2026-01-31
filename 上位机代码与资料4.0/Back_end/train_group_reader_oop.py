@@ -279,52 +279,47 @@ class Analyzer(QObject):
 
         # 2. 根据不同的查询函数名进行详细解析
         try:
-            if func_name == "read_coils_0_21":
-                # 22 个线圈状态位
+            if func_name == "read_coils_16_35":
+                # 20 个线圈状态位 (16-35)
                 mapping = [
-                    "loading_type", "is_in_place", "tractor_status", "is_overspeed",
-                    "is_alarm", "is_feeding_interrupted", "is_full", "bin_gate_status",
-                    "lifting_device_status", "lower_flap_gate_status", "hydraulic_system_status",
-                    "control_system_status", "bin_gate_control", "lifting_device_control",
+                    "plc_status", "is_overspeed", "bin_gate_control", "lifting_device_control",
                     "lower_flap_gate_control", "hydraulic_system_control", "control_system_control",
                     "bin_gate_fault", "lifting_device_fault", "lower_flap_gate_fault",
-                    "hydraulic_system_fault", "control_system_fault"
+                    "reserved_1", "reserved_2", "reserved_3", "reserved_4", "reserved_5", "reserved_6",
+                    "is_full", "bin_gate_status", "lifting_device_status", "lower_flap_gate_status"
                 ]
                 for i, name in enumerate(mapping):
                     if i < len(data):
                         final_dict[name] = data[i]
 
             elif func_name == "read_holding_registers_0_14":
-                # 15 个保持寄存器
-                if len(data) >= 15:
+                # 26 个保持寄存器 (0-25)
+                if len(data) >= 26:
                     final_dict["train_model"] = int(data[0], 16)
-                    final_dict["ext_length"] = int(data[1], 16)
-                    final_dict["ext_width"] = int(data[2], 16)
-                    final_dict["ext_height"] = int(data[3], 16)
-                    final_dict["int_length"] = int(data[4], 16)
-                    final_dict["int_width"] = int(data[5], 16)
-                    final_dict["int_height"] = int(data[6], 16)
-                    final_dict["loading_weight"] = int(data[7], 16)
-                    final_dict["total_length"] = int(data[8], 16)
-                    final_dict["floor_height"] = int(data[9], 16)
-                    final_dict["coupler_model"] = int(data[10], 16)
-                    # 容积 (float) - 寄存器 11, 12
-                    final_dict["volume"] = self._regs_to_float(data[11], data[12])
-                    # 焦炭密度 (float) - 寄存器 13, 14
-                    final_dict["coke_density"] = self._regs_to_float(data[13], data[14])
-
-            elif func_name == "read_holding_registers_16_24":
-                # 9 个保持寄存器 (从 16 开始)
-                if len(data) >= 9:
-                    # 火车速度 (float) - 寄存器 16, 17
-                    final_dict["train_speed"] = self._regs_to_float(data[0], data[1])
-                    final_dict["positioning_distance"] = int(data[2], 16)
-                    final_dict["bin_gate_opening_status"] = int(data[3], 16)
-                    final_dict["lifting_height_status"] = int(data[4], 16)
-                    final_dict["lower_flap_angle_status"] = int(data[5], 16)
-                    final_dict["bin_gate_opening_control"] = int(data[6], 16)
-                    final_dict["lifting_height_control"] = int(data[7], 16)
-                    final_dict["lower_flap_angle_control"] = int(data[8], 16)
+                    final_dict["int_length"] = int(data[1], 16)
+                    final_dict["int_width"] = int(data[2], 16)
+                    final_dict["int_height"] = int(data[3], 16)
+                    final_dict["floor_height"] = int(data[4], 16)
+                    # 容积 (float) - 寄存器 5, 6
+                    final_dict["volume"] = self._regs_to_float(data[5], data[6])
+                    # 焦炭密度 (float) - 寄存器 7, 8
+                    final_dict["coke_density"] = self._regs_to_float(data[7], data[8])
+                    
+                    final_dict["bin_gate_opening_control"] = int(data[9], 16)
+                    final_dict["lifting_height_control"] = int(data[10], 16)
+                    final_dict["lower_flap_angle_control"] = int(data[11], 16)
+                    
+                    # 火车速度 (uint32) - 寄存器 16, 17
+                    final_dict["train_speed"] = self._regs_to_uint32(data[16], data[17])
+                    # 料位高度 (float) - 寄存器 18, 19
+                    final_dict["material_level_plc"] = self._regs_to_float(data[18], data[19])
+                    # 激光距离 (uint32) - 寄存器 20, 21
+                    final_dict["laser_distance_plc"] = self._regs_to_uint32(data[20], data[21])
+                    
+                    final_dict["positioning_distance"] = int(data[22], 16)
+                    final_dict["bin_gate_opening_status"] = int(data[23], 16)
+                    final_dict["lifting_height_status"] = int(data[24], 16)
+                    final_dict["lower_flap_angle_status"] = int(data[25], 16)
 
             elif func_name == "read_level_gauge_sensor":
                 # 料位高度 (float) - 2 个寄存器
@@ -507,16 +502,14 @@ class PassiveListener(QObject):
 # ---------------------------------------------------------------------
 # H) 查询函数集合（保持你原本的“区间批量读”逻辑 & 参数）
 # ---------------------------------------------------------------------
-# 读取 plc 中 0-21号线圈的值（依次为：装料类型unit16、是否到位unit16、牵引车状态unit16、超速与否unit16、告警与否unit16、下料中断与否unit16、装料是否装满unit16、仓口阀门状态位unit16、升降装置状态位unit16、下部翻板阀门状态位unit16、液压系统状态位unit16、控制系统状态位unit16、仓口阀门控制位unit16、升降装置控制位unit16、下部翻板阀门控制位unit16、液压系统控制位unit16、控制系统控制位unit16、仓口阀门是否故障unit16、升降装置是否故障unit16、下部翻板阀门是否故障unit16、液压系统是否故障unit16、控制系统是否故障unit16）
-def read_coils_0_21():              return (1, 1, 0, 22)
-# 读取 plc 中 0-14号保持寄存器的值（依次为：火车型号unit16、外部长度unit16、外部宽度unit16、外部高度unit16、内部长度unit16、内部宽度unit16、内部高度unit16、装车重量unit16、全长unit16、底板面高unit16、车钩型号unit16、容积-高位float、容积-低位float、焦炭密度-高位float、焦炭密度-低位float）
-def read_holding_registers_0_14(): return (1, 3, 0, 15)
-# 读取 plc 中 16-24号保持寄存器的值（依次为：火车速度-高位float、火车速度-低位float、定位距离unit16、仓口阀门开度状态位unit16、升降高度状态位unit16、下部翻板角度状态位unit16、仓口阀门开度控制位unit16、升降高度控制位unit16、下部翻板角度控制位unit16）
-def read_holding_registers_16_24(): return (1, 3, 16, 9)
+# 读取 plc 中 16-35号线圈的值（依次为： plc工作状态，超速与否，仓口阀门控制位，升降装置控制位，下部翻板阀门控制位，液压系统控制位，控制系统控制位、仓口阀门故障、升降装置故障、下部翻板阀门故障、空保留位、空保留位、空保留位、空保留位、空保留位、空保留位、装料是否装满、仓口阀门状态位、升降装置状态位、下部翻板阀门状态位）
+def read_coils_16_35():              return (1, 1, 16, 20)
+# 读取 plc 中 0-25号保持寄存器的值（依次为：火车型号unit16、内部长度unit16、内部宽度unit16、内部高度unit16、底板面高unit16、容量-高位float、容量-低位float、焦炭密度-高位float、焦炭密度-低位float、仓口阀门开度控制量unit16、升降高度控制量unit16、下部翻板角度控制量unit16、空保留位、空保留位、空保留位、空保留位、火车速度-高位uint32、火车速度-低位uint32、料位高度-高位float、料位高度-低位float、激光距离-高位uint32、激光距离-低位uint32、定位距离unit16、仓口阀门开度状态量unit16、升降高度状态量uint16、下部翻板角度状态量uint16）
+def read_holding_registers_0_14():   return (1, 3, 0, 26)
 # 读取料位计数据，float类型（依次为：料位高度-高位float、料位高度-低位float）
-def read_level_gauge_sensor(): return (3, 3, 4098, 2)
+def read_level_gauge_sensor():       return (3, 3, 4098, 2)
 # 新增激光传感器查询函数 (从站 4, 功能码 3, 地址 21, 数量 2)，激光距离，数据类型unit32
-def read_laser_sensor(): return (4, 3, 21, 2)
+def read_laser_sensor():             return (4, 3, 21, 2)
 
 # --- 新增写函数 (功能码 0x05, 0x06) ---
 # 写单个线圈 (0x05): value 为 0xFF00 为开, 0x0000 为关
@@ -546,9 +539,8 @@ class TrainGroupReaderApp(QObject):
 
         # 轮回查询，确保每秒发送一次请求（五帧）
         functions = [
-            read_coils_0_21,
+            read_coils_16_35,
             read_holding_registers_0_14,
-            read_holding_registers_16_24,
             read_level_gauge_sensor,
             read_laser_sensor,
         ]

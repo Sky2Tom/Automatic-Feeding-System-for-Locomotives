@@ -504,27 +504,35 @@ def control_machine():
     # 根据指令类型调用写函数
     # 映射示例：将前端指令转为具体的 Modbus 地址和值
     try:
-        if cmd == 'VALVE_OPEN':
-            # 地址 20 是阀门控制位，0xFF00 表示打开
-            DATAS.add_write_task('write_valve_open', 1, 5, 20, 0xFF00)
+        if cmd == 'START':
+            # 系统启动：将 PLC 工作状态 (线圈 16) 置为 1
+            DATAS.add_write_task('start_plc', 1, 5, 16, 0xFF00)
+        elif cmd == 'STOP':
+            # 紧急停止：将 PLC 工作状态 (线圈 16) 置为 0
+            DATAS.add_write_task('stop_plc', 1, 5, 16, 0x0000)
+            
+        elif cmd == 'VALVE_OPEN':
+            # 地址 18 是仓口阀门控制位，0xFF00 表示打开
+            DATAS.add_write_task('write_valve_open', 1, 5, 18, 0xFF00)
         elif cmd == 'VALVE_CLOSE':
-            DATAS.add_write_task('write_valve_close', 1, 5, 20, 0x0000)
+            DATAS.add_write_task('write_valve_close', 1, 5, 18, 0x0000)
         elif cmd == 'LIFT_UP':
-            # 地址 23 是升降高度寄存器
-            DATAS.add_write_task('write_lift_up', 1, 6, 23, 2000)
+            # 地址 19 是升降装置控制位，0xFF00 表示上升
+            DATAS.add_write_task('write_lift_up', 1, 5, 19, 0xFF00)
         elif cmd == 'LIFT_DOWN':
-            DATAS.add_write_task('write_lift_down', 1, 6, 23, 0)
+            # 地址 19 是升降装置控制位，0x0000 表示停止/下降
+            DATAS.add_write_task('write_lift_down', 1, 5, 19, 0x0000)
         
-        # --- 新增机器控制参数设置 (功能码 0x06) ---
+        # --- 机器控制参数设置 (功能码 0x06) ---
         elif cmd == 'SET_VALVE_OPENING':
-            # 仓口阀门开度 (uint16), 地址 22
-            DATAS.add_write_task('set_valve_opening', 1, 6, 22, int(val))
+            # 仓口阀门开度控制量 (uint16), 地址 9
+            DATAS.add_write_task('set_valve_opening', 1, 6, 9, int(val))
         elif cmd == 'SET_LIFT_HEIGHT':
-            # 升降器高度 (uint16), 地址 23
-            DATAS.add_write_task('set_lift_height', 1, 6, 23, int(val))
+            # 升降高度控制量 (uint16), 地址 10
+            DATAS.add_write_task('set_lift_height', 1, 6, 10, int(val))
         elif cmd == 'SET_FLAP_ANGLE':
-            # 下部翻板角度 (uint16), 地址 21
-            DATAS.add_write_task('set_flap_angle', 1, 6, 21, int(val))
+            # 下部翻板角度控制量 (uint16), 地址 11
+            DATAS.add_write_task('set_flap_angle', 1, 6, 11, int(val))
             
         else:
             print(f"接收到未知控制指令: {cmd}")
